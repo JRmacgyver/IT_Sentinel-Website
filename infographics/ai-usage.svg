@@ -2,15 +2,15 @@
   <title id="t">Who uses AI, and how</title>
   <desc id="d">Three sources feed one answer about AI use at work: AI apps and command-line tools started on the PCs, traffic to AI services seen by the firewall, and Microsoft 365 Copilot activity. Every answer says which machines it can't see.</desc>
   <style>
-    .bg{fill:#0E1217}
-    .panel{fill:#151B23;stroke:#26303B;stroke-width:1.5}
-    .hot{fill:#1A1A12;stroke:#D89B00;stroke-width:2}
-    .h{font:600 18px 'IBM Plex Sans',Arial,sans-serif;fill:#E7E3D8}
-    .s{font:400 13.5px 'IBM Plex Sans',Arial,sans-serif;fill:#8E98A4}
-    .q{font:500 13.5px 'IBM Plex Mono',monospace;fill:#D89B00}
-    .k{font:600 13px 'IBM Plex Mono',monospace;fill:#D89B00;letter-spacing:.08em}
-    .t{font:700 20px 'IBM Plex Sans',Arial,sans-serif;fill:#E7E3D8}
-    .flow{stroke:#D89B00;stroke-width:2;fill:none}
+    .bg{fill:#0D1320}
+    .panel{fill:#121B2E;stroke:#1C2F4A;stroke-width:1.5}
+    .hot{fill:#13243E;stroke:#1D8CF8;stroke-width:2}
+    .h{font:600 18px 'IBM Plex Sans',Arial,sans-serif;fill:#D8E4F0}
+    .s{font:400 13.5px 'IBM Plex Sans',Arial,sans-serif;fill:#7A93B0}
+    .q{font:500 13.5px 'JetBrains Mono',monospace;fill:#82B4FB}
+    .k{font:600 13px 'JetBrains Mono',monospace;fill:#1D8CF8;letter-spacing:.08em}
+    .t{font:700 20px 'IBM Plex Sans',Arial,sans-serif;fill:#D8E4F0}
+    .flow{stroke:#1D8CF8;stroke-width:2;fill:none}
   </style>
   <rect class="bg" width="1200" height="520"/>
   <text class="k" x="40" y="50">WHO USES AI, AND HOW</text>

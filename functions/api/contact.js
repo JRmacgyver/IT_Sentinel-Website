@@ -11,7 +11,8 @@
 // fields: name, email, company, role, tools, message, consent, cf-turnstile-response.
 // A JavaScript fetch() with the same fields also works; the response is JSON either way.
 
-const LIMITS = { name: 120, email: 200, company: 160, role: 120, tools: 1000, message: 4000 };
+const LIMITS = { name: 100, email: 254, company: 100, role: 100, tools: 500, message: 3000 };
+const MAX_BODY = 32 * 1024;   // bytes; the largest legitimate form is well under this
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 function json(body, status = 200) {
@@ -39,9 +40,15 @@ export async function onRequestPost({ request, env }) {
   if (!env.TURNSTILE_SECRET || !env.CONTACT_KV) {
     return json({ ok: false, error: "The contact form is not configured yet." }, 503);
   }
+  // Refuse oversized bodies before parsing them (Content-Length first, then the real size).
+  if (Number(request.headers.get("content-length") || 0) > MAX_BODY) {
+    return json({ ok: false, error: "That message is too large." }, 413);
+  }
   let form;
   try {
-    form = await request.formData();
+    const raw = await request.arrayBuffer();
+    if (raw.byteLength > MAX_BODY) return json({ ok: false, error: "That message is too large." }, 413);
+    form = await new Response(raw, { headers: { "content-type": request.headers.get("content-type") || "" } }).formData();
   } catch {
     return json({ ok: false, error: "Send the form as form data." }, 400);
   }

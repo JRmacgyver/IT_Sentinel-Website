@@ -6,7 +6,7 @@
   <title>IT Sentinel, built by Toolkit Security</title>
   <meta name="description" content="IT Sentinel is an AI assistant for IT and security teams that runs on your own server, reads your security and IT tools, and answers in plain language, with the evidence.">
   <link rel="canonical" href="https://toolkit-sec.com/">
-  <meta name="theme-color" content="#0E1217">
+  <meta name="theme-color" content="#0D1320">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="IT Sentinel">
   <meta property="og:title" content="IT Sentinel: your IT and security tools, in one conversation">
@@ -17,7 +17,7 @@
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;600;700&display=swap">
   <link rel="stylesheet" href="/assets/css/site.css">
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   <script src="/assets/js/site.js" defer></script>
@@ -318,21 +318,21 @@
         <form id="contact-form" action="/api/contact" method="post" novalidate>
           <div class="row2">
             <div><label for="f-name">Name</label>
-              <input id="f-name" name="name" type="text" autocomplete="name" maxlength="120" required></div>
+              <input id="f-name" name="name" type="text" autocomplete="name" maxlength="100" required></div>
             <div><label for="f-email">Work email</label>
-              <input id="f-email" name="email" type="email" autocomplete="email" maxlength="200" required></div>
+              <input id="f-email" name="email" type="email" autocomplete="email" maxlength="254" required></div>
           </div>
           <div class="row2">
             <div><label for="f-company">Company <span class="opt">(optional)</span></label>
-              <input id="f-company" name="company" type="text" autocomplete="organization" maxlength="160"></div>
+              <input id="f-company" name="company" type="text" autocomplete="organization" maxlength="100"></div>
             <div><label for="f-role">Role <span class="opt">(optional)</span></label>
-              <input id="f-role" name="role" type="text" autocomplete="organization-title" maxlength="120"></div>
+              <input id="f-role" name="role" type="text" autocomplete="organization-title" maxlength="100"></div>
           </div>
           <div><label for="f-tools">Which tools do you run? <span class="opt">(optional)</span></label>
-            <textarea id="f-tools" name="tools" maxlength="1000" rows="3"
+            <textarea id="f-tools" name="tools" maxlength="500" rows="3"
                       placeholder="e.g. a SIEM, an EDR, the firewall, Active Directory, Microsoft 365, ticketing"></textarea></div>
           <div><label for="f-message">Message</label>
-            <textarea id="f-message" name="message" maxlength="4000" rows="5" required></textarea></div>
+            <textarea id="f-message" name="message" maxlength="3000" rows="5" required></textarea></div>
           <label class="consent"><input type="checkbox" name="consent" value="on" required>
             <span>I agree that my details are used to reply to this message (<a href="/privacy">privacy notice</a>).</span></label>
           <div class="cf-turnstile" data-sitekey="REPLACE_WITH_TURNSTILE_SITE_KEY" data-theme="dark"></div>

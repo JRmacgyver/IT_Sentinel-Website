@@ -2,24 +2,29 @@
    All colours, fonts and radii are the tokens in :root. Change the theme there only. */
 
 :root {
-  --bg:          #0E1217;  /* page background */
-  --panel:       #151B23;  /* cards, header, form fields */
-  --panel-hot:   #1A1A12;  /* highlighted card */
-  --line:        #26303B;  /* borders, dividers */
-  --line-strong: #3A4654;  /* hover borders */
-  --text:        #E7E3D8;  /* body text */
-  --muted:       #8E98A4;  /* secondary text */
-  --accent:      #D89B00;  /* buttons, links, key labels (sparingly) */
-  --accent-ink:  #0E1217;  /* text on an accent background */
-  --accent-soft: rgba(216, 155, 0, .12);
-  --question:    #D89B00;  /* example questions, set in mono */
-  --ok:          #4FA37A;
-  --risk:        #D9673F;
+  --bg:            #0D1320;  /* page background */
+  --panel:         #121B2E;  /* cards, header, form fields */
+  --panel-alt:     #172238;
+  --panel-hot:     #13243E;  /* highlighted card */
+  --line:          #1C2F4A;  /* borders, dividers */
+  --line-strong:   #243D5E;  /* hover borders */
+  --accent-border: #1A56A5;
+  --text:          #D8E4F0;  /* body text */
+  --muted:         #7A93B0;  /* secondary text */
+  --question:      #82B4FB;  /* example questions, set in mono */
+  --accent:        #1D8CF8;  /* buttons, links, key labels (sparingly) */
+  --accent-ink:    #0D1320;  /* text on an accent background: keep dark, white fails AA */
+  --accent-hover:  #1565C0;  /* borders/lines only: dark text on it fails AA */
+  --accent-soft:   rgba(29, 140, 248, .12);
+  --glow:          rgba(29, 140, 248, .18);
+  --glow-soft:     rgba(29, 140, 248, .07);
+  --ok:            #00E676;
+  --risk:          #EF5350;
 
   --font-sans: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
-  --font-mono: 'IBM Plex Mono', ui-monospace, 'Cascadia Code', Consolas, monospace;
-  --radius:    12px;
-  --radius-sm: 8px;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Code', Menlo, Consolas, monospace;
+  --radius:    10px;
+  --radius-sm: 6px;
   --measure:   68ch;
   --wide:      1200px;
 }
@@ -75,7 +80,7 @@ strong { color: var(--text); font-weight: 600; }
   font: 600 16px/1 var(--font-sans); padding: 14px 22px; border-radius: var(--radius-sm);
   border: 0; cursor: pointer; text-decoration: none;
 }
-.btn:hover { filter: brightness(1.08); text-decoration: none; }
+.btn:hover { filter: brightness(1.08); text-decoration: none; box-shadow: 0 0 0 1px var(--glow), 0 0 22px var(--glow); }
 .btn-small { padding: 10px 16px; font-size: 15px; }
 .btn[disabled] { opacity: .6; cursor: progress; }
 
@@ -107,7 +112,7 @@ p { margin: 0 0 16px; }
 /* ── Cards ──────────────────────────────────────────────── */
 .cards { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); margin-top: 32px; }
 .card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; }
-.card.hot { background: var(--panel-hot); border-color: var(--accent); }
+.card.hot { background: var(--panel-hot); border-color: var(--accent); box-shadow: 0 0 0 1px var(--glow), 0 0 22px var(--glow-soft); }
 .card h3 { margin-bottom: 10px; }
 .card p, .card li { color: var(--muted); font-size: 16px; }
 .card p:last-child { margin-bottom: 0; }
@@ -174,7 +179,7 @@ input[type=text], input[type=email], textarea {
   width: 100%; background: var(--bg); color: var(--text); border: 1px solid var(--line);
   border-radius: var(--radius-sm); padding: 12px 14px; font: 400 16px/1.5 var(--font-sans);
 }
-input:focus, textarea:focus { border-color: var(--accent); outline: none; box-shadow: 0 0 0 3px var(--accent-soft); }
+input:focus, textarea:focus { border-color: var(--accent); outline: none; box-shadow: 0 0 0 3px var(--accent-soft), 0 0 18px var(--glow); }
 textarea { min-height: 110px; resize: vertical; }
 .consent { display: flex; gap: 12px; align-items: flex-start; font-weight: 400; color: var(--muted); }
 .consent input { margin-top: 5px; width: 18px; height: 18px; accent-color: var(--accent); flex: none; }

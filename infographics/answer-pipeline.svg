@@ -2,15 +2,15 @@
   <title id="t">From a question to a checked answer</title>
   <desc id="d">Six steps: you ask; recognised questions run the right check first; read-only tools fetch live data; a local model writes the answer; code checks every claim against the data; you get the answer with sources, export and a ticket button.</desc>
   <style>
-    .bg{fill:#0E1217}
-    .panel{fill:#151B23;stroke:#26303B;stroke-width:1.5}
-    .hot{fill:#1A1A12;stroke:#D89B00;stroke-width:2}
-    .n{font:700 15px 'IBM Plex Mono',monospace;fill:#0E1217}
-    .h{font:600 18px 'IBM Plex Sans',Arial,sans-serif;fill:#E7E3D8}
-    .s{font:400 13.5px 'IBM Plex Sans',Arial,sans-serif;fill:#8E98A4}
-    .q{font:500 13.5px 'IBM Plex Mono',monospace;fill:#D89B00}
-    .k{font:600 13px 'IBM Plex Mono',monospace;fill:#D89B00;letter-spacing:.08em}
-    .flow{stroke:#D89B00;stroke-width:2;fill:none}
+    .bg{fill:#0D1320}
+    .panel{fill:#121B2E;stroke:#1C2F4A;stroke-width:1.5}
+    .hot{fill:#13243E;stroke:#1D8CF8;stroke-width:2}
+    .n{font:700 15px 'JetBrains Mono',monospace;fill:#0D1320}
+    .h{font:600 18px 'IBM Plex Sans',Arial,sans-serif;fill:#D8E4F0}
+    .s{font:400 13.5px 'IBM Plex Sans',Arial,sans-serif;fill:#7A93B0}
+    .q{font:500 13.5px 'JetBrains Mono',monospace;fill:#82B4FB}
+    .k{font:600 13px 'JetBrains Mono',monospace;fill:#1D8CF8;letter-spacing:.08em}
+    .flow{stroke:#1D8CF8;stroke-width:2;fill:none}
   </style>
   <rect class="bg" width="1200" height="520"/>
   <text class="k" x="40" y="50">FROM A QUESTION TO A CHECKED ANSWER</text>
@@ -18,7 +18,7 @@
   <!-- 6 steps, 3 per row -->
   <!-- row 1 -->
   <rect class="panel" x="40" y="80" width="340" height="170" rx="12"/>
-  <circle cx="74" cy="114" r="16" fill="#D89B00"/><text class="n" x="69" y="119">1</text>
+  <circle cx="74" cy="114" r="16" fill="#1D8CF8"/><text class="n" x="69" y="119">1</text>
   <text class="h" x="102" y="120">You ask</text>
   <text class="q" x="62" y="160">&gt; Is anything exposed to the</text>
   <text class="q" x="62" y="180">  internet that shouldn't be?</text>
@@ -27,7 +27,7 @@
   <path class="flow" d="M380 165 H420"/><path class="flow" d="M410 157 l10 8 -10 8"/>
 
   <rect class="panel" x="430" y="80" width="340" height="170" rx="12"/>
-  <circle cx="464" cy="114" r="16" fill="#D89B00"/><text class="n" x="459" y="119">2</text>
+  <circle cx="464" cy="114" r="16" fill="#1D8CF8"/><text class="n" x="459" y="119">2</text>
   <text class="h" x="492" y="120">Recognised? Run it first</text>
   <text class="s" x="452" y="160">Reviews and named objects (a policy,</text>
   <text class="s" x="452" y="180">a firewall check) are run by the portal</text>
@@ -37,7 +37,7 @@
   <path class="flow" d="M770 165 H810"/><path class="flow" d="M800 157 l10 8 -10 8"/>
 
   <rect class="panel" x="820" y="80" width="340" height="170" rx="12"/>
-  <circle cx="854" cy="114" r="16" fill="#D89B00"/><text class="n" x="849" y="119">3</text>
+  <circle cx="854" cy="114" r="16" fill="#1D8CF8"/><text class="n" x="849" y="119">3</text>
   <text class="h" x="882" y="120">Tools fetch live data</text>
   <text class="s" x="842" y="160">Read-only calls to your SIEM, EDR,</text>
   <text class="s" x="842" y="180">firewall, directory, cloud and ticketing,</text>
@@ -48,7 +48,7 @@
 
   <!-- row 2 -->
   <rect class="panel" x="40" y="330" width="340" height="170" rx="12"/>
-  <circle cx="74" cy="364" r="16" fill="#D89B00"/><text class="n" x="69" y="369">4</text>
+  <circle cx="74" cy="364" r="16" fill="#1D8CF8"/><text class="n" x="69" y="369">4</text>
   <text class="h" x="102" y="370">A local model writes</text>
   <text class="s" x="62" y="410">An open-weight language model on your</text>
   <text class="s" x="62" y="430">own GPU drafts the answer from the</text>
@@ -57,7 +57,7 @@
   <path class="flow" d="M380 415 H420"/><path class="flow" d="M410 407 l10 8 -10 8"/>
 
   <rect class="hot" x="430" y="330" width="340" height="170" rx="12"/>
-  <circle cx="464" cy="364" r="16" fill="#D89B00"/><text class="n" x="459" y="369">5</text>
+  <circle cx="464" cy="364" r="16" fill="#1D8CF8"/><text class="n" x="459" y="369">5</text>
   <text class="h" x="492" y="370">Code checks every claim</text>
   <text class="s" x="452" y="410">IP addresses, rule and policy numbers,</text>
   <text class="s" x="452" y="430">CVEs, control IDs, host names, IDs and</text>
@@ -67,7 +67,7 @@
   <path class="flow" d="M770 415 H810"/><path class="flow" d="M800 407 l10 8 -10 8"/>
 
   <rect class="panel" x="820" y="330" width="340" height="170" rx="12"/>
-  <circle cx="854" cy="364" r="16" fill="#D89B00"/><text class="n" x="849" y="369">6</text>
+  <circle cx="854" cy="364" r="16" fill="#1D8CF8"/><text class="n" x="849" y="369">6</text>
   <text class="h" x="882" y="370">You get the answer</text>
   <text class="s" x="842" y="410">With what it's based on and when the</text>
   <text class="s" x="842" y="430">data was retrieved, plus Export and</text>
