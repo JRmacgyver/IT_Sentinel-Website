@@ -1,4 +1,4 @@
-// IT Sentinel website: contact form over fetch(), year in the footer, email link built at runtime.
+// IT Sentinel website: contact form over fetch() (optional Turnstile), footer year, email link built at runtime.
 // Without JavaScript the form still works: it posts to /api/contact and lands on /#thanks.
 (function () {
   "use strict";
@@ -20,6 +20,23 @@
   var status = document.getElementById("form-status");
   var thanks = document.getElementById("thanks");
   var button = form.querySelector("button[type=submit]");
+  var spamCheck = false;   // true once a Turnstile widget is on the page
+
+  // The spam check is optional: the Worker says whether it's configured, and with which site key.
+  fetch("/api/config", { headers: { Accept: "application/json" } })
+    .then(function (r) { return r.ok ? r.json() : {}; })
+    .then(function (cfg) {
+      if (!cfg || !cfg.turnstileSiteKey) return;
+      window.onTurnstileLoad = function () {
+        window.turnstile.render("#turnstile", { sitekey: cfg.turnstileSiteKey, theme: "dark" });
+        spamCheck = true;
+      };
+      var s = document.createElement("script");
+      s.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=onTurnstileLoad";
+      s.async = true;
+      document.head.appendChild(s);
+    })
+    .catch(function () { /* no config: the form still works without the widget */ });
 
   function say(text, kind) {
     status.textContent = text;
@@ -38,7 +55,7 @@
       say("Please tick the box so we can use your details to reply.", "err");
       return;
     }
-    if (!data.get("cf-turnstile-response")) {
+    if (spamCheck && !data.get("cf-turnstile-response")) {
       say("Please wait for the spam check to finish, then send again.", "err");
       return;
     }
@@ -53,12 +70,12 @@
           thanks.focus();
         } else {
           say((res && res.error) || "Something went wrong. Please try again in a minute.", "err");
-          if (window.turnstile) window.turnstile.reset();
+          if (spamCheck && window.turnstile) window.turnstile.reset();
         }
       })
       .catch(function () {
         say("We couldn't reach the server. Check your connection and try again.", "err");
-        if (window.turnstile) window.turnstile.reset();
+        if (spamCheck && window.turnstile) window.turnstile.reset();
       })
       .finally(function () { button.disabled = false; });
   });

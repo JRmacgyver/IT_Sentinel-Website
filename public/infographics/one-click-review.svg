@@ -2,16 +2,16 @@
   <title id="t">One click, one fresh IT review</title>
   <desc id="d">A single button produces a report covering Group Policy, the firewall, audit-policy stability and Microsoft 365, Entra and Active Directory clean-up, in seconds, read-only.</desc>
   <style>
-    .bg{fill:#0D1320}
-    .panel{fill:#121B2E;stroke:#1C2F4A;stroke-width:1.5}
-    .btn{fill:#1D8CF8}
-    .bt{font:700 18px 'IBM Plex Sans',Arial,sans-serif;fill:#0D1320}
-    .h{font:600 20px 'IBM Plex Sans',Arial,sans-serif;fill:#D8E4F0}
-    .li{font:400 14.5px 'IBM Plex Sans',Arial,sans-serif;fill:#A9BDD3}
-    .k{font:600 13px 'JetBrains Mono',monospace;fill:#1D8CF8;letter-spacing:.08em}
-    .s{font:400 14px 'IBM Plex Sans',Arial,sans-serif;fill:#7A93B0}
-    .dot{fill:#1D8CF8}
-    .flow{stroke:#1D8CF8;stroke-width:2;fill:none}
+    .bg{fill:#0E1217}
+    .panel{fill:#151B23;stroke:#26303B;stroke-width:1.5}
+    .btn{fill:#D89B00}
+    .bt{font:700 18px 'IBM Plex Sans',Arial,sans-serif;fill:#0E1217}
+    .h{font:600 20px 'IBM Plex Sans',Arial,sans-serif;fill:#E7E3D8}
+    .li{font:400 14.5px 'IBM Plex Sans',Arial,sans-serif;fill:#B9C0C8}
+    .k{font:600 13px 'IBM Plex Mono',monospace;fill:#D89B00;letter-spacing:.08em}
+    .s{font:400 14px 'IBM Plex Sans',Arial,sans-serif;fill:#8E98A4}
+    .dot{fill:#D89B00}
+    .flow{stroke:#D89B00;stroke-width:2;fill:none}
   </style>
   <rect class="bg" width="1200" height="600"/>
 

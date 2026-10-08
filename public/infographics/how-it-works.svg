@@ -2,16 +2,16 @@
   <title id="t">How IT Sentinel works</title>
   <desc id="d">Your IT and security tools feed IT Sentinel, which runs on your own server with a local AI model and read-only tools, and turns them into answers, alerts, findings and one-click reviews.</desc>
   <style>
-    .bg{fill:#0D1320}
-    .panel{fill:#121B2E;stroke:#1C2F4A;stroke-width:1.5}
-    .core{fill:#13243E;stroke:#1D8CF8;stroke-width:2.5}
-    .h{font:600 22px 'IBM Plex Sans',Arial,sans-serif;fill:#D8E4F0}
-    .t{font:500 16px 'IBM Plex Sans',Arial,sans-serif;fill:#D8E4F0}
-    .s{font:400 13px 'IBM Plex Sans',Arial,sans-serif;fill:#7A93B0}
-    .k{font:600 13px 'JetBrains Mono',monospace;fill:#1D8CF8;letter-spacing:.08em}
-    .big{font:700 30px 'IBM Plex Sans',Arial,sans-serif;fill:#1D8CF8}
-    .line{stroke:#243D5E;stroke-width:1.5;fill:none}
-    .flow{stroke:#1D8CF8;stroke-width:2;fill:none}
+    .bg{fill:#0E1217}
+    .panel{fill:#151B23;stroke:#26303B;stroke-width:1.5}
+    .core{fill:#1A1A12;stroke:#D89B00;stroke-width:2.5}
+    .h{font:600 22px 'IBM Plex Sans',Arial,sans-serif;fill:#E7E3D8}
+    .t{font:500 16px 'IBM Plex Sans',Arial,sans-serif;fill:#E7E3D8}
+    .s{font:400 13px 'IBM Plex Sans',Arial,sans-serif;fill:#8E98A4}
+    .k{font:600 13px 'IBM Plex Mono',monospace;fill:#D89B00;letter-spacing:.08em}
+    .big{font:700 30px 'IBM Plex Sans',Arial,sans-serif;fill:#D89B00}
+    .line{stroke:#3A4654;stroke-width:1.5;fill:none}
+    .flow{stroke:#D89B00;stroke-width:2;fill:none}
   </style>
   <rect class="bg" width="1200" height="675"/>
 
@@ -43,7 +43,7 @@
   <rect class="core" x="470" y="150" width="330" height="390" rx="14"/>
   <text class="h" x="496" y="196">IT Sentinel</text>
   <text class="s" x="496" y="220">read-only, on your network</text>
-  <line x1="496" y1="240" x2="774" y2="240" stroke="#1A56A5" stroke-width="1.5"/>
+  <line x1="496" y1="240" x2="774" y2="240" stroke="#3A3420" stroke-width="1.5"/>
   <text class="big" x="496" y="292">150+</text>
   <text class="t" x="496" y="316">read-only tools</text>
   <text class="t" x="496" y="366">Local AI model</text>

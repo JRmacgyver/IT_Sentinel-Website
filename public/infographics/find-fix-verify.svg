@@ -2,24 +2,24 @@
   <title id="t">Find it, fix it, prove it</title>
   <desc id="d">Four steps: a scheduled audit finds a risk; one click investigates it; a person applies the exact fix it suggests; asking "did it work?" re-runs the check live and reports fixed, still there, or new.</desc>
   <style>
-    .bg{fill:#0D1320}
-    .panel{fill:#121B2E;stroke:#1C2F4A;stroke-width:1.5}
-    .hot{fill:#13243E;stroke:#1D8CF8;stroke-width:2}
-    .n{font:700 15px 'JetBrains Mono',monospace;fill:#0D1320}
-    .h{font:600 18px 'IBM Plex Sans',Arial,sans-serif;fill:#D8E4F0}
-    .s{font:400 13.5px 'IBM Plex Sans',Arial,sans-serif;fill:#7A93B0}
-    .q{font:500 13.5px 'JetBrains Mono',monospace;fill:#82B4FB}
-    .k{font:600 13px 'JetBrains Mono',monospace;fill:#1D8CF8;letter-spacing:.08em}
-    .ok{font:600 13.5px 'JetBrains Mono',monospace;fill:#00E676}
-    .warn{font:600 13.5px 'JetBrains Mono',monospace;fill:#EF5350}
-    .flow{stroke:#1D8CF8;stroke-width:2;fill:none}
+    .bg{fill:#0E1217}
+    .panel{fill:#151B23;stroke:#26303B;stroke-width:1.5}
+    .hot{fill:#1A1A12;stroke:#D89B00;stroke-width:2}
+    .n{font:700 15px 'IBM Plex Mono',monospace;fill:#0E1217}
+    .h{font:600 18px 'IBM Plex Sans',Arial,sans-serif;fill:#E7E3D8}
+    .s{font:400 13.5px 'IBM Plex Sans',Arial,sans-serif;fill:#8E98A4}
+    .q{font:500 13.5px 'IBM Plex Mono',monospace;fill:#D89B00}
+    .k{font:600 13px 'IBM Plex Mono',monospace;fill:#D89B00;letter-spacing:.08em}
+    .ok{font:600 13.5px 'IBM Plex Mono',monospace;fill:#4FA37A}
+    .warn{font:600 13.5px 'IBM Plex Mono',monospace;fill:#D9673F}
+    .flow{stroke:#D89B00;stroke-width:2;fill:none}
   </style>
   <rect class="bg" width="1200" height="470"/>
   <text class="k" x="40" y="50">FIND IT, FIX IT, PROVE IT</text>
 
   <!-- 1 -->
   <rect class="panel" x="40" y="80" width="250" height="300" rx="12"/>
-  <circle cx="74" cy="114" r="16" fill="#1D8CF8"/><text class="n" x="69" y="119">1</text>
+  <circle cx="74" cy="114" r="16" fill="#D89B00"/><text class="n" x="69" y="119">1</text>
   <text class="h" x="102" y="120">Found overnight</text>
   <text class="s" x="62" y="160">A scheduled audit of your</text>
   <text class="s" x="62" y="180">directory flags a risk nobody</text>
@@ -34,7 +34,7 @@
 
   <!-- 2 -->
   <rect class="panel" x="340" y="80" width="250" height="300" rx="12"/>
-  <circle cx="374" cy="114" r="16" fill="#1D8CF8"/><text class="n" x="369" y="119">2</text>
+  <circle cx="374" cy="114" r="16" fill="#D89B00"/><text class="n" x="369" y="119">2</text>
   <text class="h" x="402" y="120">Investigate</text>
   <text class="s" x="362" y="160">One click gathers the facts:</text>
   <text class="s" x="362" y="180">the account, what the right</text>
@@ -49,7 +49,7 @@
 
   <!-- 3 -->
   <rect class="panel" x="640" y="80" width="250" height="300" rx="12"/>
-  <circle cx="674" cy="114" r="16" fill="#1D8CF8"/><text class="n" x="669" y="119">3</text>
+  <circle cx="674" cy="114" r="16" fill="#D89B00"/><text class="n" x="669" y="119">3</text>
   <text class="h" x="702" y="120">A person fixes it</text>
   <text class="s" x="662" y="160">Exact steps for your admin:</text>
   <text class="s" x="662" y="180">where to click, the command</text>
@@ -62,7 +62,7 @@
 
   <!-- 4 -->
   <rect class="hot" x="940" y="80" width="220" height="300" rx="12"/>
-  <circle cx="974" cy="114" r="16" fill="#1D8CF8"/><text class="n" x="969" y="119">4</text>
+  <circle cx="974" cy="114" r="16" fill="#D89B00"/><text class="n" x="969" y="119">4</text>
   <text class="h" x="1002" y="120">Prove it</text>
   <text class="q" x="962" y="160">&gt; Done. Did my</text>
   <text class="q" x="962" y="180">  fix work?</text>

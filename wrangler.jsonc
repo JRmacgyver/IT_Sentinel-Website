@@ -1,0 +1,35 @@
+{
+  // Must match the Worker's name in the Cloudflare dashboard, or Workers Builds refuses to deploy.
+  "name": "it-sentinel-website",
+  "main": "src/worker.js",
+  "compatibility_date": "2026-08-01",
+
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "not_found_handling": "404-page",
+    "html_handling": "auto-trailing-slash",
+    // The Worker sees every request first, for the www/http redirects and HSTS.
+    "run_worker_first": true
+  },
+
+  // Apex and www as custom domains: Cloudflare creates the DNS records and certificates.
+  "routes": [
+    { "pattern": "toolkit-sec.com", "custom_domain": true },
+    { "pattern": "www.toolkit-sec.com", "custom_domain": true }
+  ],
+
+  // Email Routing: sends only to verified destination addresses on this account.
+  // The address itself is the CONTACT_TO secret, set in the dashboard, not here.
+  "send_email": [{ "name": "SEND_EMAIL" }],
+
+  // 5 form posts per minute per visitor IP.
+  "ratelimits": [
+    { "name": "CONTACT_LIMITER", "namespace_id": "1001", "simple": { "limit": 5, "period": 60 } }
+  ],
+
+  // Keep variables set in the dashboard (CONTACT_FROM, TURNSTILE_SITE_KEY) across deploys.
+  "keep_vars": true,
+
+  "observability": { "enabled": true }
+}

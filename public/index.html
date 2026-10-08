@@ -6,7 +6,7 @@
   <title>IT Sentinel, built by Toolkit Security</title>
   <meta name="description" content="IT Sentinel is an AI assistant for IT and security teams that runs on your own server, reads your security and IT tools, and answers in plain language, with the evidence.">
   <link rel="canonical" href="https://toolkit-sec.com/">
-  <meta name="theme-color" content="#0D1320">
+  <meta name="theme-color" content="#0E1217">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="IT Sentinel">
   <meta property="og:title" content="IT Sentinel: your IT and security tools, in one conversation">
@@ -17,9 +17,8 @@
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;600;700&display=swap">
   <link rel="stylesheet" href="/assets/css/site.css">
-  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   <script src="/assets/js/site.js" defer></script>
 </head>
 <body>
@@ -335,7 +334,9 @@
             <textarea id="f-message" name="message" maxlength="3000" rows="5" required></textarea></div>
           <label class="consent"><input type="checkbox" name="consent" value="on" required>
             <span>I agree that my details are used to reply to this message (<a href="/privacy">privacy notice</a>).</span></label>
-          <div class="cf-turnstile" data-sitekey="REPLACE_WITH_TURNSTILE_SITE_KEY" data-theme="dark"></div>
+          <div class="hp" aria-hidden="true"><label for="f-website">Leave this empty</label>
+            <input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+          <div id="turnstile"></div>
           <div><button class="btn" type="submit">Send</button></div>
           <p class="status" id="form-status" role="status" aria-live="polite"></p>
         </form>
