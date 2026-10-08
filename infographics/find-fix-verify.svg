@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 470" role="img" aria-labelledby="t d">
+  <title id="t">Find it, fix it, prove it</title>
+  <desc id="d">Four steps: a scheduled audit finds a risk; one click investigates it; a person applies the exact fix it suggests; asking "did it work?" re-runs the check live and reports fixed, still there, or new.</desc>
+  <style>
+    .bg{fill:#0E1217}
+    .panel{fill:#151B23;stroke:#26303B;stroke-width:1.5}
+    .hot{fill:#1A1A12;stroke:#D89B00;stroke-width:2}
+    .n{font:700 15px 'IBM Plex Mono',monospace;fill:#0E1217}
+    .h{font:600 18px 'IBM Plex Sans',Arial,sans-serif;fill:#E7E3D8}
+    .s{font:400 13.5px 'IBM Plex Sans',Arial,sans-serif;fill:#8E98A4}
+    .q{font:500 13.5px 'IBM Plex Mono',monospace;fill:#D89B00}
+    .k{font:600 13px 'IBM Plex Mono',monospace;fill:#D89B00;letter-spacing:.08em}
+    .ok{font:600 13.5px 'IBM Plex Mono',monospace;fill:#4FA37A}
+    .warn{font:600 13.5px 'IBM Plex Mono',monospace;fill:#D9673F}
+    .flow{stroke:#D89B00;stroke-width:2;fill:none}
+  </style>
+  <rect class="bg" width="1200" height="470"/>
+  <text class="k" x="40" y="50">FIND IT, FIX IT, PROVE IT</text>
+
+  <!-- 1 -->
+  <rect class="panel" x="40" y="80" width="250" height="300" rx="12"/>
+  <circle cx="74" cy="114" r="16" fill="#D89B00"/><text class="n" x="69" y="119">1</text>
+  <text class="h" x="102" y="120">Found overnight</text>
+  <text class="s" x="62" y="160">A scheduled audit of your</text>
+  <text class="s" x="62" y="180">directory flags a risk nobody</text>
+  <text class="s" x="62" y="200">asked about, for example:</text>
+  <text class="warn" x="62" y="236">an account that can</text>
+  <text class="warn" x="62" y="256">copy every password</text>
+  <text class="warn" x="62" y="276">hash (DCSync)</text>
+  <text class="s" x="62" y="316">It appears in the findings</text>
+  <text class="s" x="62" y="336">list with a ticket button.</text>
+
+  <path class="flow" d="M290 230 H330"/><path class="flow" d="M320 222 l10 8 -10 8"/>
+
+  <!-- 2 -->
+  <rect class="panel" x="340" y="80" width="250" height="300" rx="12"/>
+  <circle cx="374" cy="114" r="16" fill="#D89B00"/><text class="n" x="369" y="119">2</text>
+  <text class="h" x="402" y="120">Investigate</text>
+  <text class="s" x="362" y="160">One click gathers the facts:</text>
+  <text class="s" x="362" y="180">the account, what the right</text>
+  <text class="s" x="362" y="200">allows, whether it's expected,</text>
+  <text class="s" x="362" y="220">and which events to look for.</text>
+  <text class="q" x="362" y="260">&gt; How do I remove</text>
+  <text class="q" x="362" y="280">  these permissions?</text>
+  <text class="s" x="362" y="316">Follow-ups remember the</text>
+  <text class="s" x="362" y="336">investigation.</text>
+
+  <path class="flow" d="M590 230 H630"/><path class="flow" d="M620 222 l10 8 -10 8"/>
+
+  <!-- 3 -->
+  <rect class="panel" x="640" y="80" width="250" height="300" rx="12"/>
+  <circle cx="674" cy="114" r="16" fill="#D89B00"/><text class="n" x="669" y="119">3</text>
+  <text class="h" x="702" y="120">A person fixes it</text>
+  <text class="s" x="662" y="160">Exact steps for your admin:</text>
+  <text class="s" x="662" y="180">where to click, the command</text>
+  <text class="s" x="662" y="200">to run, and the command that</text>
+  <text class="s" x="662" y="220">shows it's gone.</text>
+  <text class="s" x="662" y="260">IT Sentinel doesn't make the</text>
+  <text class="s" x="662" y="280">change itself.</text>
+
+  <path class="flow" d="M890 230 H930"/><path class="flow" d="M920 222 l10 8 -10 8"/>
+
+  <!-- 4 -->
+  <rect class="hot" x="940" y="80" width="220" height="300" rx="12"/>
+  <circle cx="974" cy="114" r="16" fill="#D89B00"/><text class="n" x="969" y="119">4</text>
+  <text class="h" x="1002" y="120">Prove it</text>
+  <text class="q" x="962" y="160">&gt; Done. Did my</text>
+  <text class="q" x="962" y="180">  fix work?</text>
+  <text class="s" x="962" y="216">The check re-runs live,</text>
+  <text class="s" x="962" y="236">right now:</text>
+  <text class="ok" x="962" y="272">✓ fixed</text>
+  <text class="warn" x="962" y="296">✗ still there</text>
+  <text class="warn" x="962" y="320">! new since last run</text>
+
+  <text class="s" x="40" y="425">The finding clears at the next scheduled audit. The ticket keeps the evidence: what was found, what was changed, and the check that confirmed it.</text>
+</svg>

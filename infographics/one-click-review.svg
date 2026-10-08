@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" role="img" aria-labelledby="t d">
+  <title id="t">One click, one fresh IT review</title>
+  <desc id="d">A single button produces a report covering Group Policy, the firewall, audit-policy stability and Microsoft 365, Entra and Active Directory clean-up, in seconds, read-only.</desc>
+  <style>
+    .bg{fill:#0E1217}
+    .panel{fill:#151B23;stroke:#26303B;stroke-width:1.5}
+    .btn{fill:#D89B00}
+    .bt{font:700 18px 'IBM Plex Sans',Arial,sans-serif;fill:#0E1217}
+    .h{font:600 20px 'IBM Plex Sans',Arial,sans-serif;fill:#E7E3D8}
+    .li{font:400 14.5px 'IBM Plex Sans',Arial,sans-serif;fill:#B9C0C8}
+    .k{font:600 13px 'IBM Plex Mono',monospace;fill:#D89B00;letter-spacing:.08em}
+    .s{font:400 14px 'IBM Plex Sans',Arial,sans-serif;fill:#8E98A4}
+    .dot{fill:#D89B00}
+    .flow{stroke:#D89B00;stroke-width:2;fill:none}
+  </style>
+  <rect class="bg" width="1200" height="600"/>
+
+  <!-- button -->
+  <rect class="btn" x="470" y="40" width="260" height="56" rx="10"/>
+  <text class="bt" x="514" y="75">▤  Run IT review</text>
+  <text class="s" x="452" y="122">seconds · read-only · fresh every time</text>
+  <path class="flow" d="M600 134 V160 M300 160 H900 M300 160 V182 M900 160 V182"/>
+
+  <!-- quadrant 1 -->
+  <rect class="panel" x="60" y="190" width="520" height="180" rx="12"/>
+  <text class="k" x="86" y="224">GROUP POLICY</text>
+  <circle class="dot" cx="92" cy="254" r="3.5"/><text class="li" x="104" y="259">Every GPO with a verdict: in use, unused, why</text>
+  <circle class="dot" cx="92" cy="284" r="3.5"/><text class="li" x="104" y="289">What each one really sets, in plain words</text>
+  <circle class="dot" cx="92" cy="314" r="3.5"/><text class="li" x="104" y="319">Drive maps, printers, scripts, software, audit policy</text>
+  <circle class="dot" cx="92" cy="344" r="3.5"/><text class="li" x="104" y="349">Who it reaches, through links and filtering</text>
+
+  <!-- quadrant 2 -->
+  <rect class="panel" x="620" y="190" width="520" height="180" rx="12"/>
+  <text class="k" x="646" y="224">FIREWALL</text>
+  <circle class="dot" cx="652" cy="254" r="3.5"/><text class="li" x="664" y="259">What's published to the internet, and to whom</text>
+  <circle class="dot" cx="652" cy="284" r="3.5"/><text class="li" x="664" y="289">Inbound rules open to anyone, without IPS or logging</text>
+  <circle class="dot" cx="652" cy="314" r="3.5"/><text class="li" x="664" y="319">VPNs with weak ciphers, admin access from outside</text>
+  <circle class="dot" cx="652" cy="344" r="3.5"/><text class="li" x="664" y="349">Rules that never carry traffic, disabled rules</text>
+
+  <!-- quadrant 3 -->
+  <rect class="panel" x="60" y="390" width="520" height="180" rx="12"/>
+  <text class="k" x="86" y="424">AUDIT-POLICY HEALTH</text>
+  <circle class="dot" cx="92" cy="454" r="3.5"/><text class="li" x="104" y="459">Machines whose audit settings keep changing</text>
+  <circle class="dot" cx="92" cy="484" r="3.5"/><text class="li" x="104" y="489">A sign two policies fight and logging switches off</text>
+  <circle class="dot" cx="92" cy="514" r="3.5"/><text class="li" x="104" y="519">Turns "stable" once the fix is in</text>
+
+  <!-- quadrant 4 -->
+  <rect class="panel" x="620" y="390" width="520" height="180" rx="12"/>
+  <text class="k" x="646" y="424">MICROSOFT 365, ENTRA &amp; AD CLEAN-UP</text>
+  <circle class="dot" cx="652" cy="454" r="3.5"/><text class="li" x="664" y="459">Idle shared mailboxes, Teams and SharePoint sites</text>
+  <circle class="dot" cx="652" cy="484" r="3.5"/><text class="li" x="664" y="489">Stale devices, empty groups, unused licenses</text>
+  <circle class="dot" cx="652" cy="514" r="3.5"/><text class="li" x="664" y="519">Guests who never accepted, departed users' files</text>
+  <circle class="dot" cx="652" cy="544" r="3.5"/><text class="li" x="664" y="549">App registrations with expired secrets or no owner</text>
+</svg>

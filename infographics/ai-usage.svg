@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" role="img" aria-labelledby="t d">
+  <title id="t">Who uses AI, and how</title>
+  <desc id="d">Three sources feed one answer about AI use at work: AI apps and command-line tools started on the PCs, traffic to AI services seen by the firewall, and Microsoft 365 Copilot activity. Every answer says which machines it can't see.</desc>
+  <style>
+    .bg{fill:#0E1217}
+    .panel{fill:#151B23;stroke:#26303B;stroke-width:1.5}
+    .hot{fill:#1A1A12;stroke:#D89B00;stroke-width:2}
+    .h{font:600 18px 'IBM Plex Sans',Arial,sans-serif;fill:#E7E3D8}
+    .s{font:400 13.5px 'IBM Plex Sans',Arial,sans-serif;fill:#8E98A4}
+    .q{font:500 13.5px 'IBM Plex Mono',monospace;fill:#D89B00}
+    .k{font:600 13px 'IBM Plex Mono',monospace;fill:#D89B00;letter-spacing:.08em}
+    .t{font:700 20px 'IBM Plex Sans',Arial,sans-serif;fill:#E7E3D8}
+    .flow{stroke:#D89B00;stroke-width:2;fill:none}
+  </style>
+  <rect class="bg" width="1200" height="520"/>
+  <text class="k" x="40" y="50">WHO USES AI, AND HOW</text>
+
+  <!-- sources -->
+  <rect class="panel" x="40" y="80" width="400" height="120" rx="12"/>
+  <text class="h" x="62" y="114">On the PCs</text>
+  <text class="s" x="62" y="146">AI apps and command-line AI tools started</text>
+  <text class="s" x="62" y="166">on each computer, from the SIEM agent's</text>
+  <text class="s" x="62" y="186">process logs.</text>
+
+  <rect class="panel" x="40" y="215" width="400" height="120" rx="12"/>
+  <text class="h" x="62" y="249">At the firewall</text>
+  <text class="s" x="62" y="281">Traffic to AI services, recognised by the</text>
+  <text class="s" x="62" y="301">firewall's application control, per device,</text>
+  <text class="s" x="62" y="321">including services hosted abroad.</text>
+
+  <rect class="panel" x="40" y="350" width="400" height="120" rx="12"/>
+  <text class="h" x="62" y="384">In Microsoft 365</text>
+  <text class="s" x="62" y="416">Copilot activity: which app, which agent,</text>
+  <text class="s" x="62" y="436">which files, and prompt-injection or</text>
+  <text class="s" x="62" y="456">jailbreak warnings.</text>
+
+  <!-- arrows -->
+  <path class="flow" d="M440 140 H490 V275 M440 275 H520 M440 410 H490 V275"/>
+  <path class="flow" d="M510 267 l10 8 -10 8"/>
+
+  <!-- core -->
+  <rect class="hot" x="530" y="215" width="180" height="120" rx="12"/>
+  <text class="t" x="620" y="267" text-anchor="middle">IT Sentinel</text>
+  <text class="s" x="620" y="293" text-anchor="middle">on your server</text>
+
+  <path class="flow" d="M710 275 H750"/><path class="flow" d="M740 267 l10 8 -10 8"/>
+
+  <!-- answers -->
+  <rect class="panel" x="760" y="80" width="400" height="390" rx="12"/>
+  <text class="h" x="782" y="114">Ask it</text>
+  <text class="q" x="782" y="152">&gt; Who used AI tools on their</text>
+  <text class="q" x="782" y="172">  PC today, and what did they run?</text>
+  <text class="q" x="782" y="212">&gt; Was AI used outside working</text>
+  <text class="q" x="782" y="232">  hours this week?</text>
+  <text class="q" x="782" y="272">&gt; Did any Copilot session trigger</text>
+  <text class="q" x="782" y="292">  a jailbreak warning?</text>
+  <text class="q" x="782" y="332">&gt; Which AI services did this</text>
+  <text class="q" x="782" y="352">  device reach?</text>
+  <text class="s" x="782" y="404">Every answer states its coverage:</text>
+  <text class="s" x="782" y="424">which machines it can see and which</text>
+  <text class="s" x="782" y="444">ones it can't, so silence isn't read as "none".</text>
+</svg>

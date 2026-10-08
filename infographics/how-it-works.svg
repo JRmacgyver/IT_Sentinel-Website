@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="t d">
+  <title id="t">How IT Sentinel works</title>
+  <desc id="d">Your IT and security tools feed IT Sentinel, which runs on your own server with a local AI model and read-only tools, and turns them into answers, alerts, findings and one-click reviews.</desc>
+  <style>
+    .bg{fill:#0E1217}
+    .panel{fill:#151B23;stroke:#26303B;stroke-width:1.5}
+    .core{fill:#1A1A12;stroke:#D89B00;stroke-width:2.5}
+    .h{font:600 22px 'IBM Plex Sans',Arial,sans-serif;fill:#E7E3D8}
+    .t{font:500 16px 'IBM Plex Sans',Arial,sans-serif;fill:#E7E3D8}
+    .s{font:400 13px 'IBM Plex Sans',Arial,sans-serif;fill:#8E98A4}
+    .k{font:600 13px 'IBM Plex Mono',monospace;fill:#D89B00;letter-spacing:.08em}
+    .big{font:700 30px 'IBM Plex Sans',Arial,sans-serif;fill:#D89B00}
+    .line{stroke:#3A4654;stroke-width:1.5;fill:none}
+    .flow{stroke:#D89B00;stroke-width:2;fill:none}
+  </style>
+  <rect class="bg" width="1200" height="675"/>
+
+  <!-- column labels -->
+  <text class="k" x="60" y="56">YOUR TOOLS</text>
+  <text class="k" x="470" y="56">ON YOUR SERVER</text>
+  <text class="k" x="880" y="56">WHAT YOU GET</text>
+
+  <!-- sources -->
+  <g>
+    <rect class="panel" x="60" y="78" width="300" height="46" rx="8"/><text class="t" x="78" y="107">SIEM / XDR</text>
+    <rect class="panel" x="60" y="132" width="300" height="46" rx="8"/><text class="t" x="78" y="161">Endpoint protection</text>
+    <rect class="panel" x="60" y="186" width="300" height="46" rx="8"/><text class="t" x="78" y="215">Firewall</text>
+    <rect class="panel" x="60" y="240" width="300" height="46" rx="8"/><text class="t" x="78" y="269">Active Directory &amp; Group Policy</text>
+    <rect class="panel" x="60" y="294" width="300" height="46" rx="8"/><text class="t" x="78" y="323">Microsoft 365, Entra &amp; Azure</text>
+    <rect class="panel" x="60" y="348" width="300" height="46" rx="8"/><text class="t" x="78" y="377">Ticketing</text>
+    <rect class="panel" x="60" y="402" width="300" height="46" rx="8"/><text class="t" x="78" y="431">Monitoring &amp; backup</text>
+    <rect class="panel" x="60" y="456" width="300" height="46" rx="8"/><text class="t" x="78" y="485">Phone system</text>
+    <rect class="panel" x="60" y="510" width="300" height="46" rx="8"/><text class="t" x="78" y="539">Threat intelligence</text>
+    <rect class="panel" x="60" y="564" width="300" height="46" rx="8"/><text class="t" x="78" y="593">Your ISO 27001 policies</text>
+  </g>
+
+  <!-- source connectors -->
+  <path class="line" d="M360 101 H400 V594 M360 155 H400 M360 209 H400 M360 263 H400 M360 317 H400 M360 371 H400 M360 425 H400 M360 479 H400 M360 533 H400 M360 587 H400"/>
+  <path class="flow" d="M400 344 H462"/>
+  <path class="flow" d="M452 336 l10 8 -10 8"/>
+
+  <!-- core -->
+  <rect class="core" x="470" y="150" width="330" height="390" rx="14"/>
+  <text class="h" x="496" y="196">IT Sentinel</text>
+  <text class="s" x="496" y="220">read-only, on your network</text>
+  <line x1="496" y1="240" x2="774" y2="240" stroke="#3A3420" stroke-width="1.5"/>
+  <text class="big" x="496" y="292">150+</text>
+  <text class="t" x="496" y="316">read-only tools</text>
+  <text class="t" x="496" y="366">Local AI model</text>
+  <text class="s" x="496" y="388">on your own GPU, nothing sent out</text>
+  <text class="t" x="496" y="436">Evidence check</text>
+  <text class="s" x="496" y="458">every claim traced to the data</text>
+  <text class="t" x="496" y="506">Role-based access</text>
+  <text class="s" x="496" y="528" >managers and help desk see different data</text>
+
+  <!-- outputs connectors -->
+  <path class="flow" d="M800 344 H850"/>
+  <path class="flow" d="M840 336 l10 8 -10 8"/>
+  <path class="line" d="M850 125 V563 M850 125 H880 M850 213 H880 M850 301 H880 M850 389 H880 M850 477 H880 M850 563 H880"/>
+
+  <!-- outputs -->
+  <g>
+    <rect class="panel" x="880" y="96" width="270" height="58" rx="8"/><text class="t" x="898" y="121">Answers in plain language</text><text class="s" x="898" y="141">ask anything, get sources</text>
+    <rect class="panel" x="880" y="184" width="270" height="58" rx="8"/><text class="t" x="898" y="209">Alerts already investigated</text><text class="s" x="898" y="229">in Microsoft Teams</text>
+    <rect class="panel" x="880" y="272" width="270" height="58" rx="8"/><text class="t" x="898" y="297">Daily briefing</text><text class="s" x="898" y="317">what changed overnight</text>
+    <rect class="panel" x="880" y="360" width="270" height="58" rx="8"/><text class="t" x="898" y="385">Findings with tickets</text><text class="s" x="898" y="405">one click to the help desk</text>
+    <rect class="panel" x="880" y="448" width="270" height="58" rx="8"/><text class="t" x="898" y="473">One-click IT review</text><text class="s" x="898" y="493">GPO, firewall, tenant clean-up</text>
+    <rect class="panel" x="880" y="536" width="270" height="58" rx="8"/><text class="t" x="898" y="561">Questions worth asking</text><text class="s" x="898" y="581">data that should arrive but doesn't</text>
+  </g>
+</svg>
