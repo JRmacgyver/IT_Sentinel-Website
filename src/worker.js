@@ -16,6 +16,8 @@ import { EmailMessage } from "cloudflare:email";
 
 const APEX = "toolkit-sec.com";
 const LIMITS = { name: 100, email: 254, company: 100, role: 100, tools: 500, message: 3000 };
+// The "What do you run?" tick-boxes. Anything else posted under that name is dropped.
+const STACK = ["SIEM", "Endpoint protection", "Firewall", "Active Directory", "Microsoft 365", "Help desk", "Backup"];
 const MAX_BODY = 32 * 1024; // bytes; the largest legitimate form is well under this
 const EMAIL_RE = /^[^\s@<>"]+@[^\s@<>"]+\.[^\s@<>"]{2,}$/;
 const HSTS = "max-age=31536000";
@@ -105,6 +107,7 @@ async function handleContact(request, env) {
   if (form.get("consent") !== "on" && form.get("consent") !== "yes") {
     return json({ ok: false, error: "Please tick the box so we can use your details to reply." }, 400);
   }
+  const stack = form.getAll("stack").map(String).filter((v) => STACK.includes(v));
   const received = new Date().toISOString();
   const country = request.cf?.country || "unknown";
 
@@ -118,7 +121,9 @@ async function handleContact(request, env) {
     `Company: ${entry.company || "-"}`,
     `Role:    ${entry.role || "-"}`,
     "",
-    "Tools they run:",
+    `They run: ${[...new Set(stack)].join(", ") || "-"}`,
+    "",
+    "Products they named:",
     entry.tools || "-",
     "",
     "Message:",
