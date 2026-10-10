@@ -1,5 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <rect width="64" height="64" rx="14" fill="#060B20"/>
-  <path d="M32 9 L51 16 V31 C51 43 43 51 32 55 C21 51 13 43 13 31 V16 Z" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linejoin="round"/>
-  <rect x="25" y="24" width="14" height="14" rx="2.5" fill="#F2B01E"/>
+  <path d="M32 8 L52 15.500 V31 C52 43.500 43.500 52 32 56 C20.500 52 12 43.500 12 31 V15.500 Z" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linejoin="round"/>
+  <!-- wrench: a round head with an open jaw at the top, and a handle -->
+  <g fill="#F2B01E">
+    <path d="M28.500 17.300 A8.500 8.500 0 1 0 35.500 17.300 V24 A3.500 3.500 0 0 1 28.500 24 Z"/>
+    <path d="M28.800 30 H35.200 V43.800 A3.200 3.200 0 0 1 28.800 43.800 Z"/>
+  </g>
 </svg>
