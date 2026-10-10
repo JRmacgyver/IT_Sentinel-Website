@@ -6,7 +6,7 @@
   <title>IT Sentinel, built by Toolkit Security</title>
   <meta name="description" content="IT Sentinel is an AI assistant for IT and security teams that runs on your own server, reads your security and IT tools, and answers in plain language, with the evidence.">
   <link rel="canonical" href="https://toolkit-sec.com/">
-  <meta name="theme-color" content="#0E1217">
+  <meta name="theme-color" content="#060B20">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="IT Sentinel">
   <meta property="og:title" content="IT Sentinel: your IT and security tools, in one conversation">
@@ -17,7 +17,7 @@
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="/assets/css/site.css">
   <script src="/assets/js/site.js" defer></script>
 </head>
@@ -27,15 +27,7 @@
 <header class="site-header">
   <div class="inner">
     <a class="brand" href="/"><img src="/assets/toolkit-security-shield.png" alt="" width="206" height="240">IT Sentinel <small>by Toolkit Security</small></a>
-    <nav class="site-nav" aria-label="Sections">
-      <a href="#see">See it</a>
-      <a href="#what">What it does</a>
-      <a href="#ask">Security questions</a>
-      <a href="#connects">Integrations</a>
-      <a href="#found">What it found</a>
-      <a href="#faq">FAQ</a>
-    </nav>
-    <a class="btn btn-small" href="#contact">Get in touch</a>
+    <a class="btn-outline" href="#contact">Get in touch</a>
   </div>
 </header>
 
@@ -43,371 +35,192 @@
 
   <!-- Hero -->
   <section class="hero" aria-labelledby="hero-title">
-    <div class="wrap hero-grid">
-      <div class="hero-text">
-        <p class="eyebrow">On-premises AI for IT and security teams</p>
-        <h1 id="hero-title">Your IT and security tools, in one conversation.</h1>
-        <p class="lead">IT Sentinel is an AI assistant that runs on your own server, reads your SIEM, endpoint
-          protection, firewall, Active Directory, Microsoft 365, ticketing and more, and answers in plain
-          language, with the evidence.</p>
-        <p class="callout"><strong>Delivered as a deployment.</strong> We install it on your hardware, connect
-          it to the tools you run and tune it with you. Not a download, and not someone else's cloud.</p>
-        <div class="actions">
-          <a class="btn" href="#contact">Tell us about your environment →</a>
-          <a href="#see">See what an answer looks like</a>
+    <p class="eyebrow">On-premises AI for IT and security teams</p>
+    <h1 id="hero-title">Your IT and security tools, in one conversation.</h1>
+    <p class="lead">IT Sentinel runs on your own server, reads your SIEM, endpoint protection, firewall, Active
+      Directory, Microsoft 365, ticketing and more, and answers in plain language, with the evidence.</p>
+
+    <!-- Sample questions. With JavaScript, one answer shows at a time; without it, all four are listed. -->
+    <div class="ask">
+      <p class="ask-q" id="ask-q" aria-live="polite">What PC is John using?</p>
+      <div class="ask-a" data-q="pc">
+        <p class="ask-label">What PC is John using?</p>
+        <p>John Demo is signed in on <strong>PC-042</strong> (10.20.30.42). Last sign-in: today, 08:52.</p>
+        <p class="sources">Sources: Active Directory, SIEM agent · read 09:14 today</p>
+      </div>
+      <div class="ask-a" data-q="app">
+        <p class="ask-label">Which computers have AnyDesk installed?</p>
+        <p><strong>4 computers</strong> have AnyDesk installed: PC-017, PC-042, PC-108 and LAPTOP-23.</p>
+        <p class="sources">Source: help-desk software inventory · read 09:20 today</p>
+      </div>
+      <div class="ask-a" data-q="backup">
+        <p class="ask-label">Did last night's backups run?</p>
+        <p><strong>17 of 18 jobs finished.</strong> One failed: DEMO-FILE-02, because the repository was full.</p>
+        <p class="sources">Source: backup server · read 07:05 today</p>
+      </div>
+      <div class="ask-a" data-q="alerts">
+        <p class="ask-label">Any critical alerts in the last 24 hours?</p>
+        <p><strong>One.</strong> A sign-in from a new country, followed by a new mail-forwarding rule, on Demo
+          User's account. The other 212 alerts were routine.</p>
+        <p class="sources">Sources: SIEM, Entra sign-in log, Exchange Online · read 09:31 today</p>
+      </div>
+      <div class="ask-try">
+        <span>Try:</span>
+        <button type="button" data-q="pc" aria-pressed="true">What PC is John using?</button>
+        <button type="button" data-q="app" aria-pressed="false">Which computers have AnyDesk installed?</button>
+        <button type="button" data-q="backup" aria-pressed="false">Did last night's backups run?</button>
+        <button type="button" data-q="alerts" aria-pressed="false">Any critical alerts in the last 24 hours?</button>
+      </div>
+    </div>
+    <p class="caption">Illustration with demo data, not a live system.</p>
+
+    <p class="actions"><a class="btn" href="#contact">Tell us about your environment →</a></p>
+    <ul class="ticks">
+      <li>Runs on your hardware</li>
+      <li>Read-only</li>
+      <li>Every claim checked</li>
+      <li>Delivered as a deployment</li>
+    </ul>
+  </section>
+
+  <!-- The six topics. With JavaScript they are tabs; without it they are six sections, one after another. -->
+  <section class="about" aria-label="About IT Sentinel">
+    <div class="wrap">
+      <div class="tabs" role="tablist" aria-label="About IT Sentinel">
+        <button type="button" role="tab" id="tab-what" aria-controls="what" aria-selected="true">What it does</button>
+        <button type="button" role="tab" id="tab-security" aria-controls="security" aria-selected="false" tabindex="-1">Security questions</button>
+        <button type="button" role="tab" id="tab-integrations" aria-controls="integrations" aria-selected="false" tabindex="-1">Integrations</button>
+        <button type="button" role="tab" id="tab-found" aria-controls="found" aria-selected="false" tabindex="-1">What it found</button>
+        <button type="button" role="tab" id="tab-delivery" aria-controls="delivery" aria-selected="false" tabindex="-1">How it's delivered</button>
+        <button type="button" role="tab" id="tab-faq" aria-controls="faq" aria-selected="false" tabindex="-1">FAQ</button>
+      </div>
+
+      <div class="panel" id="what" role="tabpanel" aria-labelledby="tab-what" tabindex="0">
+        <h2>One question instead of six consoles</h2>
+        <div class="cards cards-4">
+          <article class="card"><h3>Ask</h3>
+            <p>"Is anything exposed to the internet that shouldn't be?" One question, and it queries every
+              relevant system.</p></article>
+          <article class="card"><h3>Get told</h3>
+            <p>Alerts arrive in Teams already investigated. A daily briefing and a findings list, each with a
+              one-click ticket.</p></article>
+          <article class="card"><h3>Review</h3>
+            <p>One button, or one sentence: "review our firewall", "audit our backups". Findings by severity,
+              with the fix for each.</p></article>
+          <article class="card"><h3>Prove the fix</h3>
+            <p>After you change something, ask "did my fix work?" It re-runs the check live: fixed, still
+              there, or new.</p></article>
         </div>
-        <ul class="ticks">
-          <li>Runs on your hardware</li>
-          <li>Read-only</li>
-          <li>Every claim checked</li>
-        </ul>
+        <p class="after">Behind every answer: read-only tools fetch live data, a local model on your own GPU
+          writes the answer, and code checks every concrete claim against the data before you see it.</p>
       </div>
 
-      <figure class="mock-figure">
-        <div class="mock mock-raised">
-          <p class="mock-bar"><span class="dot" aria-hidden="true"></span>IT Sentinel · chat</p>
-          <div class="mock-body">
-            <p class="prompt">Which servers have no endpoint protection?</p>
-            <p>3 of the 41 servers in the directory are missing from the endpoint console:</p>
-            <ul class="rows">
-              <li><span>DEMO-FILE-02</span><span class="muted">last sign-in 2 days ago</span></li>
-              <li><span>DEMO-APP-07</span><span class="muted">last sign-in today</span></li>
-              <li><span>DEMO-TEST-01</span><span class="muted">last sign-in 94 days ago</span></li>
-            </ul>
-            <p class="soft">DEMO-TEST-01 looks retired. Check it before you install an agent on it.</p>
-            <p class="sources">Sources: Active Directory, endpoint console · read 09:14 today</p>
-            <p class="chips"><span>+ Ticket</span><span>Investigate</span><span>Export</span></p>
-          </div>
+      <div class="panel" id="security" role="tabpanel" aria-labelledby="tab-security" tabindex="0">
+        <h2>What you'd ask before letting an AI near your network</h2>
+        <div class="cards cards-3 asks">
+          <div class="card"><h3>Where does my data go?</h3>
+            <p>Nowhere. The model, the data, the logs and every answer stay on your server. Nothing is sent
+              to an AI service, or to us.</p></div>
+          <div class="card"><h3>What access does it need?</h3>
+            <p>A dedicated read-only account for each system. You create the accounts, and you can see and
+              revoke each one.</p></div>
+          <div class="card"><h3>Can it change anything?</h3>
+            <p>No. It recommends, drafts tickets and writes the exact commands; a person runs them.</p></div>
+          <div class="card"><h3>What if it makes something up?</h3>
+            <p>Code checks each concrete claim against what the tools returned. A claim that isn't in the data
+              is corrected or marked "not confirmed".</p></div>
+          <div class="card"><h3>Who can use it?</h3>
+            <p>Your own directory accounts, limited to a group you choose. Roles can give managers and
+              help-desk staff different tools and data.</p></div>
+          <div class="card"><h3>What hardware?</h3>
+            <p>One server or workstation with one NVIDIA GPU. A 12 GB card runs today's model; 16 GB is a
+              good start.</p></div>
         </div>
-        <figcaption>Illustration with demo data, not a screenshot of a live system.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- Why it's different -->
-  <section class="section band" aria-labelledby="edge-title">
-    <div class="wrap">
-      <p class="eyebrow">Why it's different</p>
-      <h2 id="edge-title">Three things most AI security tools don't do</h2>
-      <div class="cards cards-3">
-        <article class="card">
-          <p class="num">01</p>
-          <h3>The model stays in your building</h3>
-          <p>An open-weight model runs on your own GPU. Prompts, results and logs stay on your network.
-            Nothing goes to an AI service, and nothing comes to us.</p>
-        </article>
-        <article class="card">
-          <p class="num">02</p>
-          <h3>IT hygiene and security, together</h3>
-          <p>It investigates alerts, and it also does the work nobody has time for: unused Group Policy,
-            Kerberoastable accounts, an old krbtgt password, idle mailboxes, who is using which AI tools.</p>
-        </article>
-        <article class="card">
-          <p class="num">03</p>
-          <h3>Code checks the answer, not the model</h3>
-          <p>Before you see an answer, code compares every address, rule number, CVE, host name and date
-            with what the tools returned. Anything that isn't in the data is corrected or marked "not
-            confirmed".</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- See it -->
-  <section class="section" id="see" aria-labelledby="see-title">
-    <div class="wrap">
-      <p class="eyebrow">See it</p>
-      <h2 id="see-title">What a working day with it looks like</h2>
-      <p class="intro">An alert arrives already explained. You ask a follow-up in the portal. The answer names
-        its sources and becomes a ticket in one click.</p>
-      <div class="see-grid">
-        <figure class="mock-figure">
-          <div class="mock mock-pad">
-            <p class="mock-head"><span>Microsoft Teams · IT alerts</span><span class="pill">High</span></p>
-            <h3>Sign-in from a new country, then a mailbox rule</h3>
-            <p class="soft">A user signed in from a country they have not used before. Four minutes later a
-              rule was created that forwards their mail to an outside address. Together these often mean a
-              stolen password.</p>
-            <dl class="facts">
-              <div><dt>Who</dt><dd>Demo User, Finance</dd></div>
-              <div><dt>Device</dt><dd>Not one of your PCs</dd></div>
-              <div><dt>Did it succeed?</dt><dd>Yes, with MFA</dd></div>
-              <div><dt>Check next</dt><dd>The forwarding rule, and other sign-ins from that address</dd></div>
-            </dl>
-          </div>
-          <figcaption>A Teams alert card: what happened, whose device, whether it succeeded, what to check.
-            Illustration with demo data.</figcaption>
-        </figure>
-
-        <figure class="mock-figure">
-          <div class="mock">
-            <p class="mock-bar">IT Sentinel · chat</p>
-            <div class="mock-body">
-              <p class="prompt">Investigate this alert. Is the account compromised?</p>
-              <p><strong>Probably yes.</strong> Three things point that way, one points against.</p>
-              <ul class="bullets">
-                <li>The sign-in came from 203.0.113.24, an address no one in the company has used in 90 days.</li>
-                <li>The device is not in the directory or the endpoint console.</li>
-                <li>The new rule forwards all mail to an outside address and marks it as read.</li>
-                <li>Against: MFA was approved. That fits a push the user accepted by mistake.</li>
-              </ul>
-              <p class="soft">For a person to do: revoke the user's sessions, reset the password, remove the
-                rule. The exact steps are below.</p>
-              <p class="sources">Sources: Entra sign-in log, Exchange Online, Active Directory, endpoint
-                console · read 09:31 today</p>
-              <p class="chips"><span class="chip-hot">+ Ticket</span><span>Export</span></p>
-            </div>
-          </div>
-          <figcaption>The portal: an investigation that lays out what points each way, and leaves the change
-            to a person. Illustration with demo data.</figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- What it does -->
-  <section class="section band" id="what" aria-labelledby="what-title">
-    <div class="wrap">
-      <p class="eyebrow">What it does</p>
-      <h2 id="what-title">Small teams run the same tools as large ones, without the people to watch them</h2>
-      <p class="intro">The answer to "did anything bad happen last night?" is spread across six consoles, and
-        the question nobody asked is the one that matters.</p>
-      <div class="cards cards-4">
-        <article class="card">
-          <h3>Ask</h3>
-          <p>"Is anything exposed to the internet that shouldn't be?" One question, and it queries every
-            relevant system.</p>
-        </article>
-        <article class="card">
-          <h3>Get told</h3>
-          <p>Alerts arrive in Teams already investigated. A daily briefing and a findings list, each with a
-            one-click ticket.</p>
-        </article>
-        <article class="card">
-          <h3>Review</h3>
-          <p>One button, or one sentence: "review our firewall", "audit our backups". Findings by severity,
-            the fix for each, what's fine and what wasn't checked.</p>
-        </article>
-        <article class="card hot">
-          <h3>Prove the fix</h3>
-          <p>After you change something, ask "did my fix work?" It re-runs the check live: fixed, still
-            there, or new.</p>
-        </article>
       </div>
 
-      <h3 class="sub">From a question to a checked answer</h3>
-      <ol class="flow">
-        <li>You ask in plain language, in a portal on your network.</li>
-        <li>Questions it recognises run the right check first.</li>
-        <li>Read-only tools fetch live data from your systems.</li>
-        <li>A local model on your own GPU writes the answer.</li>
-        <li>Code checks every concrete claim against the data.</li>
-        <li>You get the answer with its sources. A person decides what to change.</li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- Security questions -->
-  <section class="section" id="ask" aria-labelledby="ask-title">
-    <div class="wrap">
-      <p class="eyebrow">Security questions, answered first</p>
-      <h2 id="ask-title">What you'd ask before letting an AI near your network</h2>
-      <div class="asks">
-        <div><h3>Where does my data go?</h3>
-          <p>Nowhere. The model, the data, the logs and every answer stay on your server. No prompts or
-            results are sent to an AI service, or to us.</p></div>
-        <div><h3>What access does it need?</h3>
-          <p>A dedicated read-only account for each system it connects to. You create the accounts, and you
-            can see and revoke each one.</p></div>
-        <div><h3>Can it change anything?</h3>
-          <p>No. Its tools only read. It recommends, drafts tickets and writes the exact commands; a person
-            runs them. The one thing it writes is a help-desk ticket, when you ask for one.</p></div>
-        <div><h3>What if it makes something up?</h3>
-          <p>Code checks each concrete claim against what the tools returned. A claim that isn't in the data
-            gets one correction round, then is marked "not confirmed". If a data source is down, the answer
-            says so.</p></div>
-        <div><h3>Who can use it?</h3>
-          <p>Sign-in uses your own directory accounts, limited to a group you choose. Roles can give
-            managers and help-desk staff different tools and data.</p></div>
-        <div><h3>What if it stops?</h3>
-          <p>A watchdog checks the SIEM, the model and its GPU, and posts to Teams when one of them stops.
-            A quiet assistant is never mistaken for a quiet network.</p></div>
+      <div class="panel" id="integrations" role="tabpanel" aria-labelledby="tab-integrations" tabindex="0">
+        <h2>The tools you already run</h2>
+        <dl class="grid-int">
+          <div><dt>SIEM / XDR</dt><dd>Wazuh, with Sysmon and Windows audit logs</dd></div>
+          <div><dt>Endpoint protection</dt><dd>SentinelOne, Palo Alto Cortex XDR</dd></div>
+          <div><dt>Firewall</dt><dd>FortiGate, one site or several</dd></div>
+          <div><dt>Directory</dt><dd>Active Directory and Group Policy, one domain or several</dd></div>
+          <div><dt>Cloud and identity</dt><dd>Entra ID, Microsoft 365, Exchange Online, Azure</dd></div>
+          <div><dt>Email security</dt><dd>Perception Point</dd></div>
+          <div><dt>Help desk and monitoring</dt><dd>GLPI, Zabbix</dd></div>
+          <div><dt>Backup and virtualisation</dt><dd>Veeam, Rubrik, VMware Cloud Director</dd></div>
+          <div><dt>Phone system</dt><dd>FreePBX / Asterisk</dd></div>
+          <div><dt>Threat intelligence</dt><dd>abuse.ch, Spamhaus, AlienVault OTX, VirusTotal</dd></div>
+          <div><dt>AI usage</dt><dd>Copilot activity, firewall AI traffic, AI tools on PCs</dd></div>
+          <div><dt>Alerts, SOC and compliance</dt><dd>Microsoft Teams, an outsourced SOC, ISO 27001</dd></div>
+        </dl>
+        <p class="after muted">Not on the list? Integrations are modular. <a href="#contact">Tell us what you run.</a></p>
       </div>
-      <div class="hardware">
-        <div>
-          <p class="label">Hardware</p>
-          <p class="big">One server or workstation with one NVIDIA GPU</p>
+
+      <div class="panel" id="found" role="tabpanel" aria-labelledby="tab-found" tabindex="0">
+        <h2>Things it found that nobody was looking for</h2>
+        <div class="cards cards-3">
+          <article class="card"><h3>A log that went quiet</h3>
+            <p>A group of servers had stopped sending a whole category of Windows logs for weeks. No alert
+              fires on silence. Missing data is now flagged the day it stops.</p></article>
+          <article class="card"><h3>An audit setting that switched itself off</h3>
+            <p>Two kinds of audit policy were overriding each other, turning sign-in auditing off and on
+              every few minutes. The review named both; one was removed.</p></article>
+          <article class="card"><h3>A permission nobody remembered granting</h3>
+            <p>An account could copy every password hash in the domain. The admin removed the right, asked
+              "did it work?", and the check re-ran live and confirmed it.</p></article>
+          <article class="card"><h3>One phone, three addresses</h3>
+            <p>Guest Wi-Fi sessions to a known command-and-control server looked like three machines. Lining
+              up the times pointed to one phone, which was blocked.</p></article>
+          <article class="card"><h3>Reports that hid their own names</h3>
+            <p>A tenant setting anonymised the cloud usage reports. The review refused to guess and named the
+              setting to change.</p></article>
         </div>
-        <p>A 12 GB card runs today's model with room for long answers; 16 GB is a good start. No GPU
-          cluster, and no cloud account.</p>
       </div>
-    </div>
-  </section>
 
-  <!-- Integrations -->
-  <section class="section band" id="connects" aria-labelledby="connects-title">
-    <div class="wrap">
-      <p class="eyebrow">What it connects to</p>
-      <h2 id="connects-title">The tools you already run</h2>
-      <dl class="grid-int">
-        <div><dt>SIEM / XDR</dt><dd>Wazuh, with Sysmon and Windows audit logs</dd></div>
-        <div><dt>Endpoint protection</dt><dd>SentinelOne, Palo Alto Cortex XDR</dd></div>
-        <div><dt>Firewall</dt><dd>FortiGate, one site or several</dd></div>
-        <div><dt>Directory</dt><dd>Active Directory and Group Policy, one domain or several</dd></div>
-        <div><dt>Cloud and identity</dt><dd>Microsoft Entra ID, Microsoft 365, Exchange Online, Azure</dd></div>
-        <div><dt>Email security</dt><dd>Perception Point</dd></div>
-        <div><dt>Help desk</dt><dd>GLPI</dd></div>
-        <div><dt>Monitoring</dt><dd>Zabbix</dd></div>
-        <div><dt>Backup</dt><dd>Veeam, Rubrik</dd></div>
-        <div><dt>Virtualisation</dt><dd>VMware Cloud Director</dd></div>
-        <div><dt>Phone system</dt><dd>FreePBX / Asterisk</dd></div>
-        <div><dt>Threat intelligence</dt><dd>abuse.ch, Spamhaus, AlienVault OTX, VirusTotal</dd></div>
-        <div><dt>AI usage</dt><dd>Copilot activity, firewall AI traffic, AI tools started on PCs</dd></div>
-        <div><dt>Alerts and SOC</dt><dd>Microsoft Teams; real-time forwarding to an outsourced SOC</dd></div>
-        <div><dt>Compliance</dt><dd>ISO 27001 controls, mapped to your own policies</dd></div>
-      </dl>
-      <p class="note">Not on the list? Integrations are modular. <a href="#contact">Tell us what you run.</a></p>
-    </div>
-  </section>
-
-  <!-- What it found -->
-  <section class="section" id="found" aria-labelledby="found-title">
-    <div class="wrap">
-      <p class="eyebrow">Things it found that nobody was looking for</p>
-      <h2 id="found-title">Five findings from real networks</h2>
-      <p class="intro">Details are removed on purpose. We don't name customers, and we don't put numbers on
-        results we can't show you.</p>
-      <div class="cases">
-        <article class="case">
-          <h3>A log that went quiet</h3>
-          <div class="case-cols">
-            <div><p class="tag tag-problem">The problem</p>
-              <p>A group of servers had stopped sending a whole category of Windows logs, for weeks. Every
-                dashboard looked fine, because no alert fires on silence.</p></div>
-            <div><p class="tag tag-how">How it surfaced</p>
-              <p>The daily "questions worth asking" compares what should arrive with what did, and named the
-                missing log category.</p></div>
-            <div><p class="tag tag-result">What changed</p>
-              <p>Logging was restored, and missing data is now flagged the day it stops.</p></div>
-          </div>
-        </article>
-        <article class="case">
-          <h3>An audit setting that switched itself off</h3>
-          <div class="case-cols">
-            <div><p class="tag tag-problem">The problem</p>
-              <p>Two kinds of audit policy were overriding each other, turning sign-in auditing off and on
-                every few minutes.</p></div>
-            <div><p class="tag tag-how">How it surfaced</p>
-              <p>As a flood of one event. The review traced it to the two policies and named both.</p></div>
-            <div><p class="tag tag-result">What changed</p>
-              <p>One policy was removed. The IT review now checks every machine for this, and tells it apart
-                from a harmless Windows refresh.</p></div>
-          </div>
-        </article>
-        <article class="case">
-          <h3>A permission nobody remembered granting</h3>
-          <div class="case-cols">
-            <div><p class="tag tag-problem">The problem</p>
-              <p>An account held the right to copy every password hash in the domain (DCSync).</p></div>
-            <div><p class="tag tag-how">How it surfaced</p>
-              <p>The scheduled directory audit found it. Investigate explained the risk and the exact fix.</p></div>
-            <div><p class="tag tag-result">What changed</p>
-              <p>The admin removed the right, asked "did it work?", and the check re-ran live and confirmed
-                it.</p></div>
-          </div>
-        </article>
-        <article class="case">
-          <h3>One phone, three addresses</h3>
-          <div class="case-cols">
-            <div><p class="tag tag-problem">The problem</p>
-              <p>Firewall sessions from the guest Wi-Fi to a known command-and-control server, from what
-                looked like three machines.</p></div>
-            <div><p class="tag tag-how">How it surfaced</p>
-              <p>The threat-intelligence feed flagged the sessions. Lining the times up with the connected
-                clients pointed to one phone moving between access points.</p></div>
-            <div><p class="tag tag-result">What changed</p>
-              <p>The phone was blocked, and the feed has shown no attempts since.</p></div>
-          </div>
-        </article>
-        <article class="case">
-          <h3>Reports that hid their own names</h3>
-          <div class="case-cols">
-            <div><p class="tag tag-problem">The problem</p>
-              <p>A tenant setting anonymised the cloud usage reports, which would have turned one departed
-                user's files into dozens.</p></div>
-            <div><p class="tag tag-how">How it surfaced</p>
-              <p>The Microsoft 365 review noticed the names were hidden and refused to guess.</p></div>
-            <div><p class="tag tag-result">What changed</p>
-              <p>The report names the setting to change, so the clean-up list is right the first time.</p></div>
-          </div>
-        </article>
+      <div class="panel" id="delivery" role="tabpanel" aria-labelledby="tab-delivery" tabindex="0">
+        <h2>A deployment, not a subscription to someone else's cloud</h2>
+        <ol class="stages">
+          <li><strong>1 · Talk</strong>You tell us which tools you run and what you'd ask first.</li>
+          <li><strong>2 · Size</strong>We advise on hardware: a server with a GPU, or a VM you provide.</li>
+          <li><strong>3 · Connect</strong>One read-only account per system. Alerts are routed to Teams.</li>
+          <li><strong>4 · Tune</strong>Rules are tuned to your noise, and answers grounded in your policies.</li>
+          <li><strong>5 · Hand over</strong>Documentation, a walkthrough, and help as things change.</li>
+        </ol>
+        <p class="after">First answers usually come within days; tuning continues over the first weeks.</p>
       </div>
-    </div>
-  </section>
 
-  <!-- How it's delivered -->
-  <section class="section band" id="get" aria-labelledby="get-title">
-    <div class="wrap">
-      <p class="eyebrow">How it's delivered</p>
-      <h2 id="get-title">A deployment, not a subscription to someone else's cloud</h2>
-      <p class="intro">The software, plus the work of connecting and tuning it. First answers usually come
-        within days; tuning continues over the first weeks.</p>
-      <ol class="stages">
-        <li><strong>1 · Talk</strong>You tell us which tools you run and what you'd ask first.</li>
-        <li><strong>2 · Size</strong>We advise on hardware: a server with a GPU on your network, or a VM you
-          provide.</li>
-        <li><strong>3 · Connect</strong>One dedicated read-only account per system. Alerts are routed to
-          Teams.</li>
-        <li><strong>4 · Tune</strong>Rules are tuned to your noise, and answers are grounded in your own
-          policies.</li>
-        <li><strong>5 · Hand over</strong>Documentation, a walkthrough, and help as your environment
-          changes.</li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="section" id="faq" aria-labelledby="faq-title">
-    <div class="wrap narrow">
-      <p class="eyebrow">FAQ</p>
-      <h2 id="faq-title">Questions we get asked</h2>
-      <div class="faq">
-        <details open><summary>Is it air-gapped?</summary>
-          <p>The model and your data never leave your network. IT Sentinel does make outbound read calls to
-            the cloud services you connect (Microsoft 365, a cloud EDR) and to threat-intelligence feeds, as
-            your admins already do. Leave those out and it needs no internet at all.</p></details>
-        <details><summary>Which AI model does it use?</summary>
-          <p>An open-weight model that runs locally; the exact model depends on your hardware.</p></details>
-        <details><summary>How fast is it?</summary>
-          <p>Most answers take a few seconds. A long plan or a full investigation can take around half a
-            minute.</p></details>
-        <details><summary>Can it make changes?</summary>
-          <p>No. It's read-only. It drafts tickets and exact steps for a person.</p></details>
-        <details><summary>Does it work in languages other than English?</summary>
-          <p>It answers in the language of the question. English and Hebrew are in daily use today.</p></details>
-        <details><summary>We already have an outsourced SOC. Does this replace it?</summary>
-          <p>No, it works next to it. It can forward the logs your SOC needs in real time, and it answers
-            the questions a SOC doesn't: what's in your directory, your Microsoft 365 tenant and your Group
-            Policy.</p></details>
-        <details><summary>Is it a product or a service?</summary>
-          <p>Both: the software plus the work of connecting and tuning it.</p></details>
+      <div class="panel" id="faq" role="tabpanel" aria-labelledby="tab-faq" tabindex="0">
+        <h2>Questions we get asked</h2>
+        <div class="faq">
+          <details open><summary>Is it air-gapped?</summary>
+            <p>The model and your data never leave your network. IT Sentinel does make outbound read calls to
+              the cloud services you connect (Microsoft 365, a cloud EDR) and to threat-intelligence feeds.
+              Leave those out and it needs no internet at all.</p></details>
+          <details><summary>Which AI model does it use?</summary>
+            <p>An open-weight model that runs locally; the exact model depends on your hardware.</p></details>
+          <details><summary>How fast is it?</summary>
+            <p>Most answers take a few seconds. A long plan or a full investigation can take around half a
+              minute.</p></details>
+          <details><summary>Does it work in languages other than English?</summary>
+            <p>It answers in the language of the question. English and Hebrew are in daily use today.</p></details>
+          <details><summary>We already have an outsourced SOC. Does this replace it?</summary>
+            <p>No, it works next to it. It can forward the logs your SOC needs in real time, and it answers
+              the questions a SOC doesn't.</p></details>
+          <details><summary>Is it a product or a service?</summary>
+            <p>Both: the software plus the work of connecting and tuning it.</p></details>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Contact -->
-  <section class="section band" id="contact" aria-labelledby="contact-title">
+  <section class="contact" id="contact" aria-labelledby="contact-title">
     <div class="wrap contact-grid">
       <div>
-        <p class="eyebrow">Contact</p>
         <h2 id="contact-title">Tell us about your environment</h2>
-        <p class="soft">Tick what you run and add a line about what you'd ask it first. We read every message
-          and reply within two working days.</p>
-        <ul class="plain">
-          <li>No newsletter, and no sales sequence.</li>
-          <li>The form stores nothing: it is emailed to us and that's the only copy.</li>
-          <li>Want a walkthrough instead? Say so in the message and we'll set one up.</li>
-        </ul>
+        <p class="soft">Tick what you run and say what you'd ask it first. We reply within two working days.
+          No newsletter, and the form stores nothing.</p>
       </div>
       <div>
         <form id="contact-form" action="/api/contact" method="post" novalidate>
@@ -417,14 +230,8 @@
             <div><label for="f-email">Work email</label>
               <input id="f-email" name="email" type="email" autocomplete="email" maxlength="254" required></div>
           </div>
-          <div class="row2">
-            <div><label for="f-company">Company <span class="opt">(optional)</span></label>
-              <input id="f-company" name="company" type="text" autocomplete="organization" maxlength="100"></div>
-            <div><label for="f-role">Role <span class="opt">(optional)</span></label>
-              <input id="f-role" name="role" type="text" autocomplete="organization-title" maxlength="100"></div>
-          </div>
           <fieldset class="stack">
-            <legend>What do you run? <span class="opt">(optional, tick any)</span></legend>
+            <legend>What do you run? <span class="opt">(optional)</span></legend>
             <div class="stack-options">
               <label><input type="checkbox" name="stack" value="SIEM">SIEM</label>
               <label><input type="checkbox" name="stack" value="Endpoint protection">Endpoint protection</label>
@@ -435,11 +242,8 @@
               <label><input type="checkbox" name="stack" value="Backup">Backup</label>
             </div>
           </fieldset>
-          <div><label for="f-tools">Which products? <span class="opt">(optional)</span></label>
-            <input id="f-tools" name="tools" type="text" maxlength="500"
-                   placeholder="e.g. your SIEM, EDR and firewall"></div>
           <div><label for="f-message">What would you ask it first?</label>
-            <textarea id="f-message" name="message" maxlength="3000" rows="4" required></textarea></div>
+            <textarea id="f-message" name="message" maxlength="3000" rows="3" required></textarea></div>
           <label class="consent"><input type="checkbox" name="consent" value="on" required>
             <span>I agree that my details are used to reply to this message (<a href="/privacy">privacy notice</a>).</span></label>
           <div class="hp" aria-hidden="true"><label for="f-website">Leave this empty</label>
@@ -458,14 +262,9 @@
 </main>
 
 <footer class="site-footer">
-  <div class="wrap about">
+  <div class="wrap">
     <img src="/assets/toolkit-security-logo.png" alt="Toolkit Security. Protecting with simple tools." width="400" height="438">
-    <p>IT Sentinel is built by Toolkit Security. We work in Canada and Israel, and we build security tools
-      for the IT teams that have to run them.</p>
-  </div>
-  <div class="wrap legal">
-    <span>IT Sentinel</span><span aria-hidden="true">·</span><span>Built by Toolkit Security</span><span aria-hidden="true">·</span>
-    <a href="/privacy">Privacy</a><span aria-hidden="true">·</span><span>© <span id="year">2026</span> toolkit-sec.com</span>
+    <p>IT Sentinel · Built by Toolkit Security · <a href="/privacy">Privacy</a> · © <span id="year">2026</span> toolkit-sec.com</p>
   </div>
 </footer>
 </body>

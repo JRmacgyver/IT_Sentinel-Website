@@ -15,6 +15,60 @@
     el.replaceWith(a);
   });
 
+  // The page works without this script: the six topics are listed one after another and all the
+  // sample answers show. With it, "js" on <html> turns them into tabs and a pick-a-question box.
+  document.documentElement.classList.add("js");
+
+  // Sample questions in the hero: show one answer at a time.
+  var askQ = document.getElementById("ask-q");
+  var askButtons = document.querySelectorAll(".ask-try button");
+  var askAnswers = document.querySelectorAll(".ask-a");
+  function showQuestion(id) {
+    askAnswers.forEach(function (a) { a.hidden = a.getAttribute("data-q") !== id; });
+    askButtons.forEach(function (b) {
+      var on = b.getAttribute("data-q") === id;
+      b.setAttribute("aria-pressed", on ? "true" : "false");
+      if (on && askQ) askQ.textContent = b.textContent;
+    });
+  }
+  if (askButtons.length) {
+    askButtons.forEach(function (b) {
+      b.addEventListener("click", function () { showQuestion(b.getAttribute("data-q")); });
+    });
+    showQuestion(askButtons[0].getAttribute("data-q"));
+  }
+
+  // Tabs: one panel at a time, arrow keys move between tabs, and /#faq (or any panel id) opens that tab.
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.tabs [role="tab"]'));
+  function selectTab(tab, focus) {
+    tabs.forEach(function (t) {
+      var on = t === tab;
+      t.setAttribute("aria-selected", on ? "true" : "false");
+      t.tabIndex = on ? 0 : -1;
+      var panel = document.getElementById(t.getAttribute("aria-controls"));
+      if (panel) panel.hidden = !on;
+    });
+    if (focus) tab.focus();
+  }
+  function tabForHash() {
+    var id = location.hash.slice(1);
+    return tabs.filter(function (t) { return id && t.getAttribute("aria-controls") === id; })[0];
+  }
+  if (tabs.length) {
+    tabs.forEach(function (t, i) {
+      t.addEventListener("click", function () { selectTab(t); });
+      t.addEventListener("keydown", function (ev) {
+        var next = ev.key === "ArrowRight" ? i + 1 : ev.key === "ArrowLeft" ? i - 1
+                 : ev.key === "Home" ? 0 : ev.key === "End" ? tabs.length - 1 : null;
+        if (next === null) return;
+        ev.preventDefault();
+        selectTab(tabs[(next + tabs.length) % tabs.length], true);
+      });
+    });
+    selectTab(tabForHash() || tabs[0]);
+    window.addEventListener("hashchange", function () { var t = tabForHash(); if (t) selectTab(t); });
+  }
+
   var form = document.getElementById("contact-form");
   if (!form) return;
   var status = document.getElementById("form-status");
