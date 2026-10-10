@@ -20,22 +20,75 @@
   document.documentElement.classList.add("js");
 
   // Sample questions in the hero: show one answer at a time.
+  // With motion allowed, the question is typed out, a "Reading…" line shows which systems are
+  // being read, then the answer appears; the four questions play through once and stop. Any click
+  // or key press in the box stops the tour. With reduced motion, the answer simply swaps.
+  var calm = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var ask = document.querySelector(".ask");
   var askQ = document.getElementById("ask-q");
-  var askButtons = document.querySelectorAll(".ask-try button");
-  var askAnswers = document.querySelectorAll(".ask-a");
-  function showQuestion(id) {
-    askAnswers.forEach(function (a) { a.hidden = a.getAttribute("data-q") !== id; });
+  var askTyped = document.getElementById("ask-typed");
+  var askStatus = document.getElementById("ask-status");
+  var askButtons = Array.prototype.slice.call(document.querySelectorAll(".ask-try button"));
+  var askAnswers = Array.prototype.slice.call(document.querySelectorAll(".ask-a"));
+  var askTimers = [];
+  function later(fn, ms) { askTimers.push(setTimeout(fn, ms)); }
+  function clearAsk() { askTimers.forEach(clearTimeout); askTimers = []; }
+
+  function showQuestion(id, animate, done) {
+    clearAsk();
+    var answer = askAnswers.filter(function (a) { return a.getAttribute("data-q") === id; })[0];
+    var label = "";
     askButtons.forEach(function (b) {
       var on = b.getAttribute("data-q") === id;
       b.setAttribute("aria-pressed", on ? "true" : "false");
-      if (on && askQ) askQ.textContent = b.textContent;
+      if (on) label = b.textContent;
     });
+    if (askQ) askQ.textContent = label;
+    function reveal() {
+      if (askStatus) askStatus.hidden = true;
+      if (ask) ask.classList.remove("typing");
+      askAnswers.forEach(function (a) { a.hidden = a !== answer; });
+      if (done) later(done, 5200);
+    }
+    if (!animate || calm || !askTyped) {
+      if (askTyped) askTyped.textContent = label;
+      reveal();
+      return;
+    }
+    // While the question is typed, the previous answer stays in place, dimmed, so nothing jumps.
+    if (askStatus) askStatus.hidden = true;
+    ask.classList.add("typing");
+    askTyped.textContent = "";
+    var i = 0;
+    (function type() {
+      askTyped.textContent = label.slice(0, ++i);
+      if (i < label.length) { later(type, 26); return; }
+      later(function () {
+        askAnswers.forEach(function (a) { a.hidden = true; });
+        if (askStatus && answer) { askStatus.textContent = answer.getAttribute("data-reading") || ""; askStatus.hidden = false; }
+        later(reveal, 850);
+      }, 250);
+    })();
   }
+
   if (askButtons.length) {
+    var touring = !calm;
+    var stopTour = function () { touring = false; };
     askButtons.forEach(function (b) {
-      b.addEventListener("click", function () { showQuestion(b.getAttribute("data-q")); });
+      b.addEventListener("click", function () { stopTour(); showQuestion(b.getAttribute("data-q"), true); });
     });
-    showQuestion(askButtons[0].getAttribute("data-q"));
+    if (ask) ask.addEventListener("keydown", stopTour);
+    var step = 0;
+    (function tour() {
+      var id = askButtons[step].getAttribute("data-q");
+      var last = step === askButtons.length - 1;
+      showQuestion(id, step > 0 || !calm, function () {
+        if (!touring) return;
+        if (last) { touring = false; showQuestion(askButtons[0].getAttribute("data-q"), true); return; }
+        step += 1;
+        tour();
+      });
+    })();
   }
 
   // Tabs: one panel at a time, arrow keys move between tabs, and /#faq (or any panel id) opens that tab.

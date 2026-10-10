@@ -215,3 +215,57 @@ input[type=checkbox] { width: 18px; height: 18px; accent-color: var(--accent); f
   .ticks { flex-direction: column; align-items: center; gap: 6px; }
   .ticks li + li::before { content: none; }
 }
+
+/* Screen-reader-only text. */
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* The "Reading…" line under the question, shown for a moment before the answer. */
+.ask-status { font: 500 14px/1.5 var(--font-mono); color: var(--muted); }
+.ask-status::before { content: ""; display: inline-block; width: 8px; height: 8px; margin-right: 10px;
+                      border-radius: 50%; background: var(--accent); }
+
+/* ── Motion. Everything here is switched off for visitors who ask for reduced motion. ── */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes rise  { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+  @keyframes fade  { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes blink { 50% { opacity: 0; } }
+  @keyframes pulse { 0%, 100% { opacity: .35; transform: scale(.8); } 50% { opacity: 1; transform: scale(1.15); } }
+
+  /* The hero arrives in order: label, headline, text, question box, button. */
+  .hero > * { animation: rise .6s cubic-bezier(.2, .7, .2, 1) both; }
+  .hero > :nth-child(2) { animation-delay: .08s; }
+  .hero > :nth-child(3) { animation-delay: .16s; }
+  .hero > :nth-child(4) { animation-delay: .26s; }
+  .hero > :nth-child(n+5) { animation-delay: .36s; }
+
+  /* A caret after the question while it is being typed. */
+  .js .ask.typing #ask-typed::after { content: ""; display: inline-block; width: .55em; height: 1.05em; margin-left: 3px;
+                                      vertical-align: text-bottom; background: var(--accent); animation: blink .9s steps(1) infinite; }
+  .ask-status { animation: fade .25s both; }
+  .ask-status::before { animation: pulse .8s ease-in-out infinite; }
+  .js .ask-a { animation: rise .45s cubic-bezier(.2, .7, .2, 1) backwards; transition: opacity .2s ease; }
+
+  /* A tab's content rises in, card by card, each time the tab is chosen. */
+  .js .panel > h2 { animation: rise .4s both; }
+  .js .panel .card, .js .panel .stages li, .js .panel .grid-int > div, .js .panel .faq details, .js .panel .after
+    { animation: rise .5s cubic-bezier(.2, .7, .2, 1) both; }
+  .js .panel :is(.card, .stages li, .grid-int > div, .faq details):nth-child(1) { animation-delay: .05s; }
+  .js .panel :is(.card, .stages li, .grid-int > div, .faq details):nth-child(2) { animation-delay: .10s; }
+  .js .panel :is(.card, .stages li, .grid-int > div, .faq details):nth-child(3) { animation-delay: .15s; }
+  .js .panel :is(.card, .stages li, .grid-int > div, .faq details):nth-child(4) { animation-delay: .20s; }
+  .js .panel :is(.card, .stages li, .grid-int > div, .faq details):nth-child(5) { animation-delay: .25s; }
+  .js .panel :is(.card, .stages li, .grid-int > div, .faq details):nth-child(6) { animation-delay: .30s; }
+  .js .panel :is(.card, .stages li, .grid-int > div, .faq details):nth-child(n+7) { animation-delay: .35s; }
+  .js .panel .after { animation-delay: .35s; }
+
+  /* Small responses to the pointer. */
+  .btn, .btn-outline, .ask-try button, .tabs button, .card, .stack-options label
+    { transition: transform .18s ease, border-color .18s ease, background-color .18s ease, color .18s ease, filter .18s ease; }
+  .btn:hover { transform: translateY(-2px); }
+  .card:hover { border-color: var(--line-strong); transform: translateY(-3px); }
+}
+
+/* The answer and the "Reading…" line share one height, so the box does not jump between them. */
+.js .ask-a, .js .ask-status { min-height: 76px; }
+@media (max-width: 600px) { .js .ask-a, .js .ask-status { min-height: 148px; } }
+.js .ask.typing .ask-a { opacity: .35; }

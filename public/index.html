@@ -42,23 +42,24 @@
 
     <!-- Sample questions. With JavaScript, one answer shows at a time; without it, all four are listed. -->
     <div class="ask">
-      <p class="ask-q" id="ask-q" aria-live="polite">What PC is John using?</p>
-      <div class="ask-a" data-q="pc">
+      <p class="ask-q"><span class="sr" id="ask-q" aria-live="polite">What PC is John using?</span><span id="ask-typed" aria-hidden="true">What PC is John using?</span></p>
+      <p class="ask-status" id="ask-status" aria-hidden="true" hidden></p>
+      <div class="ask-a" data-q="pc" data-reading="Reading Active Directory and the SIEM…">
         <p class="ask-label">What PC is John using?</p>
         <p>John Demo is signed in on <strong>PC-042</strong> (10.20.30.42). Last sign-in: today, 08:52.</p>
         <p class="sources">Sources: Active Directory, SIEM agent · read 09:14 today</p>
       </div>
-      <div class="ask-a" data-q="app">
+      <div class="ask-a" data-q="app" data-reading="Reading the help-desk inventory…">
         <p class="ask-label">Which computers have AnyDesk installed?</p>
         <p><strong>4 computers</strong> have AnyDesk installed: PC-017, PC-042, PC-108 and LAPTOP-23.</p>
         <p class="sources">Source: help-desk software inventory · read 09:20 today</p>
       </div>
-      <div class="ask-a" data-q="backup">
+      <div class="ask-a" data-q="backup" data-reading="Reading the backup server…">
         <p class="ask-label">Did last night's backups run?</p>
         <p><strong>17 of 18 jobs finished.</strong> One failed: DEMO-FILE-02, because the repository was full.</p>
         <p class="sources">Source: backup server · read 07:05 today</p>
       </div>
-      <div class="ask-a" data-q="alerts">
+      <div class="ask-a" data-q="alerts" data-reading="Reading the SIEM, Entra and Exchange Online…">
         <p class="ask-label">Any critical alerts in the last 24 hours?</p>
         <p><strong>One.</strong> A sign-in from a new country, followed by a new mail-forwarding rule, on Demo
           User's account. The other 212 alerts were routine.</p>
