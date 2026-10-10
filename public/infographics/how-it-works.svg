@@ -44,8 +44,8 @@
   <text class="h" x="496" y="196">IT Sentinel</text>
   <text class="s" x="496" y="220">read-only, on your network</text>
   <line x1="496" y1="240" x2="774" y2="240" stroke="#3A3420" stroke-width="1.5"/>
-  <text class="big" x="496" y="292">150+</text>
-  <text class="t" x="496" y="316">read-only tools</text>
+  <text class="t" x="496" y="296">Read-only tools</text>
+  <text class="s" x="496" y="318">live data from the systems you run</text>
   <text class="t" x="496" y="366">Local AI model</text>
   <text class="s" x="496" y="388">on your own GPU, nothing sent out</text>
   <text class="t" x="496" y="436">Evidence check</text>
