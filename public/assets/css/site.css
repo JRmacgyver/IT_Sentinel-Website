@@ -269,3 +269,6 @@ input[type=checkbox] { width: 18px; height: 18px; accent-color: var(--accent); f
 .js .ask-a, .js .ask-status { min-height: 76px; }
 @media (max-width: 600px) { .js .ask-a, .js .ask-status { min-height: 148px; } }
 .js .ask.typing .ask-a { opacity: .35; }
+
+/* A short line under a tab's heading, before its cards. */
+.panel h2 + .intro-line { margin: -12px 0 24px; max-width: 760px; font-size: 16px; color: var(--soft); }
