@@ -78,7 +78,7 @@
     <p class="actions"><a class="btn" href="#contact">Tell us about your environment →</a></p>
     <ul class="ticks">
       <li>Runs on your hardware</li>
-      <li>Read-only</li>
+      <li>Changes nothing on its own</li>
       <li>Every claim checked</li>
       <li>Delivered as a deployment</li>
     </ul>
@@ -123,10 +123,12 @@
             <p>Nowhere. The model, the data, the logs and every answer stay on your server. Nothing is sent
               to an AI service, or to us.</p></div>
           <div class="card"><h3>What access does it need?</h3>
-            <p>A dedicated read-only account for each system. You create the accounts, and you can see and
-              revoke each one.</p></div>
+            <p>A dedicated account for each system, read-only except for tickets and the firewall's block
+              list. You create the accounts, and you can see and revoke each one.</p></div>
           <div class="card"><h3>Can it change anything?</h3>
-            <p>No. It recommends, drafts tickets and writes the exact commands; a person runs them.</p></div>
+            <p>Nothing on its own. It finds problems and writes the exact fix; a person makes it. When you
+              ask, it can do two things: open or update a help-desk ticket, and add an address it detected to
+              the firewall's block list.</p></div>
           <div class="card"><h3>What if it makes something up?</h3>
             <p>Code checks each concrete claim against what the tools returned. A claim that isn't in the data
               is corrected or marked "not confirmed".</p></div>
@@ -184,7 +186,7 @@
         <ol class="stages">
           <li><strong>1 · Talk</strong>You tell us which tools you run and what you'd ask first.</li>
           <li><strong>2 · Size</strong>We advise on hardware: a server with a GPU, or a VM you provide.</li>
-          <li><strong>3 · Connect</strong>One read-only account per system. Alerts are routed to Teams.</li>
+          <li><strong>3 · Connect</strong>One account per system, read-only by default. Alerts are routed to Teams.</li>
           <li><strong>4 · Tune</strong>Rules are tuned to your noise, and answers grounded in your policies.</li>
           <li><strong>5 · Hand over</strong>Documentation, a walkthrough, and help as things change.</li>
         </ol>
@@ -198,11 +200,15 @@
             <p>The model and your data never leave your network. IT Sentinel does make outbound read calls to
               the cloud services you connect (Microsoft 365, a cloud EDR) and to threat-intelligence feeds.
               Leave those out and it needs no internet at all.</p></details>
+          <details><summary>Why doesn't it fix things itself?</summary>
+            <p>By design. It's built to find problems and tell you exactly how to fix them. Making the change
+              takes responsibility, and AI isn't ready to carry that without a person checking. So the fix
+              stays with you, and afterwards it re-checks that the fix worked.</p></details>
           <details><summary>Which AI model does it use?</summary>
             <p>An open-weight model that runs locally; the exact model depends on your hardware.</p></details>
           <details><summary>How fast is it?</summary>
-            <p>Most answers take a few seconds. A long plan or a full investigation can take around half a
-              minute.</p></details>
+            <p>Most answers take a few seconds. A long plan or a full investigation can take up to a minute
+              or so.</p></details>
           <details><summary>Does it work in languages other than English?</summary>
             <p>It answers in the language of the question. English and Hebrew are in daily use today.</p></details>
           <details><summary>We already have an outsourced SOC. Does this replace it?</summary>
