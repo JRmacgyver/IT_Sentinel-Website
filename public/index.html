@@ -4,13 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>IT Sentinel, built by Toolkit Security</title>
-  <meta name="description" content="IT Sentinel is an AI assistant for IT and security teams that runs on your own server, reads your security and IT tools, and answers in plain language, with the evidence.">
+  <meta name="description" content="IT Sentinel is an AI assistant for IT and security teams that runs on your own hardware, reads your security and IT tools, and answers in plain language, with the evidence.">
   <link rel="canonical" href="https://toolkit-sec.com/">
   <meta name="theme-color" content="#060B20">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="IT Sentinel">
   <meta property="og:title" content="IT Sentinel: your IT and security tools, in one conversation">
-  <meta property="og:description" content="An AI assistant that runs on your own server, reads your SIEM, endpoint protection, firewall, Active Directory, Microsoft 365 and ticketing, and answers with the evidence.">
+  <meta property="og:description" content="An AI assistant that runs on your own hardware, reads your SIEM, endpoint protection, firewall, Active Directory, Microsoft 365 and ticketing, and answers with the evidence.">
   <meta property="og:url" content="https://toolkit-sec.com/">
   <meta property="og:image" content="https://toolkit-sec.com/assets/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
@@ -37,7 +37,7 @@
   <section class="hero" aria-labelledby="hero-title">
     <p class="eyebrow">On-premises AI for IT and security teams</p>
     <h1 id="hero-title">Your IT and security tools, in one conversation.</h1>
-    <p class="lead">IT Sentinel runs on your own server, reads your SIEM, endpoint protection, firewall, Active
+    <p class="lead">IT Sentinel runs on your own hardware, reads your SIEM, endpoint protection, firewall, Active
       Directory, Microsoft 365, ticketing and more, and answers in plain language, with the evidence.</p>
 
     <!-- Sample questions. With JavaScript, one answer shows at a time; without it, all four are listed. -->
@@ -238,6 +238,12 @@
             <div><label for="f-email">Work email</label>
               <input id="f-email" name="email" type="email" autocomplete="email" maxlength="254" required></div>
           </div>
+          <div class="row2">
+            <div><label for="f-company">Company <span class="opt">(optional)</span></label>
+              <input id="f-company" name="company" type="text" autocomplete="organization" maxlength="100"></div>
+            <div><label for="f-role">Role <span class="opt">(optional)</span></label>
+              <input id="f-role" name="role" type="text" autocomplete="organization-title" maxlength="100"></div>
+          </div>
           <fieldset class="stack">
             <legend>What do you run? <span class="opt">(optional)</span></legend>
             <div class="stack-options">
@@ -250,6 +256,9 @@
               <label><input type="checkbox" name="stack" value="Backup">Backup</label>
             </div>
           </fieldset>
+          <div><label for="f-tools">Which products? <span class="opt">(optional)</span></label>
+            <input id="f-tools" name="tools" type="text" maxlength="500"
+                   placeholder="e.g. your SIEM, EDR and firewall"></div>
           <div><label for="f-message">What would you ask it first?</label>
             <textarea id="f-message" name="message" maxlength="3000" rows="3" required></textarea></div>
           <label class="consent"><input type="checkbox" name="consent" value="on" required>
