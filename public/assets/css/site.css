@@ -42,9 +42,9 @@ a:hover { text-decoration-thickness: 2px; }
 strong { color: var(--text); font-weight: 600; }
 [hidden] { display: none !important; }
 
-.skip { position: absolute; left: -999px; top: 8px; background: var(--accent); color: var(--accent-ink);
+.skip { position: absolute; inset-inline-start: -999px; top: 8px; background: var(--accent); color: var(--accent-ink);
         padding: 8px 14px; border-radius: var(--radius-sm); font-weight: 600; z-index: 100; }
-.skip:focus { left: 16px; }
+.skip:focus { inset-inline-start: 16px; }
 
 /* ── Header ─────────────────────────────────────────────── */
 .site-header .inner {
@@ -89,10 +89,10 @@ p { margin: 0; }
 .caption { font-size: 13px; color: var(--muted); }
 .ticks { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; justify-content: center;
          gap: 10px 14px; font: 500 14px/1.4 var(--font-mono); color: var(--soft); }
-.ticks li + li::before { content: "/"; color: var(--line-strong); margin-right: 14px; }
+.ticks li + li::before { content: "/"; color: var(--line-strong); margin-inline-end: 14px; }
 
 /* The question box. Without JavaScript all four answers are listed, each under its own question. */
-.ask { width: 100%; text-align: left; background: var(--panel); border: 1px solid var(--line-strong);
+.ask { width: 100%; text-align: start; background: var(--panel); border: 1px solid var(--line-strong);
        border-radius: 18px; padding: 22px; display: grid; gap: 16px; box-shadow: 0 30px 80px rgba(0, 0, 0, .5); }
 .ask-q, .ask-label { font: 500 17px/1.5 var(--font-mono); color: var(--accent); }
 .ask-q::before, .ask-label::before { content: "> "; }
@@ -103,7 +103,7 @@ p { margin: 0; }
 .ask-try { display: none; flex-wrap: wrap; align-items: center; gap: 8px; padding-top: 14px; border-top: 1px solid var(--line); }
 .ask-try span { font: 500 13px/1 var(--font-mono); color: var(--muted); padding: 0 4px; }
 .ask-try button { min-height: 44px; padding: 0 14px; border-radius: var(--radius-sm); cursor: pointer;
-                  font: 500 14px/1.3 var(--font-mono); text-align: left;
+                  font: 500 14px/1.3 var(--font-mono); text-align: start;
                   border: 1px solid var(--line-strong); background: transparent; color: var(--text); }
 .ask-try button:hover { border-color: var(--accent); }
 .ask-try button[aria-pressed="true"] { border-color: var(--accent); background: var(--accent-soft); color: var(--accent); }
@@ -152,9 +152,9 @@ p { margin: 0; }
 /* ── FAQ ────────────────────────────────────────────────── */
 .faq { display: grid; gap: 10px; max-width: 860px; }
 .faq details { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 4px 20px; }
-.faq summary { cursor: pointer; padding: 14px 32px 14px 0; font-weight: 600; list-style: none; position: relative; }
+.faq summary { cursor: pointer; padding-block: 14px; padding-inline: 0 32px; font-weight: 600; list-style: none; position: relative; }
 .faq summary::-webkit-details-marker { display: none; }
-.faq summary::after { content: "+"; position: absolute; right: 0; top: 10px; font: 400 24px/1 var(--font-mono); color: var(--accent); }
+.faq summary::after { content: "+"; position: absolute; inset-inline-end: 0; top: 10px; font: 400 24px/1 var(--font-mono); color: var(--accent); }
 .faq details[open] summary::after { content: "−"; }
 .faq details p { color: var(--soft); font-size: 16px; margin: 0 0 16px; }
 
@@ -187,7 +187,8 @@ input[type=checkbox] { width: 18px; height: 18px; accent-color: var(--accent); f
 .status { min-height: 1.5em; margin: 0; font-size: 15px; }
 .status.err { color: var(--risk); }
 .status.ok { color: var(--ok); }
-.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.hp { position: absolute; inset-inline-start: -9999px; width: 1px; height: 1px; overflow: hidden; }
+html[dir="rtl"] .hp { inset-inline-start: auto; inset-inline-end: 0; clip-path: inset(50%); }
 
 .thanks { display: none; background: var(--panel); border: 1px solid var(--ok); border-radius: var(--radius); padding: 28px; }
 .thanks:target, .thanks.show { display: block; }
@@ -207,7 +208,7 @@ input[type=checkbox] { width: 18px; height: 18px; accent-color: var(--accent); f
 .page h1 { font-size: clamp(30px, 4.5vw, 44px); line-height: 1.1; margin-bottom: 16px; }
 .page h2 { font-size: 22px; margin: 36px 0 12px; }
 .page p { margin-bottom: 16px; }
-.page ul { padding-left: 22px; margin: 0 0 16px; }
+.page ul { padding-inline-start: 22px; margin: 0 0 16px; }
 .page li { margin-bottom: 8px; }
 
 /* On a phone the hero's four short claims stack, so the "/" separators are dropped. */
@@ -221,7 +222,7 @@ input[type=checkbox] { width: 18px; height: 18px; accent-color: var(--accent); f
 
 /* The "Reading…" line under the question, shown for a moment before the answer. */
 .ask-status { font: 500 14px/1.5 var(--font-mono); color: var(--muted); }
-.ask-status::before { content: ""; display: inline-block; width: 8px; height: 8px; margin-right: 10px;
+.ask-status::before { content: ""; display: inline-block; width: 8px; height: 8px; margin-inline-end: 10px;
                       border-radius: 50%; background: var(--accent); }
 
 /* ── Motion. Everything here is switched off for visitors who ask for reduced motion. ── */
@@ -239,7 +240,7 @@ input[type=checkbox] { width: 18px; height: 18px; accent-color: var(--accent); f
   .hero > :nth-child(n+5) { animation-delay: .36s; }
 
   /* A caret after the question while it is being typed. */
-  .js .ask.typing #ask-typed::after { content: ""; display: inline-block; width: .55em; height: 1.05em; margin-left: 3px;
+  .js .ask.typing #ask-typed::after { content: ""; display: inline-block; width: .55em; height: 1.05em; margin-inline-start: 3px;
                                       vertical-align: text-bottom; background: var(--accent); animation: blink .9s steps(1) infinite; }
   .ask-status { animation: fade .25s both; }
   .ask-status::before { animation: pulse .8s ease-in-out infinite; }
@@ -272,3 +273,16 @@ input[type=checkbox] { width: 18px; height: 18px; accent-color: var(--accent); f
 
 /* A short line under a tab's heading, before its cards. */
 .panel h2 + .intro-line { margin: -12px 0 24px; max-width: 760px; font-size: 16px; color: var(--soft); }
+
+/* Header: language link next to the button. */
+.head-links { display: flex; align-items: center; gap: 18px; }
+.head-links .lang { color: var(--soft); text-decoration: none; font-size: 15px; padding: 10px 2px; }
+.head-links .lang:hover { color: var(--text); text-decoration: underline; }
+
+/* Hebrew page: Heebo throughout (monospace spaces Hebrew words too far apart), and no letter-spacing,
+   which Hebrew doesn't use. */
+html[lang="he"] { --font-sans: 'Heebo', system-ui, -apple-system, 'Segoe UI', sans-serif;
+                  --font-mono: 'Heebo', system-ui, sans-serif; }
+html[lang="he"] .eyebrow, html[lang="he"] h1, html[lang="he"] h2 { letter-spacing: 0; }
+html[lang="he"] h1 { line-height: 1.15; }
+html[lang="he"] .tabs button { font-size: 17px; }

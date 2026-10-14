@@ -22,6 +22,32 @@ const MAX_BODY = 32 * 1024; // bytes; the largest legitimate form is well under 
 const EMAIL_RE = /^[^\s@<>"]+@[^\s@<>"]+\.[^\s@<>"]{2,}$/;
 const HSTS = "max-age=31536000";
 
+// Replies in the page's language: the Hebrew page posts to /api/contact?lang=he.
+const MSG = {
+  en: {
+    notReady: "The contact form is not configured yet.",
+    tooMany: "Too many messages. Please try again in a minute.",
+    tooLarge: "That message is too large.",
+    formData: "Send the form as form data.",
+    thanks: "Thanks, we'll reply within two working days.",
+    spam: "The spam check didn't pass. Reload the page and try again.",
+    fill: "Please fill in your name, a valid email address and a message.",
+    consent: "Please tick the box so we can use your details to reply.",
+    sendFail: "We couldn't send your message just now. Please try again later.",
+  },
+  he: {
+    notReady: "טופס הפנייה עוד לא מוגדר.",
+    tooMany: "יותר מדי הודעות. נסו שוב בעוד דקה.",
+    tooLarge: "ההודעה ארוכה מדי.",
+    formData: "יש לשלוח את הטופס כטופס.",
+    thanks: "תודה, נחזור אליכם תוך שני ימי עבודה.",
+    spam: "בדיקת הספאם לא עברה. טענו את הדף מחדש ונסו שוב.",
+    fill: "נא למלא שם, כתובת אימייל תקינה והודעה.",
+    consent: "נא לסמן את התיבה כדי שנוכל להשתמש בפרטים שלכם לתשובה.",
+    sendFail: "לא הצלחנו לשלוח את ההודעה כרגע. נסו שוב מאוחר יותר.",
+  },
+};
+
 function json(body, status = 200) {
   return new Response(JSON.stringify(body), {
     status,
@@ -65,36 +91,38 @@ async function verifyTurnstile(token, ip, secret) {
 }
 
 async function handleContact(request, env) {
+  const lang = new URL(request.url).searchParams.get("lang") === "he" ? "he" : "en";
+  const M = MSG[lang];
   if (request.method !== "POST") return json({ ok: false, error: `Method ${request.method} not allowed` }, 405);
   if (!env.SEND_EMAIL || !env.CONTACT_TO) {
-    return json({ ok: false, error: "The contact form is not configured yet." }, 503);
+    return json({ ok: false, error: M.notReady }, 503);
   }
 
   const ip = request.headers.get("CF-Connecting-IP") || "";
   if (env.CONTACT_LIMITER) {
     const { success } = await env.CONTACT_LIMITER.limit({ key: ip || "unknown" });
-    if (!success) return json({ ok: false, error: "Too many messages. Please try again in a minute." }, 429);
+    if (!success) return json({ ok: false, error: M.tooMany }, 429);
   }
 
   // Refuse oversized bodies before parsing them (Content-Length first, then the real size).
   if (Number(request.headers.get("content-length") || 0) > MAX_BODY) {
-    return json({ ok: false, error: "That message is too large." }, 413);
+    return json({ ok: false, error: M.tooLarge }, 413);
   }
   let form;
   try {
     const raw = await request.arrayBuffer();
-    if (raw.byteLength > MAX_BODY) return json({ ok: false, error: "That message is too large." }, 413);
+    if (raw.byteLength > MAX_BODY) return json({ ok: false, error: M.tooLarge }, 413);
     form = await new Response(raw, { headers: { "content-type": request.headers.get("content-type") || "" } }).formData();
   } catch {
-    return json({ ok: false, error: "Send the form as form data." }, 400);
+    return json({ ok: false, error: M.formData }, 400);
   }
 
   // Honeypot: a field people never see. Bots that fill it get a polite "ok" and nothing is sent.
-  if (clean(form.get("website"), 200)) return json({ ok: true, message: "Thanks, we'll reply within two working days." });
+  if (clean(form.get("website"), 200)) return json({ ok: true, message: M.thanks });
 
   if (env.TURNSTILE_SECRET) {
     if (!(await verifyTurnstile(form.get("cf-turnstile-response") || "", ip, env.TURNSTILE_SECRET))) {
-      return json({ ok: false, error: "The spam check didn't pass. Reload the page and try again." }, 400);
+      return json({ ok: false, error: M.spam }, 400);
     }
   }
 
@@ -102,10 +130,10 @@ async function handleContact(request, env) {
   for (const [field, max] of Object.entries(LIMITS)) entry[field] = clean(form.get(field), max);
   for (const field of ["name", "email", "company", "role"]) entry[field] = oneLine(entry[field]);
   if (!entry.name || !EMAIL_RE.test(entry.email) || !entry.message) {
-    return json({ ok: false, error: "Please fill in your name, a valid email address and a message." }, 400);
+    return json({ ok: false, error: M.fill }, 400);
   }
   if (form.get("consent") !== "on" && form.get("consent") !== "yes") {
-    return json({ ok: false, error: "Please tick the box so we can use your details to reply." }, 400);
+    return json({ ok: false, error: M.consent }, 400);
   }
   const stack = form.getAll("stack").map(String).filter((v) => STACK.includes(v));
   const received = new Date().toISOString();
@@ -115,6 +143,7 @@ async function handleContact(request, env) {
   const subject = oneLine(`IT Sentinel enquiry: ${entry.name}${entry.company ? " (" + entry.company + ")" : ""}`).slice(0, 200);
   const text = [
     `New enquiry from the IT Sentinel website (${received}, country: ${country})`,
+    `Page: ${lang === "he" ? "Hebrew (reply in Hebrew)" : "English"}`,
     "",
     `Name:    ${entry.name}`,
     `Email:   ${entry.email}`,
@@ -149,13 +178,13 @@ async function handleContact(request, env) {
     await env.SEND_EMAIL.send(new EmailMessage(from, env.CONTACT_TO, raw));
   } catch (e) {
     console.error("contact email failed:", e && e.message);
-    return json({ ok: false, error: "We couldn't send your message just now. Please try again later." }, 502);
+    return json({ ok: false, error: M.sendFail }, 502);
   }
 
   // A plain HTML form (no JavaScript) gets redirected to a thank-you anchor.
   const accept = request.headers.get("accept") || "";
-  if (accept.includes("text/html")) return Response.redirect(`https://${APEX}/#thanks`, 303);
-  return json({ ok: true, message: "Thanks, we'll reply within two working days." });
+  if (accept.includes("text/html")) return Response.redirect(`https://${APEX}${lang === "he" ? "/he/" : "/"}#thanks`, 303);
+  return json({ ok: true, message: M.thanks });
 }
 
 export default {

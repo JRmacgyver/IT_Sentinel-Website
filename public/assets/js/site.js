@@ -3,6 +3,24 @@
 (function () {
   "use strict";
 
+  // Form messages in the page's language.
+  var HE = document.documentElement.lang === "he";
+  var T = HE ? {
+    fill: "נא למלא שם, כתובת אימייל תקינה והודעה.",
+    consent: "נא לסמן את התיבה כדי שנוכל להשתמש בפרטים שלכם לתשובה.",
+    wait: "נא לחכות שבדיקת הספאם תסתיים, ולשלוח שוב.",
+    sending: "שולח…",
+    generic: "משהו השתבש. נסו שוב בעוד דקה.",
+    network: "לא הצלחנו להגיע לשרת. בדקו את החיבור ונסו שוב."
+  } : {
+    fill: "Please fill in your name, a valid email address and a message.",
+    consent: "Please tick the box so we can use your details to reply.",
+    wait: "Please wait for the spam check to finish, then send again.",
+    sending: "Sending…",
+    generic: "Something went wrong. Please try again in a minute.",
+    network: "We couldn't reach the server. Check your connection and try again."
+  };
+
   var year = document.getElementById("year");
   if (year) year.textContent = String(new Date().getFullYear());
 
@@ -111,7 +129,9 @@
     tabs.forEach(function (t, i) {
       t.addEventListener("click", function () { selectTab(t); });
       t.addEventListener("keydown", function (ev) {
-        var next = ev.key === "ArrowRight" ? i + 1 : ev.key === "ArrowLeft" ? i - 1
+        var fwd = document.dir === "rtl" ? "ArrowLeft" : "ArrowRight";
+        var back = document.dir === "rtl" ? "ArrowRight" : "ArrowLeft";
+        var next = ev.key === fwd ? i + 1 : ev.key === back ? i - 1
                  : ev.key === "Home" ? 0 : ev.key === "End" ? tabs.length - 1 : null;
         if (next === null) return;
         ev.preventDefault();
@@ -155,19 +175,19 @@
     var data = new FormData(form);
     if (!String(data.get("name") || "").trim() || !form.elements.email.checkValidity()
         || !String(data.get("email") || "").trim() || !String(data.get("message") || "").trim()) {
-      say("Please fill in your name, a valid email address and a message.", "err");
+      say(T.fill, "err");
       return;
     }
     if (!form.elements.consent.checked) {
-      say("Please tick the box so we can use your details to reply.", "err");
+      say(T.consent, "err");
       return;
     }
     if (spamCheck && !data.get("cf-turnstile-response")) {
-      say("Please wait for the spam check to finish, then send again.", "err");
+      say(T.wait, "err");
       return;
     }
     button.disabled = true;
-    say("Sending…");
+    say(T.sending);
     fetch(form.action, { method: "POST", body: data, headers: { Accept: "application/json" } })
       .then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
       .then(function (res) {
@@ -176,12 +196,12 @@
           thanks.classList.add("show");
           thanks.focus();
         } else {
-          say((res && res.error) || "Something went wrong. Please try again in a minute.", "err");
+          say((res && res.error) || T.generic, "err");
           if (spamCheck && window.turnstile) window.turnstile.reset();
         }
       })
       .catch(function () {
-        say("We couldn't reach the server. Check your connection and try again.", "err");
+        say(T.network, "err");
         if (spamCheck && window.turnstile) window.turnstile.reset();
       })
       .finally(function () { button.disabled = false; });
