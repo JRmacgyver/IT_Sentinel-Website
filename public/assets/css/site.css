@@ -130,7 +130,7 @@ p { margin: 0; }
 /* ── Cards ──────────────────────────────────────────────── */
 .cards { display: grid; gap: 18px; }
 .cards-3 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
-.cards-4 { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.cards-4 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
 .card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; }
 .card h3 { margin-bottom: 10px; }
 .cards-4 .card h3 { color: var(--accent); }
@@ -267,8 +267,8 @@ html[dir="rtl"] .hp { inset-inline-start: auto; inset-inline-end: 0; clip-path: 
 }
 
 /* The answer and the "Reading…" line share one height, so the box does not jump between them. */
-.js .ask-a, .js .ask-status { min-height: 76px; }
-@media (max-width: 600px) { .js .ask-a, .js .ask-status { min-height: 148px; } }
+.js .ask-a, .js .ask-status { min-height: 104px; }
+@media (max-width: 600px) { .js .ask-a, .js .ask-status { min-height: 196px; } }
 .js .ask.typing .ask-a { opacity: .35; }
 
 /* A short line under a tab's heading, before its cards. */

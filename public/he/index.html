@@ -72,12 +72,48 @@
           212 ההתראות האחרות היו שגרתיות.</p>
         <p class="sources">מקורות: SIEM, יומן הכניסות של Entra, Exchange Online · נקרא היום ב-09:31</p>
       </div>
+      <div class="ask-a" data-q="signin" data-reading="קורא את אירועי ההתחברות ב-SIEM…">
+        <p class="ask-label">מה ממשיך להיכשל בהתחברות?</p>
+        <p><strong>חשבון המחשב של WEB01</strong>, כ-14 פעמים בדקה מול SRV-SFTP: משימה מתוזמנת משתמשת בחשבון שלא קיים שם. מצאו את המשימה ותנו לה חשבון תקין.</p>
+        <p class="sources">מקור: אירועי התחברות ב-SIEM · נקרא היום ב-09:40</p>
+      </div>
+      <div class="ask-a" data-q="printer" data-reading="שואל את חומת האש, בשני הכיוונים…">
+        <p class="ask-label">למה מדפסת המדבקות לא מגיעה לשרת ההדפסה בפורט 9100?</p>
+        <p><strong>חומת האש של המשרד חוסמת.</strong> המדפסת מאזינה ב-TCP 9100, אבל אין מדיניות שמאפשרת לשרת ההדפסה לפתוח את החיבור. הוסיפו מדיניות, ל-TCP 9100 בלבד.</p>
+        <p class="sources">מקורות: בדיקת המדיניות של חומת האש עצמה, בדיקת פורט במדפסת · נקרא היום ב-10:02</p>
+      </div>
+      <div class="ask-a" data-q="mailbox" data-reading="קורא את Exchange Online ואת Entra ID…">
+        <p class="ask-label">לאילו תיבות משותפות אפשר להתחבר ישירות?</p>
+        <p>ל-<strong>31 מתוך 40</strong> תיבות משותפות יש חשבון שיכול להתחבר עם סיסמה. ברשימה: מי מורשה לכל תיבה, והצעדים לחסימת ההתחברות.</p>
+        <p class="sources">מקורות: Exchange Online, Entra ID · נקרא היום ב-10:15</p>
+      </div>
+      <div class="ask-a" data-q="calls" data-reading="קורא את המרכזייה ואת ה-CRM…">
+        <p class="ask-label">כמה שיחות פספסה התמיכה היום?</p>
+        <p><strong>7 שיחות שלא נענו</strong>, כולן בין 12:00 ל-13:10, כשרק נציג אחד היה מחובר. 5 מהמתקשרים הם לקוחות ב-CRM; 3 השאירו הודעה קולית ועוד לא חזרו אליהם.</p>
+        <p class="sources">מקורות: רישומי השיחות במרכזייה, ה-CRM · נקרא היום ב-13:30</p>
+      </div>
+      <div class="ask-a" data-q="error" data-reading="בודק בתיעוד של Microsoft…">
+        <p class="ask-label">מה המשמעות של שגיאה 0x80180014?</p>
+        <p><strong dir="ltr">"Your organization does not support this version of Windows."</strong> הגבלת רישום ב-Intune חוסמת: אפשרו Windows (MDM) למשתמש הזה.</p>
+        <p class="sources">מקור: התיעוד של Microsoft לפתרון בעיות רישום</p>
+      </div>
+      <div class="ask-a" data-q="exposed" data-reading="קורא את השירותים המפורסמים בחומת האש…">
+        <p class="ask-label">יש משהו חשוף לאינטרנט שלא אמור להיות?</p>
+        <p><strong>2 דברים.</strong> RDP ל-SRV-APP02 פתוח לכל כתובת באינטרנט, ודף הניהול של חומת האש עונה מצד האינטרנט. 14 השירותים המפורסמים האחרים מוגבלים כמו שצריך.</p>
+        <p class="sources">מקור: המדיניות והשירותים המפורסמים בחומת האש · נקרא היום ב-10:40</p>
+      </div>
       <div class="ask-try">
         <span>נסו:</span>
         <button type="button" data-q="pc" aria-pressed="true">באיזה מחשב יוסי משתמש?</button>
         <button type="button" data-q="app" aria-pressed="false">באילו מחשבים מותקן AnyDesk?</button>
         <button type="button" data-q="backup" aria-pressed="false">הגיבויים של הלילה רצו?</button>
         <button type="button" data-q="alerts" aria-pressed="false">היו התראות קריטיות ב-24 השעות האחרונות?</button>
+        <button type="button" data-q="signin" aria-pressed="false">מה ממשיך להיכשל בהתחברות?</button>
+        <button type="button" data-q="printer" aria-pressed="false">למה מדפסת המדבקות לא מגיעה לשרת ההדפסה בפורט 9100?</button>
+        <button type="button" data-q="mailbox" aria-pressed="false">לאילו תיבות משותפות אפשר להתחבר ישירות?</button>
+        <button type="button" data-q="calls" aria-pressed="false">כמה שיחות פספסה התמיכה היום?</button>
+        <button type="button" data-q="error" aria-pressed="false">מה המשמעות של שגיאה 0x80180014?</button>
+        <button type="button" data-q="exposed" aria-pressed="false">יש משהו חשוף לאינטרנט שלא אמור להיות?</button>
       </div>
     </div>
     <p class="caption">המחשה עם נתוני דמו, לא מערכת חיה.</p>
@@ -110,10 +146,16 @@
             <p>״יש משהו חשוף לאינטרנט שלא אמור להיות?״ שאלה אחת, והוא בודק בכל המערכות הרלוונטיות.</p></article>
           <article class="card"><h3>קבלו עדכון</h3>
             <p>התראות מגיעות ל-Teams כשהן כבר נחקרו. סיכום יומי ורשימת ממצאים, כל אחד עם פתיחת קריאה
-              בלחיצה.</p></article>
+              בלחיצה, ועם מה ששאר המערכות שלכם יודעות עליו.</p></article>
           <article class="card"><h3>סקירה</h3>
             <p>כפתור אחד, או משפט אחד: ״תסקור את חומת האש״, ״תבדוק את הגיבויים״. ממצאים לפי חומרה, עם
-              התיקון לכל אחד.</p></article>
+              התיקון לכל אחד. הוא גם מוצא את המחשבים שאף אחד לא מנטר.</p></article>
+          <article class="card"><h3>בדיקת ענן יומית</h3>
+            <p>Microsoft 365 ו-Google Workspace נבדקים כל יום מול בסיס אבטחה: הראיות והתיקון לכל פער, לצד מה
+              שקורה בפועל ב-tenant.</p></article>
+          <article class="card"><h3>חקירות מתועדות</h3>
+            <p>בלחיצה אחת חקירה הופכת למאמר ידע במערכת הקריאות. העובדות מגיעות מהבדיקות שהוא הריץ; ה-AI רק מנסח
+              את הסיכום, ואדם מאשר. בפעם הבאה, הוא מעלה את התיעוד מחדש.</p></article>
           <article class="card"><h3>הוכיחו את התיקון</h3>
             <p>אחרי שינוי, שאלו ״התיקון עבד?״. הוא מריץ את הבדיקה שוב, בזמן אמת: תוקן, עדיין קיים, או
               חדש.</p></article>
@@ -136,10 +178,16 @@
               הוא קריאת שירות, שהוא פותח או מעדכן כשאתם מבקשים.</p></div>
           <div class="card"><h3>ומה אם הוא ממציא?</h3>
             <p>קוד בודק כל טענה קונקרטית מול מה שהכלים החזירו. טענה שלא מופיעה בנתונים מתוקנת, או מסומנת
-              ״לא אומת״.</p></div>
+              ״לא אומת״. בהחלטות קצרות ה-AI גם אומר כמה הוא בטוח; כשהוא לא בטוח, ה-Sentinel לא מסתמך עליו.</p></div>
           <div class="card"><h3>מי יכול להשתמש בו?</h3>
             <p>חשבונות הדומיין שלכם, מוגבלים לקבוצה שאתם בוחרים. תפקידים יכולים לתת למנהלים ולצוות התמיכה
               כלים ונתונים שונים.</p></div>
+          <div class="card"><h3>ומה אם הוא נעצר?</h3>
+            <p>Watchdog בודק את ה-SIEM, את המודל ואת ה-GPU, ומודיע ב-Teams כשאחד מהם נעצר. מנוע הניתוח של
+              ה-SIEM מתאושש בעצמו תוך דקות.</p></div>
+          <div class="card"><h3>הדירוגים מאמנים את ה-AI על הנתונים שלי?</h3>
+            <p>לא. אפשר לדרג כל תשובה 👍 או 👎: תשובות שגויות נבדקות על ידי אנשים עם התיעוד המלא, ותשובות טובות
+              הופכות לבדיקות. הנתונים שלכם לא מוזנים ל-AI.</p></div>
           <div class="card"><h3>איזו חומרה צריך?</h3>
             <p>לא צריך שרת. מחשב שולחני עם כרטיס גרפי אחד של NVIDIA מספיק, למשל Core i5 ישן עם 32GB RAM
               וכרטיס של 12GB.</p></div>
@@ -155,7 +203,7 @@
           <div><dt>הגנה על תחנות</dt><dd>SentinelOne, Palo Alto Cortex XDR</dd></div>
           <div><dt>חומת אש</dt><dd>FortiGate, אתר אחד או כמה</dd></div>
           <div><dt>ניהול משתמשים</dt><dd>Active Directory ו-Group Policy, דומיין אחד או כמה</dd></div>
-          <div><dt>ענן וזהויות</dt><dd>Entra ID, Microsoft 365, Exchange Online, Azure</dd></div>
+          <div><dt>ענן וזהויות</dt><dd>Entra ID, Microsoft 365, Exchange Online, Azure, Google Workspace</dd></div>
           <div><dt>אבטחת דואר</dt><dd>Perception Point</dd></div>
           <div><dt>מוקד תמיכה וניטור</dt><dd>GLPI, Zabbix</dd></div>
           <div><dt>גיבוי ווירטואליזציה</dt><dd>Veeam, Rubrik, Keepit, VMware Cloud Director</dd></div>

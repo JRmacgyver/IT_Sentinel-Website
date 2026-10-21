@@ -71,12 +71,48 @@
           User's account. The other 212 alerts were routine.</p>
         <p class="sources">Sources: SIEM, Entra sign-in log, Exchange Online · read 09:31 today</p>
       </div>
+      <div class="ask-a" data-q="signin" data-reading="Reading the SIEM's sign-in events…">
+        <p class="ask-label">What keeps failing to sign in?</p>
+        <p><strong>WEB01's computer account</strong>, about 14 times a minute against SRV-SFTP: a scheduled job uses an account that doesn't exist there. Find the job and give it a valid account.</p>
+        <p class="sources">Source: SIEM sign-in events · read 09:40 today</p>
+      </div>
+      <div class="ask-a" data-q="printer" data-reading="Asking the firewall, both ways…">
+        <p class="ask-label">Why can't the label printer reach the print server on port 9100?</p>
+        <p><strong>The office firewall blocks it.</strong> The printer listens on TCP 9100, but no policy lets the print server open that connection. Add one, for TCP 9100 only.</p>
+        <p class="sources">Sources: the firewall's own policy lookup, a port check of the printer · read 10:02 today</p>
+      </div>
+      <div class="ask-a" data-q="mailbox" data-reading="Reading Exchange Online and Entra ID…">
+        <p class="ask-label">Which shared mailboxes can be signed into directly?</p>
+        <p><strong>31 of 40</strong> shared mailboxes have an account that can sign in with a password. Listed with who has access to each, and the steps to block sign-in.</p>
+        <p class="sources">Sources: Exchange Online, Entra ID · read 10:15 today</p>
+      </div>
+      <div class="ask-a" data-q="calls" data-reading="Reading the phone system and the CRM…">
+        <p class="ask-label">How many calls did support miss today?</p>
+        <p><strong>7 missed calls</strong>, all between 12:00 and 13:10, when one agent was logged in. 5 callers are customers in the CRM; 3 left a voicemail and haven't been called back.</p>
+        <p class="sources">Sources: phone system call records, CRM · read 13:30 today</p>
+      </div>
+      <div class="ask-a" data-q="error" data-reading="Looking it up in Microsoft's documentation…">
+        <p class="ask-label">What does error 0x80180014 mean?</p>
+        <p><strong>"Your organization does not support this version of Windows."</strong> An Intune enrollment restriction is blocking it: allow Windows (MDM) for that user.</p>
+        <p class="sources">Source: Microsoft's enrollment troubleshooting documentation</p>
+      </div>
+      <div class="ask-a" data-q="exposed" data-reading="Reading the firewall's published services…">
+        <p class="ask-label">Is anything exposed to the internet that shouldn't be?</p>
+        <p><strong>2 items.</strong> RDP to SRV-APP02 is open to any internet address, and the firewall's admin page answers on the internet side. The other 14 published services are limited as they should be.</p>
+        <p class="sources">Source: firewall policies and published services · read 10:40 today</p>
+      </div>
       <div class="ask-try">
         <span>Try:</span>
         <button type="button" data-q="pc" aria-pressed="true">What PC is John using?</button>
         <button type="button" data-q="app" aria-pressed="false">Which computers have AnyDesk installed?</button>
         <button type="button" data-q="backup" aria-pressed="false">Did last night's backups run?</button>
         <button type="button" data-q="alerts" aria-pressed="false">Any critical alerts in the last 24 hours?</button>
+        <button type="button" data-q="signin" aria-pressed="false">What keeps failing to sign in?</button>
+        <button type="button" data-q="printer" aria-pressed="false">Why can't the label printer reach the print server on port 9100?</button>
+        <button type="button" data-q="mailbox" aria-pressed="false">Which shared mailboxes can be signed into directly?</button>
+        <button type="button" data-q="calls" aria-pressed="false">How many calls did support miss today?</button>
+        <button type="button" data-q="error" aria-pressed="false">What does error 0x80180014 mean?</button>
+        <button type="button" data-q="exposed" aria-pressed="false">Is anything exposed to the internet that shouldn't be?</button>
       </div>
     </div>
     <p class="caption">Illustration with demo data, not a live system.</p>
@@ -110,10 +146,17 @@
               relevant system.</p></article>
           <article class="card"><h3>Get told</h3>
             <p>Alerts arrive in Teams already investigated. A daily briefing and a findings list, each with a
-              one-click ticket.</p></article>
+              one-click ticket and what your other systems know about it.</p></article>
           <article class="card"><h3>Review</h3>
             <p>One button, or one sentence: "review our firewall", "audit our backups". Findings by severity,
-              with the fix for each.</p></article>
+              with the fix for each. It also finds the machines nobody is watching.</p></article>
+          <article class="card"><h3>Cloud check-up</h3>
+            <p>Microsoft 365 and Google Workspace, checked every day against a security baseline: the evidence and
+              the fix for every gap, next to what is actually happening in the tenant.</p></article>
+          <article class="card"><h3>Investigations on record</h3>
+            <p>One click turns an investigation into a help-desk knowledge article. The facts come from the checks
+              it ran; the AI only drafts the summary, and a person signs off. Next time, it brings the record
+              back.</p></article>
           <article class="card"><h3>Prove the fix</h3>
             <p>After you change something, ask "did my fix work?" It re-runs the check live: fixed, still
               there, or new.</p></article>
@@ -126,7 +169,7 @@
         <h2>What you'd ask before letting an AI near your network</h2>
         <div class="cards cards-3 asks">
           <div class="card"><h3>Where does my data go?</h3>
-            <p>Nowhere. The model, the data, the logs and every answer stay on your server. Nothing is sent
+            <p>Nowhere. The model, the data, the logs and every answer stay on your hardware. Nothing is sent
               to an AI service, or to us.</p></div>
           <div class="card"><h3>What access does it need?</h3>
             <p>A dedicated account for each system, read-only except for help-desk tickets. You create the
@@ -136,10 +179,17 @@
               thing it can change is a help-desk ticket, which it opens or updates when you ask.</p></div>
           <div class="card"><h3>What if it makes something up?</h3>
             <p>Code checks each concrete claim against what the tools returned. A claim that isn't in the data
-              is corrected or marked "not confirmed".</p></div>
+              is corrected or marked "not confirmed". For quick yes/no decisions the AI also says how sure it is;
+              when it isn't sure, the Sentinel doesn't rely on it.</p></div>
           <div class="card"><h3>Who can use it?</h3>
             <p>Your own directory accounts, limited to a group you choose. Roles can give managers and
               help-desk staff different tools and data.</p></div>
+          <div class="card"><h3>What if it stops?</h3>
+            <p>A watchdog checks the SIEM, the model and its GPU, and posts to Teams when one of them stops. The
+              SIEM's analysis engine restarts itself within minutes.</p></div>
+          <div class="card"><h3>Do ratings train the AI on my data?</h3>
+            <p>No. Rate any answer 👍 or 👎: wrong answers are reviewed by people with the full record, and good
+              ones become tests. Your data is never fed to the AI.</p></div>
           <div class="card"><h3>What hardware?</h3>
             <p>No server needed. A desktop with one NVIDIA graphics card is enough, for example an older Core i5
               with 32 GB of RAM and a 12 GB card.</p></div>
@@ -155,7 +205,7 @@
           <div><dt>Endpoint protection</dt><dd>SentinelOne, Palo Alto Cortex XDR</dd></div>
           <div><dt>Firewall</dt><dd>FortiGate, one site or several</dd></div>
           <div><dt>Directory</dt><dd>Active Directory and Group Policy, one domain or several</dd></div>
-          <div><dt>Cloud and identity</dt><dd>Entra ID, Microsoft 365, Exchange Online, Azure</dd></div>
+          <div><dt>Cloud and identity</dt><dd>Entra ID, Microsoft 365, Exchange Online, Azure, Google Workspace</dd></div>
           <div><dt>Email security</dt><dd>Perception Point</dd></div>
           <div><dt>Help desk and monitoring</dt><dd>GLPI, Zabbix</dd></div>
           <div><dt>Backup and virtualisation</dt><dd>Veeam, Rubrik, Keepit, VMware Cloud Director</dd></div>
