@@ -101,6 +101,11 @@
         <p><strong>2 items.</strong> RDP to SRV-APP02 is open to any internet address, and the firewall's admin page answers on the internet side. The other 14 published services are limited as they should be.</p>
         <p class="sources">Source: firewall policies and published services · read 10:40 today</p>
       </div>
+      <div class="ask-a" data-q="dc" data-reading="Reading the domain controllers…">
+        <p class="ask-label">Are my domain controllers healthy?</p>
+        <p><strong>Yes, all 3.</strong> Replication is up to date on every link, the clocks agree, and every role holder answers. DC03, added last week, was picked up by itself.</p>
+        <p class="sources">Source: the domain controllers, read live · read 10:50 today</p>
+      </div>
       <div class="ask-try">
         <span>Try:</span>
         <button type="button" data-q="pc" aria-pressed="true">What PC is John using?</button>
@@ -113,6 +118,7 @@
         <button type="button" data-q="calls" aria-pressed="false">How many calls did support miss today?</button>
         <button type="button" data-q="error" aria-pressed="false">What does error 0x80180014 mean?</button>
         <button type="button" data-q="exposed" aria-pressed="false">Is anything exposed to the internet that shouldn't be?</button>
+        <button type="button" data-q="dc" aria-pressed="false">Are my domain controllers healthy?</button>
       </div>
     </div>
     <p class="caption">Illustration with demo data, not a live system.</p>
@@ -160,13 +166,17 @@
           <article class="card"><h3>Investigations on record</h3>
             <p>One click turns an investigation into a help-desk knowledge article. The facts come from the checks
               it ran; the AI only drafts the summary, and a person signs off. Next time, it brings the record
-              back.</p></article>
+              back. An alert can also be linked to an existing ticket or recorded as a change, so later, "why was this changed?" has an answer.</p></article>
+          <article class="card"><h3>Vulnerabilities by real risk</h3>
+            <p>It ranks your vulnerabilities by how likely they are to be exploited in the next 30 days, not just by their severity on paper, so the few that matter come first.</p></article>
+          <article class="card"><h3>What the internet sees</h3>
+            <p>Every day it checks what the internet sees of you: your public addresses, public certificates and look-alike domains. It reads public data only.</p></article>
           <article class="card"><h3>Prove the fix</h3>
             <p>After you change something, ask "did my fix work?" It re-runs the check live: fixed, still
               there, or new.</p></article>
         </div>
         <p class="after">Behind every answer: read-only tools fetch live data, a local model on your own GPU
-          writes the answer, and code checks every concrete claim against the data before you see it.</p>
+          writes the answer, and code checks every concrete claim against the data before you see it. Where a mistake would matter, such as reading a cloud change or a sign-in policy, the decision is made by fixed checks in code, not by the AI.</p>
       </div>
 
       <div class="panel" id="security" role="tabpanel" aria-labelledby="tab-security" tabindex="0">
@@ -174,7 +184,7 @@
         <div class="cards cards-3 asks">
           <div class="card"><h3>Where does my data go?</h3>
             <p>Nowhere. The model, the data, the logs and every answer stay on your hardware. Nothing is sent
-              to an AI service, or to us.</p></div>
+              to an AI service, or to us. Even the vendor documentation it reads for how-to answers is kept on your hardware.</p></div>
           <div class="card"><h3>What access does it need?</h3>
             <p>A dedicated account for each system, read-only except for help-desk tickets. You create the
               accounts, and you can see and revoke each one.</p></div>
@@ -184,7 +194,7 @@
           <div class="card"><h3>What if it makes something up?</h3>
             <p>Code checks each concrete claim against what the tools returned. A claim that isn't in the data
               is corrected or marked "not confirmed". For quick yes/no decisions the AI also says how sure it is;
-              when it isn't sure, the Sentinel doesn't rely on it.</p></div>
+              when it isn't sure, the Sentinel doesn't rely on it. Every command in an answer is checked against the vendor's command reference first, and anything that doesn't match is marked.</p></div>
           <div class="card"><h3>Who can use it?</h3>
             <p>Your own directory accounts, limited to a group you choose. Roles can give managers and
               help-desk staff different tools and data.</p></div>
@@ -231,15 +241,13 @@
           <article class="card"><h3>An audit setting that switched itself off</h3>
             <p>Two kinds of audit policy were overriding each other, turning sign-in auditing off and on
               every few minutes. The review named both; one was removed.</p></article>
-          <article class="card"><h3>A permission nobody remembered granting</h3>
-            <p>An account could copy every password hash in the domain. The admin removed the right, asked
-              "did it work?", and the check re-ran live and confirmed it.</p></article>
+          <article class="card"><h3>An update that kept coming back</h3>
+            <p>A server's update kept coming back after every restart. The answer was already in the update client's own failure events, which no alert ever read.</p></article>
           <article class="card"><h3>One phone, three addresses</h3>
             <p>Guest Wi-Fi sessions to a known command-and-control server looked like three machines. Lining
               up the times pointed to one phone, which was blocked.</p></article>
-          <article class="card"><h3>Reports that hid their own names</h3>
-            <p>A tenant setting anonymised the cloud usage reports. The review refused to guess and named the
-              setting to change.</p></article>
+          <article class="card"><h3>A backup that failed in silence</h3>
+            <p>A server's backup failed every night for weeks with a message that explained nothing. It found the reason in the backup system's own records, and it was fixed within the hour.</p></article>
         </div>
       </div>
 
