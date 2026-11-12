@@ -21,8 +21,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap">
-  <link rel="stylesheet" href="/assets/css/site.css?v=20261112b">
-  <script src="/assets/js/site.js?v=20261112b" defer></script>
+  <link rel="stylesheet" href="/assets/css/site.css?v=20261112c">
+  <script src="/assets/js/site.js?v=20261112c" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -107,6 +107,21 @@
         <p><strong>Yes, all 3.</strong> Replication is up to date on every link, the clocks agree, and every role holder answers. DC03, added last week, was picked up by itself.</p>
         <p class="sources">Source: the domain controllers, read live · read 10:50 today</p>
       </div>
+      <div class="ask-a" data-q="quarantine" data-reading="Reading the Exchange Online quarantine…">
+        <p class="ask-label">What's in quarantine from the last 30 days?</p>
+        <p><strong>312 messages held:</strong> 268 spam or bulk, 31 phishing, 9 high-confidence phishing and 4 malware. The 13 dangerous ones are listed on their own; 2 messages were released, both on request.</p>
+        <p class="sources">Source: Exchange Online quarantine · read 11:10 today</p>
+      </div>
+      <div class="ask-a" data-q="cert" data-reading="Reading the internal certificate authority…">
+        <p class="ask-label">Can any user get a certificate as someone else?</p>
+        <p><strong>Yes, through one template.</strong> WebServer-Copy lets any domain user enrol and put any account's name in the request. Turn off "supply in the request" or limit who can enrol. The other 11 templates are fine.</p>
+        <p class="sources">Sources: the internal certificate authority, Active Directory · read 11:20 today</p>
+      </div>
+      <div class="ask-a" data-q="reset" data-reading="Reading the domain controllers' security events…">
+        <p class="ask-label">Who reset the domain admin's password?</p>
+        <p><strong>Dana Demo, today at 08:41,</strong> from PC-IT-03. admin-ops counts as privileged because it is in Domain Admins. The Teams alert went out the same minute.</p>
+        <p class="sources">Source: domain controller security events · read 09:05 today</p>
+      </div>
       <div class="ask-try">
         <span>Try:</span>
         <button type="button" data-q="pc" aria-pressed="true">What PC is John using?</button>
@@ -120,6 +135,9 @@
         <button type="button" data-q="error" aria-pressed="false">What does error 0x80180014 mean?</button>
         <button type="button" data-q="exposed" aria-pressed="false">Is anything exposed to the internet that shouldn't be?</button>
         <button type="button" data-q="dc" aria-pressed="false">Are my domain controllers healthy?</button>
+        <button type="button" data-q="quarantine" aria-pressed="false">What's in quarantine from the last 30 days?</button>
+        <button type="button" data-q="cert" aria-pressed="false">Can any user get a certificate as someone else?</button>
+        <button type="button" data-q="reset" aria-pressed="false">Who reset the domain admin's password?</button>
       </div>
     </div>
     <p class="caption">Illustration with demo data, not a live system.</p>
@@ -158,6 +176,10 @@
           <article class="card"><h3>Get told</h3>
             <p>Alerts arrive in Teams already investigated. A daily briefing and a findings list, each with a
               one-click ticket and what your other systems know about it.</p></article>
+          <article class="card"><h3>Hunts</h3>
+            <p>Every hour it searches your logs for problems no single alert shows: sign-ins that keep failing, PCs that can't reach a domain controller, services that keep crashing, where lockouts come from, and computers nobody monitors. Each comes with the likely cause and the fix.</p></article>
+          <article class="card"><h3>Changes, explained</h3>
+            <p>When someone edits a Group Policy, a sign-in policy, a privileged account's password or who receives a mailbox's mail, Teams gets one card saying who did it and what changed, in plain words. Code writes it from the system itself, not the AI.</p></article>
           <article class="card"><h3>Review</h3>
             <p>One button, or one sentence: "review our firewall", "audit our backups". Findings by severity,
               with the fix for each. It also finds the machines nobody is watching.</p></article>
@@ -172,6 +194,8 @@
             <p>It ranks your vulnerabilities by how likely they are to be exploited in the next 30 days, not just by their severity on paper, so the few that matter come first.</p></article>
           <article class="card"><h3>What the internet sees</h3>
             <p>Every day it checks what the internet sees of you: your public addresses, public certificates and look-alike domains. It reads public data only.</p></article>
+          <article class="card"><h3>Your decisions stick</h3>
+            <p>Mark an alert as a false positive, with a reason and an expiry date, or accept a finding as a risk until a review date. It stays quiet until then, and comes back if things get worse. Some alerts can never be muted, and a mark that suddenly matches far more than usual is flagged.</p></article>
           <article class="card"><h3>Prove the fix</h3>
             <p>After you change something, ask "did my fix work?" It re-runs the check live: fixed, still
               there, or new.</p></article>
@@ -249,6 +273,8 @@
               up the times pointed to one phone, which was blocked.</p></article>
           <article class="card"><h3>A backup that failed in silence</h3>
             <p>A server's backup failed every night for weeks with a message that explained nothing. It found the reason in the backup system's own records, and it was fixed within the hour.</p></article>
+          <article class="card"><h3>A million crashes in a week</h3>
+            <p>A program on one PC crashed and restarted over a million times in a week. The flood filled the monitoring agent's queue and left gaps in that PC's log. It named the program, the hours missing and the fix: a delay before the service restarts.</p></article>
         </div>
       </div>
 

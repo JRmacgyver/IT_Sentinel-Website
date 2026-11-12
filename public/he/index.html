@@ -22,8 +22,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
-  <link rel="stylesheet" href="/assets/css/site.css?v=20261112b">
-  <script src="/assets/js/site.js?v=20261112b" defer></script>
+  <link rel="stylesheet" href="/assets/css/site.css?v=20261112c">
+  <script src="/assets/js/site.js?v=20261112c" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">דילוג לתוכן</a>
@@ -108,6 +108,21 @@
         <p><strong>כן, שלושתם.</strong> השכפול מעודכן בכל הקישורים, השעונים מתואמים וכל בעלי התפקידים עונים. DC03, שנוסף בשבוע שעבר, זוהה מעצמו.</p>
         <p class="sources">מקור: בקרי הדומיין, נקראו בזמן אמת · נקרא היום ב-10:50</p>
       </div>
+      <div class="ask-a" data-q="quarantine" data-reading="קורא את ההסגר של Exchange Online…">
+        <p class="ask-label">מה נכנס להסגר ב-30 הימים האחרונים?</p>
+        <p><strong>312 הודעות הוחזקו:</strong> 268 ספאם או דיוור המוני, 31 פישינג, 9 פישינג בוודאות גבוהה ו-4 נוזקות. 13 המסוכנות מופיעות ברשימה נפרדת; 2 הודעות שוחררו, שתיהן לפי בקשה.</p>
+        <p class="sources">מקור: ההסגר של Exchange Online · נקרא היום ב-11:10</p>
+      </div>
+      <div class="ask-a" data-q="cert" data-reading="קורא את רשות התעודות הפנימית…">
+        <p class="ask-label">כל משתמש יכול לקבל תעודה בשם מישהו אחר?</p>
+        <p><strong>כן, דרך תבנית אחת.</strong> התבנית WebServer-Copy מאפשרת לכל משתמש בדומיין לבקש תעודה ולכתוב בבקשה שם של כל חשבון. בטלו את האפשרות לציין את השם בבקשה, או הגבילו מי רשאי לבקש. 11 התבניות האחרות תקינות.</p>
+        <p class="sources">מקורות: רשות התעודות הפנימית, Active Directory · נקרא היום ב-11:20</p>
+      </div>
+      <div class="ask-a" data-q="reset" data-reading="קורא את אירועי האבטחה של בקרי הדומיין…">
+        <p class="ask-label">מי איפס את הסיסמה של מנהל הדומיין?</p>
+        <p><strong>דנה דמו, היום ב-08:41,</strong> מהמחשב <bdi>PC-IT-03</bdi>. החשבון admin-ops נחשב בעל הרשאות כי הוא חבר ב-Domain Admins. ההתראה נשלחה ל-Teams באותה דקה.</p>
+        <p class="sources">מקור: אירועי האבטחה של בקרי הדומיין · נקרא היום ב-09:05</p>
+      </div>
       <div class="ask-try">
         <span>נסו:</span>
         <button type="button" data-q="pc" aria-pressed="true">באיזה מחשב יוסי משתמש?</button>
@@ -121,6 +136,9 @@
         <button type="button" data-q="error" aria-pressed="false">מה המשמעות של שגיאה 0x80180014?</button>
         <button type="button" data-q="exposed" aria-pressed="false">יש משהו חשוף לאינטרנט שלא אמור להיות?</button>
         <button type="button" data-q="dc" aria-pressed="false">בקרי הדומיין שלי תקינים?</button>
+        <button type="button" data-q="quarantine" aria-pressed="false">מה נכנס להסגר ב-30 הימים האחרונים?</button>
+        <button type="button" data-q="cert" aria-pressed="false">כל משתמש יכול לקבל תעודה בשם מישהו אחר?</button>
+        <button type="button" data-q="reset" aria-pressed="false">מי איפס את הסיסמה של מנהל הדומיין?</button>
       </div>
     </div>
     <p class="caption">המחשה עם נתוני דמו, לא מערכת חיה.</p>
@@ -158,6 +176,10 @@
           <article class="card"><h3>קבלו עדכון</h3>
             <p>התראות מגיעות ל-Teams כשהן כבר נחקרו. סיכום יומי ורשימת ממצאים, כל אחד עם פתיחת קריאה
               בלחיצה, ועם מה ששאר המערכות שלכם יודעות עליו.</p></article>
+          <article class="card"><h3>ציד בעיות</h3>
+            <p>בכל שעה הסנטינל מחפש בלוגים בעיות שאף התראה בודדת לא מראה: התחברויות שנכשלות שוב ושוב, מחשבים שלא מגיעים לבקר הדומיין, שירותים שקורסים בלי הפסקה, מאיפה מגיעות נעילות של חשבונות, ומחשבים שאף אחד לא מנטר. כל ממצא מגיע עם הסיבה הסבירה והתיקון.</p></article>
+          <article class="card"><h3>שינויים, במילים פשוטות</h3>
+            <p>כשמישהו עורך Group Policy, מדיניות התחברות, סיסמה של חשבון בעל הרשאות או את רשימת מקבלי הדואר של תיבה, נשלח ל-Teams כרטיס אחד שאומר מי עשה את זה ומה השתנה, במילים פשוטות. קוד כותב אותו ישירות מהמערכת עצמה, לא ה-AI.</p></article>
           <article class="card"><h3>סקירה</h3>
             <p>כפתור אחד, או משפט אחד: ״תסקור את חומת האש״, ״תבדוק את הגיבויים״. ממצאים לפי חומרה, עם
               התיקון לכל אחד. הסנטינל גם מוצא את המחשבים שאף אחד לא מנטר.</p></article>
@@ -171,6 +193,8 @@
             <p>הסנטינל מדרג את הפגיעויות שלכם לפי הסיכוי שינוצלו ב-30 הימים הקרובים, ולא רק לפי החומרה על הנייר, כך שהמעטות שבאמת חשובות מגיעות ראשונות.</p></article>
           <article class="card"><h3>מה האינטרנט רואה</h3>
             <p>הסנטינל בודק בכל יום מה האינטרנט רואה מכם: הכתובות הציבוריות, התעודות הציבוריות ודומיינים שדומים לשלכם. הסנטינל קורא מידע ציבורי בלבד.</p></article>
+          <article class="card"><h3>ההחלטות שלכם נשמרות</h3>
+            <p>סמנו התראה כ-false positive עם סיבה ותאריך תפוגה, או קבלו ממצא כסיכון עד תאריך בדיקה חוזרת. עד אז הסנטינל שקט, והממצא חוזר אם המצב מחמיר. יש התראות שאי אפשר להשתיק בכלל, וסימון שפתאום תופס הרבה יותר מהרגיל מסומן.</p></article>
           <article class="card"><h3>הוכיחו את התיקון</h3>
             <p>אחרי שינוי, שאלו ״התיקון עבד?״. הסנטינל מריץ את הבדיקה שוב, בזמן אמת: תוקן, עדיין קיים, או
               חדש.</p></article>
@@ -247,6 +271,8 @@
               טלפון אחד, שנחסם.</p></article>
           <article class="card"><h3>גיבוי שנכשל בשקט</h3>
             <p>הגיבוי של שרת נכשל כל לילה במשך שבועות, עם הודעה שלא הסבירה כלום. הסנטינל מצא את הסיבה ברישומים של מערכת הגיבוי עצמה, והבעיה תוקנה תוך שעה.</p></article>
+          <article class="card"><h3>מיליון קריסות בשבוע</h3>
+            <p>תוכנה במחשב אחד קרסה ועלתה מחדש יותר ממיליון פעמים בשבוע. שטף האירועים מילא את התור של סוכן הניטור והשאיר חורים בלוג של המחשב. הסנטינל הצביע על התוכנה, על השעות החסרות ועל התיקון: השהיה לפני שהשירות עולה מחדש.</p></article>
         </div>
       </div>
 

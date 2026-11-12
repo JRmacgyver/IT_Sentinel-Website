@@ -297,3 +297,6 @@ html[lang="he"] .tabs button { font-size: 17px; }
 .hero .actions { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px 14px; }
 .hero .actions .btn-outline { padding: 15px 22px; font-size: 16px; }
 @media (max-width: 640px) { .head-links .head-link { display: none; } }
+
+/* Host names in Hebrew answers stay on one line, left to right. */
+.ask-a bdi { white-space: nowrap; }
