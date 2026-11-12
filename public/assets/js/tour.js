@@ -21,15 +21,8 @@
   window.addEventListener("resize", fit);
   fit();
 
-  var HE = document.documentElement.lang === "he";
-  var CRUMB = HE ? { chat: "צ'אט", findings: "IT ואבטחה", backups: "גיבויים", cloud: "אבטחת ענן" }
-                 : { chat: "CHAT", findings: "IT & SECURITY", backups: "BACKUPS", cloud: "CLOUD SECURITY" };
-  var TIPS = HE ? {
-    chat: "<b>נסו:</b> בחרו אחת השאלות מתחת לצ'אט. הסנטינל קורא את המערכות שהוא צריך ועונה עם הראיות.",
-    findings: "<b>נסו:</b> לחצו על ממצא. הבעיות מכל המערכות נכנסות לרשימה אחת, וכל אחת עם הסיבה שהיא חשובה, הראיות והתיקון.",
-    backups: "כל בוקר הסנטינל קורא את הגיבויים של הלילה, כך שגיבוי שנכשל מתגלה לפני שמישהו צריך לשחזר.",
-    cloud: "<b>נסו:</b> עברו בין <b>דורש טיפול</b>, <b>עובר</b> ו<b>הכול</b>. הגדרות Microsoft 365 נבדקות ומקבלות ציון כל יום; צוות ה-IT מבצע את התיקונים."
-  } : {
+  var CRUMB = { chat: "CHAT", findings: "IT & SECURITY", backups: "BACKUPS", cloud: "CLOUD SECURITY" };
+  var TIPS = {
     chat: "<b>Try it:</b> pick one of the questions under the chat. The Sentinel reads the systems it needs and answers with the evidence.",
     findings: "<b>Try it:</b> click a finding. Every system's problems land in one list, each with why it matters, the evidence and the fix.",
     backups: "Every morning the Sentinel reads last night's backups, so a failed job turns up before anyone needs a restore.",

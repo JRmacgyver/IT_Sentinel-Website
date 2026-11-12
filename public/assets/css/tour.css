@@ -148,26 +148,6 @@
 @keyframes pt-spot { 50% { outline-color: rgba(237,169,28,.25); } }
 @media (prefers-reduced-motion: reduce) { .pt *, .pt *::before, .pt *::after { animation: none !important; } }
 
-/* Hebrew (right to left). The frame stays left to right so the scaling starts at its left edge. */
-.tour-viewport { direction: ltr; }
-.pt[dir="rtl"] { --p-mono: 'JetBrains Mono', 'Heebo', ui-monospace, monospace; }
-.pt[dir="rtl"] .pt-row td:first-child { box-shadow: inset -3px 0 var(--sev, var(--p-line2)); }
-.pt[dir="rtl"] .pt-row .x { transform: scaleX(-1); }
-.pt[dir="rtl"] .pt-row[aria-expanded="true"] .x { transform: none; }
-.pt[dir="rtl"] .pt-ch, .pt[dir="rtl"] .pt-sec, .pt[dir="rtl"] .pt-kpi i, .pt[dir="rtl"] th, .pt[dir="rtl"] .pt-navh, .pt[dir="rtl"] .pt-detail dt, .pt[dir="rtl"] .pt-grp td, .pt[dir="rtl"] .pt-top { letter-spacing: 0; }
-.pt[dir="rtl"] .pt-kpi i, .pt[dir="rtl"] th, .pt[dir="rtl"] .pt-navh, .pt[dir="rtl"] .pt-detail dt { font-size: 10.5px; }
-.pt[dir="rtl"] .pt-nav button { font: 500 14px var(--p-sans); }
-.pt[dir="rtl"] .pt-q, .pt[dir="rtl"] .pt-a { font-size: 14.5px; }
-.pt bdi, .pt .ltr { unicode-bidi: isolate; direction: ltr; }
-.pt-code { direction: ltr; text-align: left; }
-html[dir="rtl"] .tour-steps button span { font-family: var(--font-sans); }
-/* Hebrew text reads better in Heebo than in a monospace fallback; numbers in the tiles keep the mono font. */
-.pt[dir="rtl"], .pt[dir="rtl"] td, .pt[dir="rtl"] th, .pt[dir="rtl"] .pt-kpi i, .pt[dir="rtl"] .pt-ch, .pt[dir="rtl"] .pt-sec,
-.pt[dir="rtl"] .pt-detail dt, .pt[dir="rtl"] .pt-grp td, .pt[dir="rtl"] .pt-top, .pt[dir="rtl"] .pt-sidefoot, .pt[dir="rtl"] .pt-navh,
-.pt[dir="rtl"] .pt-try, .pt[dir="rtl"] .pt-reading, .pt[dir="rtl"] .pt-k5 i, .pt[dir="rtl"] .pt-gb, .pt[dir="rtl"] .pt-btn, .pt[dir="rtl"] .pt-brand small { font-family: var(--p-sans); }
-.pt[dir="rtl"] td { font-size: 12.5px; }
-.pt[dir="rtl"] .pt-ch { font-size: 12px; } .pt[dir="rtl"] .pt-sec { font-size: 11px; } .pt[dir="rtl"] .pt-grp td { font-size: 11.5px; }
-.pt[dir="rtl"] .pt-top { font-size: 11.5px; } .pt[dir="rtl"] .pt-try { font-size: 11.5px; }
 /* Helper classes (the site's security policy blocks inline style attributes, so nothing in the pages uses them). */
 .pt .c-crit { color: var(--p-crit); } .pt .c-mut { color: var(--p-muted); } .pt .c-ok { color: var(--p-ok); }
 .pt .w80 { width: 80px; } .pt .w86 { width: 86px; } .pt .w90 { width: 90px; } .pt .w150 { width: 150px; } .pt .w300 { width: 300px; }

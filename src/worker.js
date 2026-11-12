@@ -198,6 +198,9 @@ export default {
       return Response.redirect(url.toString(), 301);
     }
 
+    // The Hebrew tour was live for a short while on 2026-11-12; the portal's interface is English only, so send it to /tour/.
+    if (url.pathname === "/he/tour" || url.pathname.startsWith("/he/tour/")) return Response.redirect(`https://${APEX}/tour/`, 301);
+
     if (url.pathname === "/api/contact") return handleContact(request, env);
     if (url.pathname === "/api/config") {
       return json({ turnstileSiteKey: (env.TURNSTILE_SECRET && env.TURNSTILE_SITE_KEY) || "" });
