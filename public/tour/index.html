@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How it looks · IT Sentinel, built by Toolkit Security</title>
+  <meta name="description" content="Click through a working copy of the IT Sentinel portal with demo data: ask a question, open a finding, check backups and cloud settings.">
+  <link rel="canonical" href="https://toolkit-sec.com/tour/">
+  <meta name="theme-color" content="#060B20">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="IT Sentinel">
+  <meta property="og:title" content="How IT Sentinel looks: click through the portal">
+  <meta property="og:description" content="A working copy of the IT Sentinel portal with demo data. Ask a question, open a finding, check backups and cloud settings.">
+  <meta property="og:url" content="https://toolkit-sec.com/tour/">
+  <meta property="og:image" content="https://toolkit-sec.com/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@600&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <link rel="stylesheet" href="/assets/css/tour.css">
+  <script src="/assets/js/site.js" defer></script>
+  <script src="/assets/js/tour.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="/"><img src="/assets/toolkit-security-shield.png" alt="" width="206" height="240">IT Sentinel <small>by Toolkit Security</small></a>
+    <div class="head-links">
+      <a class="btn-outline" href="/#contact">Get in touch</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="tour-hero" aria-labelledby="tour-title">
+    <p class="eyebrow">Demo data · click around</p>
+    <h1 id="tour-title">How it looks</h1>
+    <p class="lead">This is a working copy of the IT Sentinel portal with a made-up company. Ask it a question, open a finding, check the backups.</p>
+  </section>
+
+  <ol class="tour-steps" aria-label="Tour">
+    <li><button type="button" data-step="chat" aria-pressed="true"><span>1</span>Ask a question</button></li>
+    <li><button type="button" data-step="findings" aria-pressed="false"><span>2</span>Every finding, one list</button></li>
+    <li><button type="button" data-step="backups" aria-pressed="false"><span>3</span>Last night's backups</button></li>
+    <li><button type="button" data-step="cloud" aria-pressed="false"><span>4</span>Cloud settings, scored</button></li>
+  </ol>
+  <p class="tour-tip" id="tour-tip" aria-live="polite"><b>Try it:</b> pick one of the questions under the chat. The Sentinel reads the systems it needs and answers with the evidence.</p>
+  <p class="tour-note tour-small">The portal is made for a computer screen. On a phone, turn it sideways or zoom in.</p>
+
+  <div class="tour-frame-wrap">
+    <div class="tour-frame">
+      <div class="tour-bar" aria-hidden="true"><i></i><i></i><i></i><div class="url">sentinel.demo.example</div><span class="tag">DEMO DATA</span></div>
+      <div class="tour-viewport" id="tour-viewport">
+
+<!-- The portal. Everything inside is demo data. -->
+<div class="pt" id="pt" role="region" aria-label="IT Sentinel portal, demo">
+  <aside class="pt-side">
+    <div class="pt-brand"><img src="/assets/toolkit-security-shield.png" alt="" width="22"><div><b>IT Sentinel</b><small>SECURITY INTELLIGENCE</small></div></div>
+    <div class="pt-navh">INTELLIGENCE</div>
+    <nav class="pt-nav" aria-label="Portal"><button type="button" data-go="chat" aria-current="page">Chat</button></nav>
+    <div class="pt-navh">OPERATIONS</div>
+    <nav class="pt-nav" aria-label="Operations">
+      <button type="button" data-go="findings">IT &amp; Security</button>
+      <button type="button" data-go="cloud">Cloud Security</button>
+      <button type="button" data-go="backups">Backups</button>
+    </nav>
+    <div class="pt-sidefoot"><div><span class="pt-dot"></span>Portal online</div><div><span class="pt-dot"></span>Model ready · on site</div><div><span class="pt-dot"></span>Sign-in: directory</div></div>
+  </aside>
+
+  <div class="pt-main">
+    <div class="pt-top"><div>DEMO CO. · IT SENTINEL / <b id="pt-crumb">CHAT</b></div><div class="u">demo.admin<span>Logout</span></div></div>
+
+    <!-- Chat -->
+    <section class="pt-screen" data-screen="chat" aria-label="Chat">
+      <div class="pt-chat">
+        <div class="pt-log" id="pt-log" aria-live="polite">
+          <div class="pt-q">How did last night's backups go?</div>
+          <div class="pt-a"><p><b>All 14 backup jobs finished.</b> 13 succeeded and 1 finished with a warning: <b>FILE-SRV-01</b> skipped one locked file (<code>D:\Shares\Finance\~lock.xlsx</code>). The offsite copy ran at 05:40 and was verified.</p>
+            <div class="acts">Data current as of 09:12 on 2026-11-12.</div></div>
+        </div>
+        <div class="pt-try" data-spot="ask">Try a question:
+          <button type="button" data-ask="updates">Which computers are missing security updates?</button>
+          <button type="button" data-ask="guests">Are there unused licences or old guest accounts?</button>
+          <button type="button" data-ask="abroad">Who signed in from abroad this week?</button>
+        </div>
+        <div class="pt-input" aria-hidden="true"><div id="pt-input">Ask anything…</div><span>Send</span></div>
+      </div>
+    </section>
+
+    <!-- IT & Security -->
+    <section class="pt-screen" data-screen="findings" aria-label="IT and Security" hidden>
+      <div class="pt-sec">OVERVIEW</div>
+      <div class="pt-ov">
+        <div class="pt-card"><div class="pt-ch">ALERTS &amp; TICKETS<span class="r">09:20</span></div><div class="pt-kpis"><div class="pt-kpi"><b>5</b><i>OPEN TICKETS</i></div><div class="pt-kpi"><b>0</b><i>UNRESOLVED THREATS</i></div><div class="pt-kpi"><b>3</b><i>VPN SESSIONS</i></div></div></div>
+        <div class="pt-card"><div class="pt-ch">DIRECTORY &amp; CLOUD<span class="r">09:20</span></div><div class="pt-kpis"><div class="pt-kpi"><b>148</b><i>USERS</i></div><div class="pt-kpi"><b>9</b><i>CLOUD SERVERS</i></div><div class="pt-kpi"><b>4</b><i>LOCAL SERVERS</i></div></div></div>
+        <div class="pt-card"><div class="pt-ch">ENDPOINT PROTECTION<span class="r">09:20</span></div><div class="pt-kpis"><div class="pt-kpi"><b>131</b><i>ONLINE</i></div><div class="pt-kpi"><b>6</b><i>OFFLINE</i></div><div class="pt-kpi"><b>0</b><i>INFECTED</i></div></div></div>
+      </div>
+      <div class="pt-card" data-spot="findings">
+        <div class="pt-ch">CROSS-SYSTEM FINDINGS<span class="r">Generated 06:00 <span class="pt-btn">Regenerate</span></span></div>
+        <div class="pt-sevs">
+          <div class="pt-kpi"><b style="color:var(--p-crit)">1</b><i>CRITICAL</i></div>
+          <div class="pt-kpi"><b>3</b><i>HIGH</i><div class="d dn">▼ 2 since yesterday</div></div>
+          <div class="pt-kpi"><b>3</b><i>MEDIUM</i><div class="d up">▲ 1 since yesterday</div></div>
+          <div class="pt-kpi"><b style="color:var(--p-muted)">0</b><i>LOW</i></div>
+          <div class="pt-kpi"><b>7</b><i>TOTAL</i></div>
+        </div>
+        <div class="pt-findlist">
+        <table>
+          <thead><tr><th style="width:86px">SEVERITY</th><th>FINDING <span class="mut" style="letter-spacing:0">(click one)</span></th><th style="width:150px">TARGET</th><th style="width:300px">DETAIL</th></tr></thead>
+          <tbody>
+          <tr class="pt-grp"><td colspan="4">VULNERABILITIES · SERVERS <span>(1)</span></td></tr>
+          <tr class="pt-row c" tabindex="0" aria-expanded="false" data-row="f1"><td><span class="tag t-crit">critical</span></td><td>Exploited vulnerability, fix available<span class="x">▸</span></td><td>APP-SRV-02</td><td>remote code execution, web server component</td></tr>
+          <tr class="pt-detail" id="f1" hidden><td colspan="4"><dl>
+            <dt>WHY IT MATTERS</dt><dd>Attackers are already using this flaw. Anyone who can reach the server's web port could run code on it.</dd>
+            <dt>EVIDENCE</dt><dd>Vulnerability scan 06:00 today; the fix was released 2026-11-04; port 443 is reachable from the office network.</dd>
+            <dt>SUGGESTED FIX</dt><dd>Install the vendor update tonight in the maintenance window, then press <b>Check</b> to confirm it's gone. Ticket #1042 is assigned to IT.</dd>
+          </dl></td></tr>
+          <tr class="pt-grp"><td colspan="4">SECURITY ALERTS <span>(2)</span></td></tr>
+          <tr class="pt-row h" tabindex="0" aria-expanded="false" data-row="f2"><td><span class="tag t-high">high</span></td><td>Script downloading files from the internet<span class="x">▸</span></td><td>PC-0031</td><td>6 alerts in 24 h, same parent process</td></tr>
+          <tr class="pt-detail" id="f2" hidden><td colspan="4"><dl>
+            <dt>WHY IT MATTERS</dt><dd>This is a common first step of an attack: a script quietly fetches more tools onto the computer.</dd>
+            <dt>EVIDENCE</dt><dd>6 alerts since yesterday 14:10, all started by the same spreadsheet macro; the endpoint protection blocked 2 of the downloads.</dd>
+            <dt>SUGGESTED FIX</dt><dd>Isolate PC-0031, ask user15 where the spreadsheet came from, and block macros from internet files by policy.</dd>
+          </dl></td></tr>
+          <tr class="pt-row m" tabindex="0" aria-expanded="false" data-row="f3"><td><span class="tag t-med">medium</span></td><td>Agent hasn't reported for 8 days<span class="x">▸</span></td><td>LAPTOP-0108</td><td>last seen 2026-11-04 (remote user)</td></tr>
+          <tr class="pt-detail" id="f3" hidden><td colspan="4"><dl>
+            <dt>WHY IT MATTERS</dt><dd>A laptop nobody can see is a laptop nobody is protecting or updating.</dd>
+            <dt>EVIDENCE</dt><dd>Security agent and updates both last seen 2026-11-04; the user has been working remotely.</dd>
+            <dt>SUGGESTED FIX</dt><dd>Ask user31 to connect to the VPN; the agent will report and the finding clears on its own.</dd>
+          </dl></td></tr>
+          <tr class="pt-grp"><td colspan="4">DIRECTORY <span>(1)</span></td></tr>
+          <tr class="pt-row h" tabindex="0" aria-expanded="false" data-row="f4"><td><span class="tag t-high">high</span></td><td>Admin accounts outside the protected group<span class="x">▸</span></td><td>2 of 5 admins</td><td>admin02, svc-backup</td></tr>
+          <tr class="pt-detail" id="f4" hidden><td colspan="4"><dl>
+            <dt>WHY IT MATTERS</dt><dd>Admin accounts outside the protected group can have their passwords cached on ordinary computers.</dd>
+            <dt>EVIDENCE</dt><dd>Directory read at 06:00: 5 accounts have admin rights; 3 are in the protected group.</dd>
+            <dt>SUGGESTED FIX</dt><dd>Add admin02 to the group; give svc-backup its own managed service account first, then add it.</dd>
+          </dl></td></tr>
+          <tr class="pt-grp"><td colspan="4">CLOUD · MONITORING · BACKUP <span>(3)</span></td></tr>
+          <tr class="pt-row h" tabindex="0" aria-expanded="false" data-row="f5"><td><span class="tag t-high">high</span></td><td>Remote desktop open to the internet<span class="x">▸</span></td><td>VM-WEB-01</td><td>port 3389 allowed from any address</td></tr>
+          <tr class="pt-detail" id="f5" hidden><td colspan="4"><dl>
+            <dt>WHY IT MATTERS</dt><dd>Open remote desktop is one of the most attacked doors on the internet.</dd>
+            <dt>EVIDENCE</dt><dd>Cloud firewall rule "allow-rdp" (created 2026-10-30); 1,200+ failed sign-ins in the last day.</dd>
+            <dt>SUGGESTED FIX</dt><dd>Remove the rule and reach the server through the VPN instead.</dd>
+          </dl></td></tr>
+          <tr class="pt-row m" tabindex="0" aria-expanded="false" data-row="f6"><td><span class="tag t-med">medium</span></td><td>Certificate expires soon<span class="x">▸</span></td><td>portal.demo.example</td><td>expires in 9 days</td></tr>
+          <tr class="pt-detail" id="f6" hidden><td colspan="4"><dl>
+            <dt>WHY IT MATTERS</dt><dd>When it expires, people see a security warning and some apps stop connecting.</dd>
+            <dt>EVIDENCE</dt><dd>Checked 06:00: valid until 2026-11-21; it isn't set to renew automatically.</dd>
+            <dt>SUGGESTED FIX</dt><dd>Renew it this week, or turn on automatic renewal.</dd>
+          </dl></td></tr>
+          <tr class="pt-row m" tabindex="0" aria-expanded="false" data-row="f7"><td><span class="tag t-med">medium</span></td><td>Backup ended with a warning<span class="x">▸</span></td><td>FILE-SRV-01</td><td>one locked file skipped</td></tr>
+          <tr class="pt-detail" id="f7" hidden><td colspan="4"><dl>
+            <dt>WHY IT MATTERS</dt><dd>One file wasn't backed up last night; if it keeps happening, it's never protected.</dd>
+            <dt>EVIDENCE</dt><dd>Backup job log 02:10: D:\Shares\Finance\~lock.xlsx was open and was skipped.</dd>
+            <dt>SUGGESTED FIX</dt><dd>Nothing urgent; the Sentinel checks again tonight and clears the finding if it backs up.</dd>
+          </dl></td></tr>
+          </tbody>
+        </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Backups -->
+    <section class="pt-screen" data-screen="backups" aria-label="Backups" hidden>
+      <div class="pt-sec">ON-PREMISES BACKUP</div>
+      <div class="pt-card" data-spot="backups">
+        <div class="pt-ch">LOCAL BACKUPS<span class="r">last read 09:15</span></div>
+        <div class="pt-kpis" style="grid-template-columns:repeat(4,minmax(0,1fr));margin-bottom:8px"><div class="pt-kpi"><b>14</b><i>BACKUP JOBS</i></div><div class="pt-kpi"><b style="color:var(--p-ok)">13</b><i>SUCCEEDED LAST NIGHT</i></div><div class="pt-kpi"><b>1</b><i>WARNING</i></div><div class="pt-kpi"><b>1.24 TB</b><i>BACKED UP</i></div></div>
+        <table>
+          <tr><th>JOB</th><th>LAST RESULT</th><th>ENDED</th><th>DURATION</th><th>SIZE</th></tr>
+          <tr><td>FILE-SRV-01 · file shares</td><td><span class="tag t-warn">Warning</span> <span class="mut sm">1 locked file skipped</span></td><td>02:10</td><td>48 min</td><td>212 GB</td></tr>
+          <tr><td>APP-SRV-02 · application server</td><td><span class="tag t-ok">Success</span></td><td>01:34</td><td>22 min</td><td>96 GB</td></tr>
+          <tr><td>DC-01 · domain controller</td><td><span class="tag t-ok">Success</span></td><td>01:12</td><td>9 min</td><td>38 GB</td></tr>
+          <tr><td>DC-02 · domain controller</td><td><span class="tag t-ok">Success</span></td><td>01:21</td><td>9 min</td><td>37 GB</td></tr>
+          <tr><td>SQL-01 · databases</td><td><span class="tag t-ok">Success</span></td><td>02:44</td><td>31 min</td><td>184 GB</td></tr>
+          <tr><td>ERP-01 · ERP system</td><td><span class="tag t-ok">Success</span></td><td>03:05</td><td>27 min</td><td>141 GB</td></tr>
+          <tr><td>VM host 1 · 6 virtual machines</td><td><span class="tag t-ok">Success</span></td><td>03:52</td><td>1 h 14 min</td><td>402 GB</td></tr>
+          <tr><td>Offsite copy · all jobs</td><td><span class="tag t-ok">Success</span> <span class="mut sm">verified</span></td><td>05:40</td><td>1 h 58 min</td><td>1.24 TB</td></tr>
+        </table>
+      </div>
+      <div class="pt-two">
+        <div class="pt-card"><div class="pt-ch">REPOSITORIES</div>
+          <table><tr><th>REPOSITORY</th><th>CAPACITY</th><th>USED</th><th>STATUS</th></tr>
+          <tr><td>Backup NAS · on site</td><td>24 TB</td><td>62%<div class="pt-bar"><i style="width:62%"></i></div></td><td><span class="tag t-ok">Online</span></td></tr>
+          <tr><td>Offsite copy · second site</td><td>32 TB</td><td>55%<div class="pt-bar"><i style="width:55%"></i></div></td><td><span class="tag t-ok">Online</span></td></tr>
+          <tr><td>Immutable copy · 30 days</td><td>20 TB</td><td>49%<div class="pt-bar"><i style="width:49%"></i></div></td><td><span class="tag t-ok">Locked</span></td></tr></table></div>
+        <div class="pt-card"><div class="pt-ch">CLOUD BACKUP · MICROSOFT 365<span class="r">snapshot 04:30</span></div>
+          <table><tr><th>WHAT</th><th>COVERED</th><th>STATUS</th></tr>
+          <tr><td>Mailboxes</td><td>148 of 148</td><td><span class="tag t-ok">Protected</span></td></tr>
+          <tr><td>OneDrive</td><td>145 of 148</td><td><span class="tag t-warn">3 not set up</span></td></tr>
+          <tr><td>SharePoint sites</td><td>22 of 22</td><td><span class="tag t-ok">Protected</span></td></tr>
+          <tr><td>Teams</td><td>31 of 31</td><td><span class="tag t-ok">Protected</span></td></tr></table></div>
+      </div>
+    </section>
+
+    <!-- Cloud security -->
+    <section class="pt-screen" data-screen="cloud" aria-label="Cloud Security" hidden>
+      <div class="pt-sec">CONFIGURATION BASELINE · MICROSOFT 365 · CHECKED DAILY 06:20</div>
+      <div class="pt-k5">
+        <div><b>78%</b><i>Microsoft 365 baseline</i></div>
+        <div><b>62.4%</b><i>Microsoft Secure Score</i></div>
+        <div><b style="color:var(--p-ok)">+6%</b><i>baseline, last 14 days</i></div>
+        <div><b style="color:var(--p-crit)">2</b><i>high-impact checks failing</i></div>
+        <div><b>1</b><i>can't check</i></div>
+      </div>
+      <div class="pt-two" style="grid-template-columns:minmax(0,.85fr) minmax(0,1.3fr);margin:0 0 12px">
+        <div class="pt-card"><div class="pt-ch">SCORE BY AREA</div>
+          <table class="num"><tr><th>AREA</th><th>SCORE</th><th>PASS</th><th>PARTLY</th><th>FAIL</th></tr>
+          <tr><td>Identity</td><td class="g">88%</td><td>11</td><td>2</td><td class="rd">1</td></tr>
+          <tr><td>Exchange</td><td class="g">83%</td><td>8</td><td>1</td><td class="rd">1</td></tr>
+          <tr><td>Mail DNS</td><td class="y">67%</td><td>2</td><td>0</td><td class="rd">1</td></tr>
+          <tr><td>SharePoint</td><td class="y">60%</td><td>3</td><td>1</td><td class="rd">1</td></tr>
+          <tr><td>Teams</td><td class="g">86%</td><td>6</td><td>1</td><td>0</td></tr></table></div>
+        <div class="pt-card"><div class="pt-ch">DAILY TREND<span class="r">last 14 days</span></div>
+          <table class="num"><tr><th></th><th>30.10</th><th>03.11</th><th>05.11</th><th>07.11</th><th>09.11</th><th>11.11</th><th>12.11</th></tr>
+          <tr><td>Baseline</td><td>72%</td><td>74%</td><td>74%</td><td>76% ▲</td><td>76%</td><td>78% ▲</td><td>78%</td></tr>
+          <tr><td>Secure Score</td><td>58.1%</td><td>59.0%</td><td>59.0%</td><td>61.2% ▲</td><td>61.2%</td><td>62.4% ▲</td><td>62.4%</td></tr>
+          <tr><td>Guest accounts</td><td>27</td><td>27</td><td>19 ▼</td><td>19</td><td>14 ▼</td><td>14</td><td>14</td></tr>
+          <tr><td>Admins without MFA</td><td>1</td><td>0 ▼</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr></table></div>
+      </div>
+      <div class="pt-card" data-spot="checks">
+        <div class="pt-ch">CHECKS<span class="r" role="group" aria-label="Show checks">
+          <button type="button" class="pt-gb" data-filter="work" aria-pressed="true">Needs work</button>
+          <button type="button" class="pt-gb" data-filter="fail" aria-pressed="false">Fail</button>
+          <button type="button" class="pt-gb" data-filter="partly" aria-pressed="false">Partly</button>
+          <button type="button" class="pt-gb" data-filter="pass" aria-pressed="false">Pass</button>
+          <button type="button" class="pt-gb" data-filter="all" aria-pressed="false">All</button></span></div>
+        <table>
+          <tr><th style="width:90px">STATUS</th><th style="width:80px">IMPACT</th><th>CHECK</th><th>WHAT WAS FOUND</th></tr>
+          <tr class="pt-check" data-s="fail"><td><span class="tag t-crit">Fail</span></td><td><span class="tag t-high">high</span></td><td>DMARC set to quarantine or reject</td><td>policy is p=none on demo.example</td></tr>
+          <tr class="pt-check" data-s="fail"><td><span class="tag t-crit">Fail</span></td><td><span class="tag t-high">high</span></td><td>No "anyone with the link" sharing</td><td>anonymous links allowed on all sites</td></tr>
+          <tr class="pt-check" data-s="fail"><td><span class="tag t-crit">Fail</span></td><td><span class="tag t-med">medium</span></td><td>Sign-ins from unexpected countries blocked</td><td>no location policy for all users</td></tr>
+          <tr class="pt-check" data-s="partly"><td><span class="tag t-warn">Partly</span></td><td><span class="tag t-med">medium</span></td><td>Guests sign in with the invited account</td><td>enforced on 18 of 22 sites</td></tr>
+          <tr class="pt-check" data-s="partly"><td><span class="tag t-warn">Partly</span></td><td><span class="tag t-low">low</span></td><td>Global admins aren't daily-use accounts</td><td>1 of 3 global admins has a mailbox</td></tr>
+          <tr class="pt-check" data-s="pass" hidden><td><span class="tag t-ok">Pass</span></td><td><span class="tag t-high">high</span></td><td>MFA required for every admin</td><td>3 of 3 admins use MFA</td></tr>
+          <tr class="pt-check" data-s="pass" hidden><td><span class="tag t-ok">Pass</span></td><td><span class="tag t-high">high</span></td><td>Legacy sign-in protocols blocked</td><td>blocked tenant-wide</td></tr>
+          <tr class="pt-check" data-s="pass" hidden><td><span class="tag t-ok">Pass</span></td><td><span class="tag t-med">medium</span></td><td>Mail auto-forwarding outside the company blocked</td><td>blocked by outbound policy</td></tr>
+        </table>
+      </div>
+    </section>
+  </div>
+</div>
+
+      </div>
+    </div>
+  </div>
+  <p class="tour-note">Everything above is demo data for a made-up company. On your site, IT Sentinel runs on your own hardware and reads your own systems; it changes nothing on its own.</p>
+
+  <!-- Answers for the chat's sample questions. tour.js moves them into the chat. -->
+  <template id="ans-updates">
+    <div class="pt-q">Which computers are missing security updates?</div>
+    <div class="pt-reading">Reading the vulnerability scanner and the update server…</div>
+    <div class="pt-a">
+      <h4>Urgent</h4>
+      <p><span class="k">1 server</span> has a critical vulnerability that is being exploited in the wild:</p>
+      <table><tr><th>Computer</th><th>Issue</th><th>Fix available</th></tr><tr><td>APP-SRV-02</td><td>Remote code execution in the web server component</td><td>Yes, since 2026-11-04</td></tr></table>
+      <h4>Behind on updates</h4>
+      <p><b>4 workstations</b> are more than 14 days behind:</p>
+      <table><tr><th>Computer</th><th>Last update</th><th>Missing</th><th>User</th></tr>
+        <tr><td>PC-0012</td><td>2026-10-21</td><td>4 updates</td><td>user07</td></tr>
+        <tr><td>PC-0031</td><td>2026-10-19</td><td>5 updates</td><td>user15</td></tr>
+        <tr><td>LAPTOP-0108</td><td>2026-10-02</td><td>9 updates</td><td>user31 (remote)</td></tr>
+        <tr><td>PC-0067</td><td>2026-10-25</td><td>3 updates</td><td>user48</td></tr></table>
+      <p><b>Suggested order:</b> patch APP-SRV-02 tonight; ask user31 to connect LAPTOP-0108 to the VPN; then push the rest:</p>
+      <code class="pt-code">Install-WindowsUpdate -ComputerName PC-0012,PC-0031,PC-0067 -AcceptAll</code>
+      <div class="acts">Data current as of 09:12 on 2026-11-12. <span class="pt-gb">⧉ Copy</span><span class="pt-gb acc">+ Ticket</span></div>
+    </div>
+  </template>
+  <template id="ans-guests">
+    <div class="pt-q">Are there unused licences or old guest accounts?</div>
+    <div class="pt-reading">Reading Microsoft 365 licences and guest accounts…</div>
+    <div class="pt-a">
+      <h4>Licences</h4>
+      <p><b>2 paid licences</b> have unassigned seats:</p>
+      <table><tr><th>Licence</th><th>Unassigned</th><th>Purchased</th></tr>
+        <tr><td>Microsoft 365 Business Premium</td><td>6</td><td>150</td></tr>
+        <tr><td>Teams Phone</td><td>4</td><td>20</td></tr></table>
+      <h4>Guest accounts</h4>
+      <p><b>3 guests</b> never accepted their invitation and are over 30 days old:</p>
+      <ol><li>guest.supplier1 (invited 2026-08-24)</li><li>guest.auditor2 (invited 2026-09-06)</li><li>guest.partner3 (invited 2026-07-22)</li></ol>
+      <p>To remove one after checking with the person who invited them:</p>
+      <code class="pt-code">Remove-MgUser -UserId guest.supplier1@demo.example</code>
+      <div class="acts">Data current as of 09:12 on 2026-11-12. <span class="pt-gb">⧉ Copy</span><span class="pt-gb acc">+ Ticket</span></div>
+    </div>
+  </template>
+  <template id="ans-abroad">
+    <div class="pt-q">Who signed in from abroad this week?</div>
+    <div class="pt-reading">Reading Microsoft 365 sign-ins and the firewall VPN log…</div>
+    <div class="pt-a">
+      <p><b>3 people</b> signed in from outside the country this week:</p>
+      <table><tr><th>User</th><th>Where</th><th>When</th><th>Looks</th></tr>
+        <tr><td>user12</td><td>Germany</td><td>Mon–Wed</td><td>expected: on the trip calendar</td></tr>
+        <tr><td>user27</td><td>Cyprus</td><td>Tue 21:40</td><td>expected: phone, usual device</td></tr>
+        <tr><td>user09</td><td>Brazil</td><td>Thu 03:12</td><td><span class="k">unusual: new device, 40 min after a sign-in from the office</span></td></tr></table>
+      <p><b>user09</b> looks like impossible travel. The sign-in succeeded with a password and a phone prompt the user approved.</p>
+      <p><b>Suggested:</b> reset user09's password, sign them out everywhere, and ask whether they approved a prompt at 03:12. A ticket is ready to open.</p>
+      <div class="acts">Data current as of 09:12 on 2026-11-12. <span class="pt-gb">⧉ Copy</span><span class="pt-gb acc">+ Ticket</span></div>
+    </div>
+  </template>
+
+  <section class="tour-cta">
+    <p>Want to see it on your own systems?</p>
+    <a class="btn" href="/#contact">Tell us about your environment →</a>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <img src="/assets/toolkit-security-logo.png" alt="Toolkit Security. Protecting with simple tools." width="400" height="438">
+    <p>IT Sentinel · Built by Toolkit Security · <a href="/privacy">Privacy</a> · © <span id="year">2026</span> toolkit-sec.com</p>
+  </div>
+</footer>
+</body>
+</html>

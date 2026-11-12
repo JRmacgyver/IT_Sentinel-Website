@@ -290,3 +290,10 @@ html[lang="he"] { --font-sans: 'Heebo', system-ui, -apple-system, 'Segoe UI', sa
 html[lang="he"] .eyebrow, html[lang="he"] h1, html[lang="he"] h2 { letter-spacing: 0; }
 html[lang="he"] h1 { line-height: 1.15; }
 html[lang="he"] .tabs button { font-size: 17px; }
+
+/* "How it looks" link (2026-11-12) */
+.head-links .head-link { color: var(--soft); text-decoration: none; font: 600 15px/1 var(--font-sans); }
+.head-links .head-link:hover { color: var(--accent); }
+.hero .actions { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px 14px; }
+.hero .actions .btn-outline { padding: 15px 22px; font-size: 16px; }
+@media (max-width: 640px) { .head-links .head-link { display: none; } }
