@@ -107,15 +107,15 @@
       <div class="pt-card" data-spot="findings">
         <div class="pt-ch">ממצאים מכל המערכות<span class="r">נוצר ב-06:00 <span class="pt-btn">רענון</span></span></div>
         <div class="pt-sevs">
-          <div class="pt-kpi"><b style="color:var(--p-crit)">1</b><i>קריטי</i></div>
+          <div class="pt-kpi"><b class="c-crit">1</b><i>קריטי</i></div>
           <div class="pt-kpi"><b>3</b><i>גבוה</i><div class="d dn">▼ 2 מאתמול</div></div>
           <div class="pt-kpi"><b>3</b><i>בינוני</i><div class="d up">▲ 1 מאתמול</div></div>
-          <div class="pt-kpi"><b style="color:var(--p-muted)">0</b><i>נמוך</i></div>
+          <div class="pt-kpi"><b class="c-mut">0</b><i>נמוך</i></div>
           <div class="pt-kpi"><b>7</b><i>סה"כ</i></div>
         </div>
         <div class="pt-findlist">
         <table>
-          <thead><tr><th style="width:86px">חומרה</th><th>ממצא <span class="mut">(לחצו על אחד)</span></th><th style="width:150px">יעד</th><th style="width:300px">פירוט</th></tr></thead>
+          <thead><tr><th class="w86">חומרה</th><th>ממצא <span class="mut">(לחצו על אחד)</span></th><th class="w150">יעד</th><th class="w300">פירוט</th></tr></thead>
           <tbody>
           <tr class="pt-grp"><td colspan="4">פגיעויות · שרתים <span>(1)</span></td></tr>
           <tr class="pt-row c" tabindex="0" aria-expanded="false" data-row="f1"><td><span class="tag t-crit">קריטי</span></td><td>פגיעות מנוצלת, יש תיקון<span class="x">▸</span></td><td><bdi>APP-SRV-02</bdi></td><td>הרצת קוד מרחוק ברכיב שרת האינטרנט</td></tr>
@@ -174,7 +174,7 @@
       <div class="pt-sec">גיבוי מקומי</div>
       <div class="pt-card" data-spot="backups">
         <div class="pt-ch">גיבויים מקומיים<span class="r">נקרא ב-09:15</span></div>
-        <div class="pt-kpis" style="grid-template-columns:repeat(4,minmax(0,1fr));margin-bottom:8px"><div class="pt-kpi"><b>14</b><i>משימות גיבוי</i></div><div class="pt-kpi"><b style="color:var(--p-ok)">13</b><i>הצליחו הלילה</i></div><div class="pt-kpi"><b>1</b><i>אזהרה</i></div><div class="pt-kpi"><b dir="ltr">1.24 TB</b><i>גובו</i></div></div>
+        <div class="pt-kpis k4"><div class="pt-kpi"><b>14</b><i>משימות גיבוי</i></div><div class="pt-kpi"><b class="c-ok">13</b><i>הצליחו הלילה</i></div><div class="pt-kpi"><b>1</b><i>אזהרה</i></div><div class="pt-kpi"><b dir="ltr">1.24 TB</b><i>גובו</i></div></div>
         <table>
           <tr><th>משימה</th><th>תוצאה אחרונה</th><th>הסתיים</th><th>משך</th><th>גודל</th></tr>
           <tr><td><bdi>FILE-SRV-01</bdi> · שיתופי קבצים</td><td><span class="tag t-warn">אזהרה</span> <span class="mut sm">קובץ נעול אחד דולג</span></td><td>02:10</td><td>48 דק'</td><td><bdi>212 GB</bdi></td></tr>
@@ -190,9 +190,9 @@
       <div class="pt-two">
         <div class="pt-card"><div class="pt-ch">מאגרים</div>
           <table><tr><th>מאגר</th><th>נפח</th><th>בשימוש</th><th>סטטוס</th></tr>
-          <tr><td>NAS לגיבוי · באתר</td><td><bdi>24 TB</bdi></td><td>62%<div class="pt-bar"><i style="width:62%"></i></div></td><td><span class="tag t-ok">מחובר</span></td></tr>
-          <tr><td>עותק חיצוני · אתר שני</td><td><bdi>32 TB</bdi></td><td>55%<div class="pt-bar"><i style="width:55%"></i></div></td><td><span class="tag t-ok">מחובר</span></td></tr>
-          <tr><td>עותק בלתי ניתן לשינוי · 30 יום</td><td><bdi>20 TB</bdi></td><td>49%<div class="pt-bar"><i style="width:49%"></i></div></td><td><span class="tag t-ok">נעול</span></td></tr></table></div>
+          <tr><td>NAS לגיבוי · באתר</td><td><bdi>24 TB</bdi></td><td>62%<div class="pt-bar"><i class="p62"></i></div></td><td><span class="tag t-ok">מחובר</span></td></tr>
+          <tr><td>עותק חיצוני · אתר שני</td><td><bdi>32 TB</bdi></td><td>55%<div class="pt-bar"><i class="p55"></i></div></td><td><span class="tag t-ok">מחובר</span></td></tr>
+          <tr><td>עותק בלתי ניתן לשינוי · 30 יום</td><td><bdi>20 TB</bdi></td><td>49%<div class="pt-bar"><i class="p49"></i></div></td><td><span class="tag t-ok">נעול</span></td></tr></table></div>
         <div class="pt-card"><div class="pt-ch">גיבוי ענן · <bdi>Microsoft 365</bdi><span class="r">צילום ב-04:30</span></div>
           <table><tr><th>מה</th><th>מכוסה</th><th>סטטוס</th></tr>
           <tr><td>תיבות דואר</td><td>148 מתוך 148</td><td><span class="tag t-ok">מוגן</span></td></tr>
@@ -208,11 +208,11 @@
       <div class="pt-k5">
         <div><b>78%</b><i>בסיס Microsoft 365</i></div>
         <div><b>62.4%</b><i>Microsoft Secure Score</i></div>
-        <div><b style="color:var(--p-ok)" dir="ltr">+6%</b><i>בסיס, 14 ימים אחרונים</i></div>
-        <div><b style="color:var(--p-crit)">2</b><i>בדיקות בהשפעה גבוהה נכשלות</i></div>
+        <div><b class="c-ok" dir="ltr">+6%</b><i>בסיס, 14 ימים אחרונים</i></div>
+        <div><b class="c-crit">2</b><i>בדיקות בהשפעה גבוהה נכשלות</i></div>
         <div><b>1</b><i>לא ניתן לבדוק</i></div>
       </div>
-      <div class="pt-two" style="grid-template-columns:minmax(0,.85fr) minmax(0,1.3fr);margin:0 0 12px">
+      <div class="pt-two cl">
         <div class="pt-card"><div class="pt-ch">ציון לפי תחום</div>
           <table class="num"><tr><th>תחום</th><th>ציון</th><th>עובר</th><th>חלקי</th><th>נכשל</th></tr>
           <tr><td>זהויות</td><td class="g">88%</td><td>11</td><td>2</td><td class="rd">1</td></tr>
@@ -235,7 +235,7 @@
           <button type="button" class="pt-gb" data-filter="pass" aria-pressed="false">עובר</button>
           <button type="button" class="pt-gb" data-filter="all" aria-pressed="false">הכול</button></span></div>
         <table>
-          <tr><th style="width:90px">סטטוס</th><th style="width:80px">השפעה</th><th>בדיקה</th><th>מה נמצא</th></tr>
+          <tr><th class="w90">סטטוס</th><th class="w80">השפעה</th><th>בדיקה</th><th>מה נמצא</th></tr>
           <tr class="pt-check" data-s="fail"><td><span class="tag t-crit">נכשל</span></td><td><span class="tag t-high">גבוהה</span></td><td>DMARC מוגדר להסגר או לדחייה</td><td>המדיניות היא <bdi>p=none</bdi> בדומיין <bdi>demo.example</bdi></td></tr>
           <tr class="pt-check" data-s="fail"><td><span class="tag t-crit">נכשל</span></td><td><span class="tag t-high">גבוהה</span></td><td>אין שיתוף "כל מי שיש לו את הקישור"</td><td>קישורים אנונימיים מותרים בכל האתרים</td></tr>
           <tr class="pt-check" data-s="fail"><td><span class="tag t-crit">נכשל</span></td><td><span class="tag t-med">בינונית</span></td><td>חסימת כניסות ממדינות לא צפויות</td><td>אין מדיניות מיקום לכל המשתמשים</td></tr>

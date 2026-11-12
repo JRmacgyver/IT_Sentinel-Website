@@ -106,15 +106,15 @@
       <div class="pt-card" data-spot="findings">
         <div class="pt-ch">CROSS-SYSTEM FINDINGS<span class="r">Generated 06:00 <span class="pt-btn">Regenerate</span></span></div>
         <div class="pt-sevs">
-          <div class="pt-kpi"><b style="color:var(--p-crit)">1</b><i>CRITICAL</i></div>
+          <div class="pt-kpi"><b class="c-crit">1</b><i>CRITICAL</i></div>
           <div class="pt-kpi"><b>3</b><i>HIGH</i><div class="d dn">▼ 2 since yesterday</div></div>
           <div class="pt-kpi"><b>3</b><i>MEDIUM</i><div class="d up">▲ 1 since yesterday</div></div>
-          <div class="pt-kpi"><b style="color:var(--p-muted)">0</b><i>LOW</i></div>
+          <div class="pt-kpi"><b class="c-mut">0</b><i>LOW</i></div>
           <div class="pt-kpi"><b>7</b><i>TOTAL</i></div>
         </div>
         <div class="pt-findlist">
         <table>
-          <thead><tr><th style="width:86px">SEVERITY</th><th>FINDING <span class="mut" style="letter-spacing:0">(click one)</span></th><th style="width:150px">TARGET</th><th style="width:300px">DETAIL</th></tr></thead>
+          <thead><tr><th class="w86">SEVERITY</th><th>FINDING <span class="mut ls0">(click one)</span></th><th class="w150">TARGET</th><th class="w300">DETAIL</th></tr></thead>
           <tbody>
           <tr class="pt-grp"><td colspan="4">VULNERABILITIES · SERVERS <span>(1)</span></td></tr>
           <tr class="pt-row c" tabindex="0" aria-expanded="false" data-row="f1"><td><span class="tag t-crit">critical</span></td><td>Exploited vulnerability, fix available<span class="x">▸</span></td><td>APP-SRV-02</td><td>remote code execution, web server component</td></tr>
@@ -173,7 +173,7 @@
       <div class="pt-sec">ON-PREMISES BACKUP</div>
       <div class="pt-card" data-spot="backups">
         <div class="pt-ch">LOCAL BACKUPS<span class="r">last read 09:15</span></div>
-        <div class="pt-kpis" style="grid-template-columns:repeat(4,minmax(0,1fr));margin-bottom:8px"><div class="pt-kpi"><b>14</b><i>BACKUP JOBS</i></div><div class="pt-kpi"><b style="color:var(--p-ok)">13</b><i>SUCCEEDED LAST NIGHT</i></div><div class="pt-kpi"><b>1</b><i>WARNING</i></div><div class="pt-kpi"><b>1.24 TB</b><i>BACKED UP</i></div></div>
+        <div class="pt-kpis k4"><div class="pt-kpi"><b>14</b><i>BACKUP JOBS</i></div><div class="pt-kpi"><b class="c-ok">13</b><i>SUCCEEDED LAST NIGHT</i></div><div class="pt-kpi"><b>1</b><i>WARNING</i></div><div class="pt-kpi"><b>1.24 TB</b><i>BACKED UP</i></div></div>
         <table>
           <tr><th>JOB</th><th>LAST RESULT</th><th>ENDED</th><th>DURATION</th><th>SIZE</th></tr>
           <tr><td>FILE-SRV-01 · file shares</td><td><span class="tag t-warn">Warning</span> <span class="mut sm">1 locked file skipped</span></td><td>02:10</td><td>48 min</td><td>212 GB</td></tr>
@@ -189,9 +189,9 @@
       <div class="pt-two">
         <div class="pt-card"><div class="pt-ch">REPOSITORIES</div>
           <table><tr><th>REPOSITORY</th><th>CAPACITY</th><th>USED</th><th>STATUS</th></tr>
-          <tr><td>Backup NAS · on site</td><td>24 TB</td><td>62%<div class="pt-bar"><i style="width:62%"></i></div></td><td><span class="tag t-ok">Online</span></td></tr>
-          <tr><td>Offsite copy · second site</td><td>32 TB</td><td>55%<div class="pt-bar"><i style="width:55%"></i></div></td><td><span class="tag t-ok">Online</span></td></tr>
-          <tr><td>Immutable copy · 30 days</td><td>20 TB</td><td>49%<div class="pt-bar"><i style="width:49%"></i></div></td><td><span class="tag t-ok">Locked</span></td></tr></table></div>
+          <tr><td>Backup NAS · on site</td><td>24 TB</td><td>62%<div class="pt-bar"><i class="p62"></i></div></td><td><span class="tag t-ok">Online</span></td></tr>
+          <tr><td>Offsite copy · second site</td><td>32 TB</td><td>55%<div class="pt-bar"><i class="p55"></i></div></td><td><span class="tag t-ok">Online</span></td></tr>
+          <tr><td>Immutable copy · 30 days</td><td>20 TB</td><td>49%<div class="pt-bar"><i class="p49"></i></div></td><td><span class="tag t-ok">Locked</span></td></tr></table></div>
         <div class="pt-card"><div class="pt-ch">CLOUD BACKUP · MICROSOFT 365<span class="r">snapshot 04:30</span></div>
           <table><tr><th>WHAT</th><th>COVERED</th><th>STATUS</th></tr>
           <tr><td>Mailboxes</td><td>148 of 148</td><td><span class="tag t-ok">Protected</span></td></tr>
@@ -207,11 +207,11 @@
       <div class="pt-k5">
         <div><b>78%</b><i>Microsoft 365 baseline</i></div>
         <div><b>62.4%</b><i>Microsoft Secure Score</i></div>
-        <div><b style="color:var(--p-ok)">+6%</b><i>baseline, last 14 days</i></div>
-        <div><b style="color:var(--p-crit)">2</b><i>high-impact checks failing</i></div>
+        <div><b class="c-ok">+6%</b><i>baseline, last 14 days</i></div>
+        <div><b class="c-crit">2</b><i>high-impact checks failing</i></div>
         <div><b>1</b><i>can't check</i></div>
       </div>
-      <div class="pt-two" style="grid-template-columns:minmax(0,.85fr) minmax(0,1.3fr);margin:0 0 12px">
+      <div class="pt-two cl">
         <div class="pt-card"><div class="pt-ch">SCORE BY AREA</div>
           <table class="num"><tr><th>AREA</th><th>SCORE</th><th>PASS</th><th>PARTLY</th><th>FAIL</th></tr>
           <tr><td>Identity</td><td class="g">88%</td><td>11</td><td>2</td><td class="rd">1</td></tr>
@@ -234,7 +234,7 @@
           <button type="button" class="pt-gb" data-filter="pass" aria-pressed="false">Pass</button>
           <button type="button" class="pt-gb" data-filter="all" aria-pressed="false">All</button></span></div>
         <table>
-          <tr><th style="width:90px">STATUS</th><th style="width:80px">IMPACT</th><th>CHECK</th><th>WHAT WAS FOUND</th></tr>
+          <tr><th class="w90">STATUS</th><th class="w80">IMPACT</th><th>CHECK</th><th>WHAT WAS FOUND</th></tr>
           <tr class="pt-check" data-s="fail"><td><span class="tag t-crit">Fail</span></td><td><span class="tag t-high">high</span></td><td>DMARC set to quarantine or reject</td><td>policy is p=none on demo.example</td></tr>
           <tr class="pt-check" data-s="fail"><td><span class="tag t-crit">Fail</span></td><td><span class="tag t-high">high</span></td><td>No "anyone with the link" sharing</td><td>anonymous links allowed on all sites</td></tr>
           <tr class="pt-check" data-s="fail"><td><span class="tag t-crit">Fail</span></td><td><span class="tag t-med">medium</span></td><td>Sign-ins from unexpected countries blocked</td><td>no location policy for all users</td></tr>

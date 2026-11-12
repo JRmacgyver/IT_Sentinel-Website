@@ -168,3 +168,10 @@ html[dir="rtl"] .tour-steps button span { font-family: var(--font-sans); }
 .pt[dir="rtl"] td { font-size: 12.5px; }
 .pt[dir="rtl"] .pt-ch { font-size: 12px; } .pt[dir="rtl"] .pt-sec { font-size: 11px; } .pt[dir="rtl"] .pt-grp td { font-size: 11.5px; }
 .pt[dir="rtl"] .pt-top { font-size: 11.5px; } .pt[dir="rtl"] .pt-try { font-size: 11.5px; }
+/* Helper classes (the site's security policy blocks inline style attributes, so nothing in the pages uses them). */
+.pt .c-crit { color: var(--p-crit); } .pt .c-mut { color: var(--p-muted); } .pt .c-ok { color: var(--p-ok); }
+.pt .w80 { width: 80px; } .pt .w86 { width: 86px; } .pt .w90 { width: 90px; } .pt .w150 { width: 150px; } .pt .w300 { width: 300px; }
+.pt .ls0 { letter-spacing: 0; }
+.pt-kpis.k4 { grid-template-columns: repeat(4, minmax(0, 1fr)); margin-bottom: 8px; }
+.pt-two.cl { grid-template-columns: minmax(0, .85fr) minmax(0, 1.3fr); margin: 0 0 12px; }
+.pt-bar .p62 { width: 62%; } .pt-bar .p55 { width: 55%; } .pt-bar .p49 { width: 49%; }
